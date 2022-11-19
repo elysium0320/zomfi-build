@@ -1,4 +1,2026 @@
-import{S as tt,f as fn,t as un,m as dn}from"./timer.4871a679.js";var _e={},ye=9007199254740991,pn="[object Arguments]",bn="[object Function]",_n="[object GeneratorFunction]",yn=/^(?:0|[1-9]\d*)$/;function we(n,t,e){switch(e.length){case 0:return n.call(t);case 1:return n.call(t,e[0]);case 2:return n.call(t,e[0],e[1]);case 3:return n.call(t,e[0],e[1],e[2])}return n.apply(t,e)}function wn(n,t){for(var e=-1,s=Array(n);++e<n;)s[e]=t(e);return s}var j0=Object.prototype,$0=j0.hasOwnProperty,ge=j0.toString,gn=j0.propertyIsEnumerable,te=Math.max;function mn(n,t){var e=Rn(n)||In(n)?wn(n.length,String):[],s=e.length,r=!!s;for(var i in n)(t||$0.call(n,i))&&!(r&&(i=="length"||ve(i,s)))&&e.push(i);return e}function vn(n,t,e,s){return n===void 0||kt(n,j0[e])&&!$0.call(s,e)?t:n}function Sn(n,t,e){var s=n[t];(!($0.call(n,t)&&kt(s,e))||e===void 0&&!(t in n))&&(n[t]=e)}function kn(n){if(!Bt(n))return An(n);var t=Cn(n),e=[];for(var s in n)s=="constructor"&&(t||!$0.call(n,s))||e.push(s);return e}function me(n,t){return t=te(t===void 0?n.length-1:t,0),function(){for(var e=arguments,s=-1,r=te(e.length-t,0),i=Array(r);++s<r;)i[s]=e[t+s];s=-1;for(var o=Array(t+1);++s<t;)o[s]=e[s];return o[t]=i,we(n,this,o)}}function En(n,t,e,s){e||(e={});for(var r=-1,i=t.length;++r<i;){var o=t[r],c=s?s(e[o],n[o],o,e,n):void 0;Sn(e,o,c===void 0?n[o]:c)}return e}function Bn(n){return me(function(t,e){var s=-1,r=e.length,i=r>1?e[r-1]:void 0,o=r>2?e[2]:void 0;for(i=n.length>3&&typeof i=="function"?(r--,i):void 0,o&&Tn(e[0],e[1],o)&&(i=r<3?void 0:i,r=1),t=Object(t);++s<r;){var c=e[s];c&&n(t,c,s,i)}return t})}function ve(n,t){return t=t==null?ye:t,!!t&&(typeof n=="number"||yn.test(n))&&n>-1&&n%1==0&&n<t}function Tn(n,t,e){if(!Bt(e))return!1;var s=typeof t;return(s=="number"?Et(e)&&ve(t,e.length):s=="string"&&t in e)?kt(e[t],n):!1}function Cn(n){var t=n&&n.constructor,e=typeof t=="function"&&t.prototype||j0;return n===e}function An(n){var t=[];if(n!=null)for(var e in Object(n))t.push(e);return t}function kt(n,t){return n===t||n!==n&&t!==t}function In(n){return Hn(n)&&$0.call(n,"callee")&&(!gn.call(n,"callee")||ge.call(n)==pn)}var Rn=Array.isArray;function Et(n){return n!=null&&On(n.length)&&!Pn(n)}function Hn(n){return Mn(n)&&Et(n)}function Pn(n){var t=Bt(n)?ge.call(n):"";return t==bn||t==_n}function On(n){return typeof n=="number"&&n>-1&&n%1==0&&n<=ye}function Bt(n){var t=typeof n;return!!n&&(t=="object"||t=="function")}function Mn(n){return!!n&&typeof n=="object"}var Dn=Bn(function(n,t,e,s){En(t,Ln(t),n,s)}),zn=me(function(n){return n.push(void 0,vn),we(Dn,void 0,n)});function Ln(n){return Et(n)?mn(n,!0):kn(n)}var Fn=zn;Object.defineProperty(_e,"__esModule",{value:!0});var Wn=Fn,Kn="Provided shouldReconnect() returned false. Closing permanently.",jn="Provided shouldReconnect() resolved to false. Closing permanently.",$n=function(){function n(t,e,s){if(this.url=t,this.onclose=null,this.onerror=null,this.onmessage=null,this.onopen=null,this.ondown=null,this.onreopen=null,this.CONNECTING=n.CONNECTING,this.OPEN=n.OPEN,this.CLOSING=n.CLOSING,this.CLOSED=n.CLOSED,this.hasBeenOpened=!1,this.isClosed=!1,this.messageBuffer=[],this.nextRetryTime=0,this.reconnectCount=0,this.lastKnownExtensions="",this.lastKnownProtocol="",this.listeners={},e==null||typeof e=="string"||Array.isArray(e)?this.protocols=e:s=e,this.options=Wn({},s,n.DEFAULT_OPTIONS),!this.options.wsConstructor)if(typeof WebSocket!="undefined")this.options.wsConstructor=WebSocket;else throw new Error("WebSocket not present in {} scope and no wsConstructor option was provided.");this.openNewWebSocket()}return Object.defineProperty(n.prototype,"binaryType",{get:function(){return this.binaryTypeInternal||"blob"},set:function(t){this.binaryTypeInternal=t,this.ws&&(this.ws.binaryType=t)},enumerable:!0,configurable:!0}),Object.defineProperty(n.prototype,"bufferedAmount",{get:function(){var t=this.ws?this.ws.bufferedAmount:0,e=!1;return this.messageBuffer.forEach(function(s){var r=Nn(s);r!=null?t+=r:e=!0}),e&&this.debugLog("Some buffered data had unknown length. bufferedAmount() return value may be below the correct amount."),t},enumerable:!0,configurable:!0}),Object.defineProperty(n.prototype,"extensions",{get:function(){return this.ws?this.ws.extensions:this.lastKnownExtensions},enumerable:!0,configurable:!0}),Object.defineProperty(n.prototype,"protocol",{get:function(){return this.ws?this.ws.protocol:this.lastKnownProtocol},enumerable:!0,configurable:!0}),Object.defineProperty(n.prototype,"readyState",{get:function(){return this.isClosed?n.CLOSED:n.OPEN},enumerable:!0,configurable:!0}),n.prototype.close=function(t,e){this.ws&&this.ws.close(t,e),this.shutdown(),this.debugLog("WebSocket permanently closed by client.")},n.prototype.send=function(t){this.ws&&this.ws.readyState===this.OPEN?this.ws.send(t):this.messageBuffer.push(t)},n.prototype.addEventListener=function(t,e){this.listeners[t]||(this.listeners[t]=[]),this.listeners[t].push(e)},n.prototype.dispatchEvent=function(t){return this.dispatchEventOfType(t.type,t)},n.prototype.removeEventListener=function(t,e){this.listeners[t]&&(this.listeners[t]=this.listeners[t].filter(function(s){return s!==e}))},n.prototype.openNewWebSocket=function(){var t=this;if(!this.isClosed){var e=this.options,s=e.connectTimeout,r=e.wsConstructor;this.debugLog("Opening new WebSocket to "+this.url+".");var i=new r(this.url,this.protocols);i.onclose=function(o){return t.handleClose(o)},i.onerror=function(o){return t.handleError(o)},i.onmessage=function(o){return t.handleMessage(o)},i.onopen=function(o){return t.handleOpen(o)},this.connectTimeoutId=setTimeout(function(){t.clearConnectTimeout(),i.close()},s),this.ws=i}},n.prototype.handleOpen=function(t){var e=this;if(!(!this.ws||this.isClosed)){var s=this.options.allClearResetTime;this.debugLog("WebSocket opened."),this.binaryTypeInternal!=null?this.ws.binaryType=this.binaryTypeInternal:this.binaryTypeInternal=this.ws.binaryType,this.clearConnectTimeout(),this.hasBeenOpened?this.dispatchEventOfType("reopen",t):(this.dispatchEventOfType("open",t),this.hasBeenOpened=!0),this.messageBuffer.forEach(function(r){return e.send(r)}),this.messageBuffer=[],this.allClearTimeoutId=setTimeout(function(){e.clearAllClearTimeout(),e.nextRetryTime=0,e.reconnectCount=0;var r=s/1e3|0;e.debugLog("WebSocket remained open for "+r+" seconds. Resetting retry time and count.")},s)}},n.prototype.handleMessage=function(t){this.isClosed||this.dispatchEventOfType("message",t)},n.prototype.handleClose=function(t){var e=this;if(!this.isClosed){var s=this.options,r=s.maxReconnectAttempts,i=s.shouldReconnect;if(this.clearConnectTimeout(),this.clearAllClearTimeout(),this.ws&&(this.lastKnownExtensions=this.ws.extensions,this.lastKnownProtocol=this.ws.protocol,this.ws=void 0),this.dispatchEventOfType("down",t),this.reconnectCount>=r){this.stopReconnecting(t,this.getTooManyFailedReconnectsMessage());return}var o=i(t);typeof o=="boolean"?this.handleWillReconnect(o,t,Kn):o.then(function(c){e.isClosed||e.handleWillReconnect(c,t,jn)})}},n.prototype.handleError=function(t){this.dispatchEventOfType("error",t),this.debugLog("WebSocket encountered an error.")},n.prototype.handleWillReconnect=function(t,e,s){t?this.reconnect():this.stopReconnecting(e,s)},n.prototype.reconnect=function(){var t=this,e=this.options,s=e.minReconnectDelay,r=e.maxReconnectDelay,i=e.reconnectBackoffFactor;this.reconnectCount++;var o=this.nextRetryTime;this.nextRetryTime=Math.max(s,Math.min(this.nextRetryTime*i,r)),setTimeout(function(){return t.openNewWebSocket()},o);var c=o/1e3|0;this.debugLog("WebSocket was closed. Re-opening in "+c+" seconds.")},n.prototype.stopReconnecting=function(t,e){this.debugLog(e),this.shutdown(),this.dispatchEventOfType("close",t)},n.prototype.shutdown=function(){this.isClosed=!0,this.clearAllTimeouts(),this.messageBuffer=[]},n.prototype.clearAllTimeouts=function(){this.clearConnectTimeout(),this.clearAllClearTimeout()},n.prototype.clearConnectTimeout=function(){this.connectTimeoutId!=null&&(clearTimeout(this.connectTimeoutId),this.connectTimeoutId=void 0)},n.prototype.clearAllClearTimeout=function(){this.allClearTimeoutId!=null&&(clearTimeout(this.allClearTimeoutId),this.allClearTimeoutId=void 0)},n.prototype.dispatchEventOfType=function(t,e){var s=this;switch(t){case"close":this.onclose&&this.onclose(e);break;case"error":this.onerror&&this.onerror(e);break;case"message":this.onmessage&&this.onmessage(e);break;case"open":this.onopen&&this.onopen(e);break;case"down":this.ondown&&this.ondown(e);break;case"reopen":this.onreopen&&this.onreopen(e);break}return t in this.listeners&&this.listeners[t].slice().forEach(function(r){return s.callListener(r,e)}),!e||!e.defaultPrevented},n.prototype.callListener=function(t,e){typeof t=="function"?t.call(this,e):t.handleEvent.call(this,e)},n.prototype.debugLog=function(t){this.options.debug&&console.log(t)},n.prototype.getTooManyFailedReconnectsMessage=function(){var t=this.options.maxReconnectAttempts;return"Failed to reconnect after "+t+" "+Vn("attempt",t)+". Closing permanently."},n.DEFAULT_OPTIONS={allClearResetTime:5e3,connectTimeout:5e3,debug:!1,minReconnectDelay:1e3,maxReconnectDelay:3e4,maxReconnectAttempts:Number.POSITIVE_INFINITY,reconnectBackoffFactor:1.5,shouldReconnect:function(){return!0},wsConstructor:void 0},n.CONNECTING=0,n.OPEN=1,n.CLOSING=2,n.CLOSED=3,n}(),Un=_e.default=$n;function Nn(n){return typeof n=="string"?2*n.length:n instanceof ArrayBuffer?n.byteLength:n instanceof Blob?n.size:void 0}function Vn(n,t){return t===1?n:n+"s"}class I{static create(...t){return new this(...t)}mixIn(t){return Object.assign(this,t)}clone(){const t=new this.constructor;return Object.assign(t,this),t}}class T extends I{constructor(t=[],e=t.length*4){super();let s=t;if(s instanceof ArrayBuffer&&(s=new Uint8Array(s)),(s instanceof Int8Array||s instanceof Uint8ClampedArray||s instanceof Int16Array||s instanceof Uint16Array||s instanceof Int32Array||s instanceof Uint32Array||s instanceof Float32Array||s instanceof Float64Array)&&(s=new Uint8Array(s.buffer,s.byteOffset,s.byteLength)),s instanceof Uint8Array){const r=s.byteLength,i=[];for(let o=0;o<r;o+=1)i[o>>>2]|=s[o]<<24-o%4*8;this.words=i,this.sigBytes=r}else this.words=t,this.sigBytes=e}static random(t){const e=[],s=r=>{let i=r,o=987654321;const c=4294967295;return()=>{o=36969*(o&65535)+(o>>16)&c,i=18e3*(i&65535)+(i>>16)&c;let a=(o<<16)+i&c;return a/=4294967296,a+=.5,a*(Math.random()>.5?1:-1)}};for(let r=0,i;r<t;r+=4){const o=s((i||Math.random())*4294967296);i=o()*987654071,e.push(o()*4294967296|0)}return new T(e,t)}toString(t=et){return t.stringify(this)}concat(t){const e=this.words,s=t.words,r=this.sigBytes,i=t.sigBytes;if(this.clamp(),r%4)for(let o=0;o<i;o+=1){const c=s[o>>>2]>>>24-o%4*8&255;e[r+o>>>2]|=c<<24-(r+o)%4*8}else for(let o=0;o<i;o+=4)e[r+o>>>2]=s[o>>>2];return this.sigBytes+=i,this}clamp(){const{words:t,sigBytes:e}=this;t[e>>>2]&=4294967295<<32-e%4*8,t.length=Math.ceil(e/4)}clone(){const t=super.clone.call(this);return t.words=this.words.slice(0),t}}const et={stringify(n){const{words:t,sigBytes:e}=n,s=[];for(let r=0;r<e;r+=1){const i=t[r>>>2]>>>24-r%4*8&255;s.push((i>>>4).toString(16)),s.push((i&15).toString(16))}return s.join("")},parse(n){const t=n.length,e=[];for(let s=0;s<t;s+=2)e[s>>>3]|=parseInt(n.substr(s,2),16)<<24-s%8*4;return new T(e,t/2)}},ut={stringify(n){const{words:t,sigBytes:e}=n,s=[];for(let r=0;r<e;r+=1){const i=t[r>>>2]>>>24-r%4*8&255;s.push(String.fromCharCode(i))}return s.join("")},parse(n){const t=n.length,e=[];for(let s=0;s<t;s+=1)e[s>>>2]|=(n.charCodeAt(s)&255)<<24-s%4*8;return new T(e,t)}},Tt={stringify(n){try{return decodeURIComponent(escape(ut.stringify(n)))}catch{throw new Error("Malformed UTF-8 data")}},parse(n){return ut.parse(unescape(encodeURIComponent(n)))}};class Ct extends I{constructor(){super(),this._minBufferSize=0}reset(){this._data=new T,this._nDataBytes=0}_append(t){let e=t;typeof e=="string"&&(e=Tt.parse(e)),this._data.concat(e),this._nDataBytes+=e.sigBytes}_process(t){let e;const{_data:s,blockSize:r}=this,i=s.words,o=s.sigBytes,c=r*4;let a=o/c;t?a=Math.ceil(a):a=Math.max((a|0)-this._minBufferSize,0);const l=a*r,u=Math.min(l*4,o);if(l){for(let x=0;x<l;x+=r)this._doProcessBlock(i,x);e=i.splice(0,l),s.sigBytes-=u}return new T(e,u)}clone(){const t=super.clone.call(this);return t._data=this._data.clone(),t}}class R extends Ct{constructor(t){super(),this.blockSize=512/32,this.cfg=Object.assign(new I,t),this.reset()}static _createHelper(t){return(e,s)=>new t(s).finalize(e)}static _createHmacHelper(t){return(e,s)=>new At(t,s).finalize(e)}reset(){super.reset.call(this),this._doReset()}update(t){return this._append(t),this._process(),this}finalize(t){return t&&this._append(t),this._doFinalize()}}class At extends I{constructor(t,e){super();const s=new t;this._hasher=s;let r=e;typeof r=="string"&&(r=Tt.parse(r));const i=s.blockSize,o=i*4;r.sigBytes>o&&(r=s.finalize(e)),r.clamp();const c=r.clone();this._oKey=c;const a=r.clone();this._iKey=a;const l=c.words,u=a.words;for(let x=0;x<i;x+=1)l[x]^=1549556828,u[x]^=909522486;c.sigBytes=o,a.sigBytes=o,this.reset()}reset(){const t=this._hasher;t.reset(),t.update(this._iKey)}update(t){return this._hasher.update(t),this}finalize(t){const e=this._hasher,s=e.finalize(t);return e.reset(),e.finalize(this._oKey.clone().concat(s))}}const qn=T;class d extends I{constructor(t,e){super(),this.high=t,this.low=e}}class It extends I{constructor(t=[],e=t.length*8){super(),this.words=t,this.sigBytes=e}toX32(){const t=this.words,e=t.length,s=[];for(let r=0;r<e;r+=1){const i=t[r];s.push(i.high),s.push(i.low)}return qn.create(s,this.sigBytes)}clone(){const t=super.clone.call(this);t.words=this.words.slice(0);const{words:e}=t,s=e.length;for(let r=0;r<s;r+=1)e[r]=e[r].clone();return t}}const Gn=(n,t,e)=>{const s=[];let r=0;for(let i=0;i<t;i+=1)if(i%4){const o=e[n.charCodeAt(i-1)]<<i%4*2,c=e[n.charCodeAt(i)]>>>6-i%4*2,a=o|c;s[r>>>2]|=a<<24-r%4*8,r+=1}return T.create(s,r)},dt={stringify(n){const{words:t,sigBytes:e}=n,s=this._map;n.clamp();const r=[];for(let o=0;o<e;o+=3){const c=t[o>>>2]>>>24-o%4*8&255,a=t[o+1>>>2]>>>24-(o+1)%4*8&255,l=t[o+2>>>2]>>>24-(o+2)%4*8&255,u=c<<16|a<<8|l;for(let x=0;x<4&&o+x*.75<e;x+=1)r.push(s.charAt(u>>>6*(3-x)&63))}const i=s.charAt(64);if(i)for(;r.length%4;)r.push(i);return r.join("")},parse(n){let t=n.length;const e=this._map;let s=this._reverseMap;if(!s){this._reverseMap=[],s=this._reverseMap;for(let i=0;i<e.length;i+=1)s[e.charCodeAt(i)]=i}const r=e.charAt(64);if(r){const i=n.indexOf(r);i!==-1&&(t=i)}return Gn(n,t,s)},_map:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/="},w=[];for(let n=0;n<64;n+=1)w[n]=Math.abs(Math.sin(n+1))*4294967296|0;const H=(n,t,e,s,r,i,o)=>{const c=n+(t&e|~t&s)+r+o;return(c<<i|c>>>32-i)+t},P=(n,t,e,s,r,i,o)=>{const c=n+(t&s|e&~s)+r+o;return(c<<i|c>>>32-i)+t},O=(n,t,e,s,r,i,o)=>{const c=n+(t^e^s)+r+o;return(c<<i|c>>>32-i)+t},M=(n,t,e,s,r,i,o)=>{const c=n+(e^(t|~s))+r+o;return(c<<i|c>>>32-i)+t};class rt extends R{_doReset(){this._hash=new T([1732584193,4023233417,2562383102,271733878])}_doProcessBlock(t,e){const s=t;for(let s0=0;s0<16;s0+=1){const E0=e+s0,J=t[E0];s[E0]=(J<<8|J>>>24)&16711935|(J<<24|J>>>8)&4278255360}const r=this._hash.words,i=s[e+0],o=s[e+1],c=s[e+2],a=s[e+3],l=s[e+4],u=s[e+5],x=s[e+6],_=s[e+7],v=s[e+8],m=s[e+9],g=s[e+10],S=s[e+11],y=s[e+12],C=s[e+13],k=s[e+14],A=s[e+15];let h=r[0],f=r[1],p=r[2],b=r[3];h=H(h,f,p,b,i,7,w[0]),b=H(b,h,f,p,o,12,w[1]),p=H(p,b,h,f,c,17,w[2]),f=H(f,p,b,h,a,22,w[3]),h=H(h,f,p,b,l,7,w[4]),b=H(b,h,f,p,u,12,w[5]),p=H(p,b,h,f,x,17,w[6]),f=H(f,p,b,h,_,22,w[7]),h=H(h,f,p,b,v,7,w[8]),b=H(b,h,f,p,m,12,w[9]),p=H(p,b,h,f,g,17,w[10]),f=H(f,p,b,h,S,22,w[11]),h=H(h,f,p,b,y,7,w[12]),b=H(b,h,f,p,C,12,w[13]),p=H(p,b,h,f,k,17,w[14]),f=H(f,p,b,h,A,22,w[15]),h=P(h,f,p,b,o,5,w[16]),b=P(b,h,f,p,x,9,w[17]),p=P(p,b,h,f,S,14,w[18]),f=P(f,p,b,h,i,20,w[19]),h=P(h,f,p,b,u,5,w[20]),b=P(b,h,f,p,g,9,w[21]),p=P(p,b,h,f,A,14,w[22]),f=P(f,p,b,h,l,20,w[23]),h=P(h,f,p,b,m,5,w[24]),b=P(b,h,f,p,k,9,w[25]),p=P(p,b,h,f,a,14,w[26]),f=P(f,p,b,h,v,20,w[27]),h=P(h,f,p,b,C,5,w[28]),b=P(b,h,f,p,c,9,w[29]),p=P(p,b,h,f,_,14,w[30]),f=P(f,p,b,h,y,20,w[31]),h=O(h,f,p,b,u,4,w[32]),b=O(b,h,f,p,v,11,w[33]),p=O(p,b,h,f,S,16,w[34]),f=O(f,p,b,h,k,23,w[35]),h=O(h,f,p,b,o,4,w[36]),b=O(b,h,f,p,l,11,w[37]),p=O(p,b,h,f,_,16,w[38]),f=O(f,p,b,h,g,23,w[39]),h=O(h,f,p,b,C,4,w[40]),b=O(b,h,f,p,i,11,w[41]),p=O(p,b,h,f,a,16,w[42]),f=O(f,p,b,h,x,23,w[43]),h=O(h,f,p,b,m,4,w[44]),b=O(b,h,f,p,y,11,w[45]),p=O(p,b,h,f,A,16,w[46]),f=O(f,p,b,h,c,23,w[47]),h=M(h,f,p,b,i,6,w[48]),b=M(b,h,f,p,_,10,w[49]),p=M(p,b,h,f,k,15,w[50]),f=M(f,p,b,h,u,21,w[51]),h=M(h,f,p,b,y,6,w[52]),b=M(b,h,f,p,a,10,w[53]),p=M(p,b,h,f,g,15,w[54]),f=M(f,p,b,h,o,21,w[55]),h=M(h,f,p,b,v,6,w[56]),b=M(b,h,f,p,A,10,w[57]),p=M(p,b,h,f,x,15,w[58]),f=M(f,p,b,h,C,21,w[59]),h=M(h,f,p,b,l,6,w[60]),b=M(b,h,f,p,S,10,w[61]),p=M(p,b,h,f,c,15,w[62]),f=M(f,p,b,h,m,21,w[63]),r[0]=r[0]+h|0,r[1]=r[1]+f|0,r[2]=r[2]+p|0,r[3]=r[3]+b|0}_doFinalize(){const t=this._data,e=t.words,s=this._nDataBytes*8,r=t.sigBytes*8;e[r>>>5]|=128<<24-r%32;const i=Math.floor(s/4294967296),o=s;e[(r+64>>>9<<4)+15]=(i<<8|i>>>24)&16711935|(i<<24|i>>>8)&4278255360,e[(r+64>>>9<<4)+14]=(o<<8|o>>>24)&16711935|(o<<24|o>>>8)&4278255360,t.sigBytes=(e.length+1)*4,this._process();const c=this._hash,a=c.words;for(let l=0;l<4;l+=1){const u=a[l];a[l]=(u<<8|u>>>24)&16711935|(u<<24|u>>>8)&4278255360}return c}clone(){const t=super.clone.call(this);return t._hash=this._hash.clone(),t}}const Xn=R._createHelper(rt),Qn=R._createHmacHelper(rt);class Rt extends I{constructor(t){super(),this.cfg=Object.assign(new I,{keySize:128/32,hasher:rt,iterations:1},t)}compute(t,e){let s;const{cfg:r}=this,i=r.hasher.create(),o=T.create(),c=o.words,{keySize:a,iterations:l}=r;for(;c.length<a;){s&&i.update(s),s=i.update(t).finalize(e),i.reset();for(let u=1;u<l;u+=1)s=i.finalize(s),i.reset();o.concat(s)}return o.sigBytes=a*4,o}}const Yn=(n,t,e)=>Rt.create(e).compute(n,t);class x0 extends Ct{constructor(t,e,s){super(),this.cfg=Object.assign(new I,s),this._xformMode=t,this._key=e,this.reset()}static createEncryptor(t,e){return this.create(this._ENC_XFORM_MODE,t,e)}static createDecryptor(t,e){return this.create(this._DEC_XFORM_MODE,t,e)}static _createHelper(t){const e=s=>typeof s=="string"?Ht:h0;return{encrypt(s,r,i){return e(r).encrypt(t,s,r,i)},decrypt(s,r,i){return e(r).decrypt(t,s,r,i)}}}reset(){super.reset.call(this),this._doReset()}process(t){return this._append(t),this._process()}finalize(t){return t&&this._append(t),this._doFinalize()}}x0._ENC_XFORM_MODE=1;x0._DEC_XFORM_MODE=2;x0.keySize=128/32;x0.ivSize=128/32;class c0 extends x0{constructor(...t){super(...t),this.blockSize=1}_doFinalize(){return this._process(!0)}}class f0 extends I{constructor(t,e){super(),this._cipher=t,this._iv=e}static createEncryptor(t,e){return this.Encryptor.create(t,e)}static createDecryptor(t,e){return this.Decryptor.create(t,e)}}function Se(n,t,e){const s=n;let r;const i=this._iv;i?(r=i,this._iv=void 0):r=this._prevBlock;for(let o=0;o<e;o+=1)s[t+o]^=r[o]}class v0 extends f0{}v0.Encryptor=class extends v0{processBlock(n,t){const e=this._cipher,{blockSize:s}=e;Se.call(this,n,t,s),e.encryptBlock(n,t),this._prevBlock=n.slice(t,t+s)}};v0.Decryptor=class extends v0{processBlock(n,t){const e=this._cipher,{blockSize:s}=e,r=n.slice(t,t+s);e.decryptBlock(n,t),Se.call(this,n,t,s),this._prevBlock=r}};const ke={pad(n,t){const e=t*4,s=e-n.sigBytes%e,r=s<<24|s<<16|s<<8|s,i=[];for(let c=0;c<s;c+=4)i.push(r);const o=T.create(i,s);n.concat(o)},unpad(n){const t=n,e=t.words[t.sigBytes-1>>>2]&255;t.sigBytes-=e}};class u0 extends x0{constructor(t,e,s){super(t,e,Object.assign({mode:v0,padding:ke},s)),this.blockSize=128/32}reset(){let t;super.reset.call(this);const{cfg:e}=this,{iv:s,mode:r}=e;this._xformMode===this.constructor._ENC_XFORM_MODE?t=r.createEncryptor:(t=r.createDecryptor,this._minBufferSize=1),this._mode=t.call(r,this,s&&s.words),this._mode.__creator=t}_doProcessBlock(t,e){this._mode.processBlock(t,e)}_doFinalize(){let t;const{padding:e}=this.cfg;return this._xformMode===this.constructor._ENC_XFORM_MODE?(e.pad(this._data,this.blockSize),t=this._process(!0)):(t=this._process(!0),e.unpad(t)),t}}class U0 extends I{constructor(t){super(),this.mixIn(t)}toString(t){return(t||this.formatter).stringify(this)}}const Ee={stringify(n){let t;const{ciphertext:e,salt:s}=n;return s?t=T.create([1398893684,1701076831]).concat(s).concat(e):t=e,t.toString(dt)},parse(n){let t;const e=dt.parse(n),s=e.words;return s[0]===1398893684&&s[1]===1701076831&&(t=T.create(s.slice(2,4)),s.splice(0,4),e.sigBytes-=16),U0.create({ciphertext:e,salt:t})}};class h0 extends I{static encrypt(t,e,s,r){const i=Object.assign(new I,this.cfg,r),o=t.createEncryptor(s,i),c=o.finalize(e),a=o.cfg;return U0.create({ciphertext:c,key:s,iv:a.iv,algorithm:t,mode:a.mode,padding:a.padding,blockSize:o.blockSize,formatter:i.format})}static decrypt(t,e,s,r){let i=e;const o=Object.assign(new I,this.cfg,r);return i=this._parse(i,o.format),t.createDecryptor(s,o).finalize(i.ciphertext)}static _parse(t,e){return typeof t=="string"?e.parse(t,this):t}}h0.cfg=Object.assign(new I,{format:Ee});const Be={execute(n,t,e,s){let r=s;r||(r=T.random(64/8));const i=Rt.create({keySize:t+e}).compute(n,r),o=T.create(i.words.slice(t),e*4);return i.sigBytes=t*4,U0.create({key:i,iv:o,salt:r})}};class Ht extends h0{static encrypt(t,e,s,r){const i=Object.assign(new I,this.cfg,r),o=i.kdf.execute(s,t.keySize,t.ivSize);i.iv=o.iv;const c=h0.encrypt.call(this,t,e,o.key,i);return c.mixIn(o),c}static decrypt(t,e,s,r){let i=e;const o=Object.assign(new I,this.cfg,r);i=this._parse(i,o.format);const c=o.kdf.execute(s,t.keySize,t.ivSize,i.salt);return o.iv=c.iv,h0.decrypt.call(this,t,i,c.key,o)}}Ht.cfg=Object.assign(h0.cfg,{kdf:Be});const ee=n=>n<<8&4278255360|n>>>8&16711935,Te={stringify(n){const{words:t,sigBytes:e}=n,s=[];for(let r=0;r<e;r+=2){const i=t[r>>>2]>>>16-r%4*8&65535;s.push(String.fromCharCode(i))}return s.join("")},parse(n){const t=n.length,e=[];for(let s=0;s<t;s+=1)e[s>>>1]|=n.charCodeAt(s)<<16-s%2*16;return T.create(e,t*2)}},Jn=Te,Zn={stringify(n){const{words:t,sigBytes:e}=n,s=[];for(let r=0;r<e;r+=2){const i=ee(t[r>>>2]>>>16-r%4*8&65535);s.push(String.fromCharCode(i))}return s.join("")},parse(n){const t=n.length,e=[];for(let s=0;s<t;s+=1)e[s>>>1]|=ee(n.charCodeAt(s)<<16-s%2*16);return T.create(e,t*2)}},a0=[];class it extends R{_doReset(){this._hash=new T([1732584193,4023233417,2562383102,271733878,3285377520])}_doProcessBlock(t,e){const s=this._hash.words;let r=s[0],i=s[1],o=s[2],c=s[3],a=s[4];for(let l=0;l<80;l+=1){if(l<16)a0[l]=t[e+l]|0;else{const x=a0[l-3]^a0[l-8]^a0[l-14]^a0[l-16];a0[l]=x<<1|x>>>31}let u=(r<<5|r>>>27)+a+a0[l];l<20?u+=(i&o|~i&c)+1518500249:l<40?u+=(i^o^c)+1859775393:l<60?u+=(i&o|i&c|o&c)-1894007588:u+=(i^o^c)-899497514,a=c,c=o,o=i<<30|i>>>2,i=r,r=u}s[0]=s[0]+r|0,s[1]=s[1]+i|0,s[2]=s[2]+o|0,s[3]=s[3]+c|0,s[4]=s[4]+a|0}_doFinalize(){const t=this._data,e=t.words,s=this._nDataBytes*8,r=t.sigBytes*8;return e[r>>>5]|=128<<24-r%32,e[(r+64>>>9<<4)+14]=Math.floor(s/4294967296),e[(r+64>>>9<<4)+15]=s,t.sigBytes=e.length*4,this._process(),this._hash}clone(){const t=super.clone.call(this);return t._hash=this._hash.clone(),t}}const ts=R._createHelper(it),es=R._createHmacHelper(it),Ce=[],Ae=[],ns=n=>{const t=Math.sqrt(n);for(let e=2;e<=t;e+=1)if(!(n%e))return!1;return!0},ne=n=>(n-(n|0))*4294967296|0;let X0=2,O0=0;for(;O0<64;)ns(X0)&&(O0<8&&(Ce[O0]=ne(X0**(1/2))),Ae[O0]=ne(X0**(1/3)),O0+=1),X0+=1;const l0=[];class S0 extends R{_doReset(){this._hash=new T(Ce.slice(0))}_doProcessBlock(t,e){const s=this._hash.words;let r=s[0],i=s[1],o=s[2],c=s[3],a=s[4],l=s[5],u=s[6],x=s[7];for(let _=0;_<64;_+=1){if(_<16)l0[_]=t[e+_]|0;else{const k=l0[_-15],A=(k<<25|k>>>7)^(k<<14|k>>>18)^k>>>3,h=l0[_-2],f=(h<<15|h>>>17)^(h<<13|h>>>19)^h>>>10;l0[_]=A+l0[_-7]+f+l0[_-16]}const v=a&l^~a&u,m=r&i^r&o^i&o,g=(r<<30|r>>>2)^(r<<19|r>>>13)^(r<<10|r>>>22),S=(a<<26|a>>>6)^(a<<21|a>>>11)^(a<<7|a>>>25),y=x+S+v+Ae[_]+l0[_],C=g+m;x=u,u=l,l=a,a=c+y|0,c=o,o=i,i=r,r=y+C|0}s[0]=s[0]+r|0,s[1]=s[1]+i|0,s[2]=s[2]+o|0,s[3]=s[3]+c|0,s[4]=s[4]+a|0,s[5]=s[5]+l|0,s[6]=s[6]+u|0,s[7]=s[7]+x|0}_doFinalize(){const t=this._data,e=t.words,s=this._nDataBytes*8,r=t.sigBytes*8;return e[r>>>5]|=128<<24-r%32,e[(r+64>>>9<<4)+14]=Math.floor(s/4294967296),e[(r+64>>>9<<4)+15]=s,t.sigBytes=e.length*4,this._process(),this._hash}clone(){const t=super.clone.call(this);return t._hash=this._hash.clone(),t}}const ss=R._createHelper(S0),rs=R._createHmacHelper(S0);class Pt extends S0{_doReset(){this._hash=new T([3238371032,914150663,812702999,4144912697,4290775857,1750603025,1694076839,3204075428])}_doFinalize(){const t=super._doFinalize.call(this);return t.sigBytes-=4,t}}const is=S0._createHelper(Pt),os=S0._createHmacHelper(Pt),cs=[new d(1116352408,3609767458),new d(1899447441,602891725),new d(3049323471,3964484399),new d(3921009573,2173295548),new d(961987163,4081628472),new d(1508970993,3053834265),new d(2453635748,2937671579),new d(2870763221,3664609560),new d(3624381080,2734883394),new d(310598401,1164996542),new d(607225278,1323610764),new d(1426881987,3590304994),new d(1925078388,4068182383),new d(2162078206,991336113),new d(2614888103,633803317),new d(3248222580,3479774868),new d(3835390401,2666613458),new d(4022224774,944711139),new d(264347078,2341262773),new d(604807628,2007800933),new d(770255983,1495990901),new d(1249150122,1856431235),new d(1555081692,3175218132),new d(1996064986,2198950837),new d(2554220882,3999719339),new d(2821834349,766784016),new d(2952996808,2566594879),new d(3210313671,3203337956),new d(3336571891,1034457026),new d(3584528711,2466948901),new d(113926993,3758326383),new d(338241895,168717936),new d(666307205,1188179964),new d(773529912,1546045734),new d(1294757372,1522805485),new d(1396182291,2643833823),new d(1695183700,2343527390),new d(1986661051,1014477480),new d(2177026350,1206759142),new d(2456956037,344077627),new d(2730485921,1290863460),new d(2820302411,3158454273),new d(3259730800,3505952657),new d(3345764771,106217008),new d(3516065817,3606008344),new d(3600352804,1432725776),new d(4094571909,1467031594),new d(275423344,851169720),new d(430227734,3100823752),new d(506948616,1363258195),new d(659060556,3750685593),new d(883997877,3785050280),new d(958139571,3318307427),new d(1322822218,3812723403),new d(1537002063,2003034995),new d(1747873779,3602036899),new d(1955562222,1575990012),new d(2024104815,1125592928),new d(2227730452,2716904306),new d(2361852424,442776044),new d(2428436474,593698344),new d(2756734187,3733110249),new d(3204031479,2999351573),new d(3329325298,3815920427),new d(3391569614,3928383900),new d(3515267271,566280711),new d(3940187606,3454069534),new d(4118630271,4000239992),new d(116418474,1914138554),new d(174292421,2731055270),new d(289380356,3203993006),new d(460393269,320620315),new d(685471733,587496836),new d(852142971,1086792851),new d(1017036298,365543100),new d(1126000580,2618297676),new d(1288033470,3409855158),new d(1501505948,4234509866),new d(1607167915,987167468),new d(1816402316,1246189591)],g0=[];for(let n=0;n<80;n+=1)g0[n]=new d;class k0 extends R{constructor(){super(),this.blockSize=1024/32}_doReset(){this._hash=new It([new d(1779033703,4089235720),new d(3144134277,2227873595),new d(1013904242,4271175723),new d(2773480762,1595750129),new d(1359893119,2917565137),new d(2600822924,725511199),new d(528734635,4215389547),new d(1541459225,327033209)])}_doProcessBlock(t,e){const s=this._hash.words,r=s[0],i=s[1],o=s[2],c=s[3],a=s[4],l=s[5],u=s[6],x=s[7],_=r.high;let v=r.low;const m=i.high;let g=i.low;const S=o.high;let y=o.low;const C=c.high;let k=c.low;const A=a.high;let h=a.low;const f=l.high;let p=l.low;const b=u.high;let s0=u.low;const E0=x.high;let J=x.low,K=_,L=v,B0=m,d0=g,T0=S,p0=y,at=C,C0=k,j=A,F=h,q0=f,A0=p,G0=b,I0=s0,lt=E0,R0=J;for(let $=0;$<80;$+=1){let q,r0;const b0=g0[$];if($<16)b0.high=t[e+$*2]|0,r0=b0.high,b0.low=t[e+$*2+1]|0,q=b0.low;else{const qt=g0[$-15],_0=qt.high,H0=qt.low,cn=(_0>>>1|H0<<31)^(_0>>>8|H0<<24)^_0>>>7,Gt=(H0>>>1|_0<<31)^(H0>>>8|_0<<24)^(H0>>>7|_0<<25),Xt=g0[$-2],y0=Xt.high,P0=Xt.low,an=(y0>>>19|P0<<13)^(y0<<3|P0>>>29)^y0>>>6,Qt=(P0>>>19|y0<<13)^(P0<<3|y0>>>29)^(P0>>>6|y0<<26),Yt=g0[$-7],ln=Yt.high,hn=Yt.low,Jt=g0[$-16],xn=Jt.high,Zt=Jt.low;q=Gt+hn,r0=cn+ln+(q>>>0<Gt>>>0?1:0),q+=Qt,r0=r0+an+(q>>>0<Qt>>>0?1:0),q+=Zt,r0=r0+xn+(q>>>0<Zt>>>0?1:0),b0.high=r0,b0.low=q}const Je=j&q0^~j&G0,jt=F&A0^~F&I0,Ze=K&B0^K&T0^B0&T0,tn=L&d0^L&p0^d0&p0,en=(K>>>28|L<<4)^(K<<30|L>>>2)^(K<<25|L>>>7),$t=(L>>>28|K<<4)^(L<<30|K>>>2)^(L<<25|K>>>7),nn=(j>>>14|F<<18)^(j>>>18|F<<14)^(j<<23|F>>>9),sn=(F>>>14|j<<18)^(F>>>18|j<<14)^(F<<23|j>>>9),Ut=cs[$],rn=Ut.high,Nt=Ut.low;let G=R0+sn,i0=lt+nn+(G>>>0<R0>>>0?1:0);G+=jt,i0=i0+Je+(G>>>0<jt>>>0?1:0),G+=Nt,i0=i0+rn+(G>>>0<Nt>>>0?1:0),G+=q,i0=i0+r0+(G>>>0<q>>>0?1:0);const Vt=$t+tn,on=en+Ze+(Vt>>>0<$t>>>0?1:0);lt=G0,R0=I0,G0=q0,I0=A0,q0=j,A0=F,F=C0+G|0,j=at+i0+(F>>>0<C0>>>0?1:0)|0,at=T0,C0=p0,T0=B0,p0=d0,B0=K,d0=L,L=G+Vt|0,K=i0+on+(L>>>0<G>>>0?1:0)|0}r.low=v+L,v=r.low,r.high=_+K+(v>>>0<L>>>0?1:0),i.low=g+d0,g=i.low,i.high=m+B0+(g>>>0<d0>>>0?1:0),o.low=y+p0,y=o.low,o.high=S+T0+(y>>>0<p0>>>0?1:0),c.low=k+C0,k=c.low,c.high=C+at+(k>>>0<C0>>>0?1:0),a.low=h+F,h=a.low,a.high=A+j+(h>>>0<F>>>0?1:0),l.low=p+A0,p=l.low,l.high=f+q0+(p>>>0<A0>>>0?1:0),u.low=s0+I0,s0=u.low,u.high=b+G0+(s0>>>0<I0>>>0?1:0),x.low=J+R0,J=x.low,x.high=E0+lt+(J>>>0<R0>>>0?1:0)}_doFinalize(){const t=this._data,e=t.words,s=this._nDataBytes*8,r=t.sigBytes*8;return e[r>>>5]|=128<<24-r%32,e[(r+128>>>10<<5)+30]=Math.floor(s/4294967296),e[(r+128>>>10<<5)+31]=s,t.sigBytes=e.length*4,this._process(),this._hash.toX32()}clone(){const t=super.clone.call(this);return t._hash=this._hash.clone(),t}}const as=R._createHelper(k0),ls=R._createHmacHelper(k0);class Ot extends k0{_doReset(){this._hash=new It([new d(3418070365,3238371032),new d(1654270250,914150663),new d(2438529370,812702999),new d(355462360,4144912697),new d(1731405415,4290775857),new d(2394180231,1750603025),new d(3675008525,1694076839),new d(1203062813,3204075428)])}_doFinalize(){const t=super._doFinalize.call(this);return t.sigBytes-=16,t}}const hs=k0._createHelper(Ot),xs=k0._createHmacHelper(Ot),Ie=[],Re=[],He=[];let ht=1,Q0=0;for(let n=0;n<24;n+=1){Ie[ht+5*Q0]=(n+1)*(n+2)/2%64;const t=Q0%5,e=(2*ht+3*Q0)%5;ht=t,Q0=e}for(let n=0;n<5;n+=1)for(let t=0;t<5;t+=1)Re[n+5*t]=t+(2*n+3*t)%5*5;let M0=1;for(let n=0;n<24;n+=1){let t=0,e=0;for(let s=0;s<7;s+=1){if(M0&1){const r=(1<<s)-1;r<32?e^=1<<r:t^=1<<r-32}M0&128?M0=M0<<1^113:M0<<=1}He[n]=d.create(t,e)}const n0=[];for(let n=0;n<25;n+=1)n0[n]=d.create();class Mt extends R{constructor(t){super(Object.assign({outputLength:512},t))}_doReset(){this._state=[];const t=this._state;for(let e=0;e<25;e+=1)t[e]=new d;this.blockSize=(1600-2*this.cfg.outputLength)/32}_doProcessBlock(t,e){const s=this._state,r=this.blockSize/2;for(let i=0;i<r;i+=1){let o=t[e+2*i],c=t[e+2*i+1];o=(o<<8|o>>>24)&16711935|(o<<24|o>>>8)&4278255360,c=(c<<8|c>>>24)&16711935|(c<<24|c>>>8)&4278255360;const a=s[i];a.high^=c,a.low^=o}for(let i=0;i<24;i+=1){for(let u=0;u<5;u+=1){let x=0,_=0;for(let m=0;m<5;m+=1){const g=s[u+5*m];x^=g.high,_^=g.low}const v=n0[u];v.high=x,v.low=_}for(let u=0;u<5;u+=1){const x=n0[(u+4)%5],_=n0[(u+1)%5],v=_.high,m=_.low,g=x.high^(v<<1|m>>>31),S=x.low^(m<<1|v>>>31);for(let y=0;y<5;y+=1){const C=s[u+5*y];C.high^=g,C.low^=S}}for(let u=1;u<25;u+=1){let x,_;const v=s[u],m=v.high,g=v.low,S=Ie[u];S<32?(x=m<<S|g>>>32-S,_=g<<S|m>>>32-S):(x=g<<S-32|m>>>64-S,_=m<<S-32|g>>>64-S);const y=n0[Re[u]];y.high=x,y.low=_}const o=n0[0],c=s[0];o.high=c.high,o.low=c.low;for(let u=0;u<5;u+=1)for(let x=0;x<5;x+=1){const _=u+5*x,v=s[_],m=n0[_],g=n0[(u+1)%5+5*x],S=n0[(u+2)%5+5*x];v.high=m.high^~g.high&S.high,v.low=m.low^~g.low&S.low}const a=s[0],l=He[i];a.high^=l.high,a.low^=l.low}}_doFinalize(){const t=this._data,e=t.words,s=t.sigBytes*8,r=this.blockSize*32;e[s>>>5]|=1<<24-s%32,e[(Math.ceil((s+1)/r)*r>>>5)-1]|=128,t.sigBytes=e.length*4,this._process();const i=this._state,o=this.cfg.outputLength/8,c=o/8,a=[];for(let l=0;l<c;l+=1){const u=i[l];let x=u.high,_=u.low;x=(x<<8|x>>>24)&16711935|(x<<24|x>>>8)&4278255360,_=(_<<8|_>>>24)&16711935|(_<<24|_>>>8)&4278255360,a.push(_),a.push(x)}return new T(a,o)}clone(){const t=super.clone.call(this);t._state=this._state.slice(0);const e=t._state;for(let s=0;s<25;s+=1)e[s]=e[s].clone();return t}}const fs=R._createHelper(Mt),us=R._createHmacHelper(Mt);/** @preserve
+import { S as Subject, f as fromEvent, t as timer, m as merge } from "./timer.4871a679.js";
+var dist = {};
+var MAX_SAFE_INTEGER = 9007199254740991;
+var argsTag = "[object Arguments]", funcTag = "[object Function]", genTag = "[object GeneratorFunction]";
+var reIsUint = /^(?:0|[1-9]\d*)$/;
+function apply(func, thisArg, args) {
+  switch (args.length) {
+    case 0:
+      return func.call(thisArg);
+    case 1:
+      return func.call(thisArg, args[0]);
+    case 2:
+      return func.call(thisArg, args[0], args[1]);
+    case 3:
+      return func.call(thisArg, args[0], args[1], args[2]);
+  }
+  return func.apply(thisArg, args);
+}
+function baseTimes(n2, iteratee) {
+  var index = -1, result = Array(n2);
+  while (++index < n2) {
+    result[index] = iteratee(index);
+  }
+  return result;
+}
+var objectProto = Object.prototype;
+var hasOwnProperty = objectProto.hasOwnProperty;
+var objectToString = objectProto.toString;
+var propertyIsEnumerable = objectProto.propertyIsEnumerable;
+var nativeMax = Math.max;
+function arrayLikeKeys(value, inherited) {
+  var result = isArray$1(value) || isArguments(value) ? baseTimes(value.length, String) : [];
+  var length = result.length, skipIndexes = !!length;
+  for (var key in value) {
+    if ((inherited || hasOwnProperty.call(value, key)) && !(skipIndexes && (key == "length" || isIndex(key, length)))) {
+      result.push(key);
+    }
+  }
+  return result;
+}
+function assignInDefaults(objValue, srcValue, key, object) {
+  if (objValue === void 0 || eq(objValue, objectProto[key]) && !hasOwnProperty.call(object, key)) {
+    return srcValue;
+  }
+  return objValue;
+}
+function assignValue(object, key, value) {
+  var objValue = object[key];
+  if (!(hasOwnProperty.call(object, key) && eq(objValue, value)) || value === void 0 && !(key in object)) {
+    object[key] = value;
+  }
+}
+function baseKeysIn(object) {
+  if (!isObject$1(object)) {
+    return nativeKeysIn(object);
+  }
+  var isProto = isPrototype(object), result = [];
+  for (var key in object) {
+    if (!(key == "constructor" && (isProto || !hasOwnProperty.call(object, key)))) {
+      result.push(key);
+    }
+  }
+  return result;
+}
+function baseRest(func, start) {
+  start = nativeMax(start === void 0 ? func.length - 1 : start, 0);
+  return function() {
+    var args = arguments, index = -1, length = nativeMax(args.length - start, 0), array = Array(length);
+    while (++index < length) {
+      array[index] = args[start + index];
+    }
+    index = -1;
+    var otherArgs = Array(start + 1);
+    while (++index < start) {
+      otherArgs[index] = args[index];
+    }
+    otherArgs[start] = array;
+    return apply(func, this, otherArgs);
+  };
+}
+function copyObject(source, props, object, customizer) {
+  object || (object = {});
+  var index = -1, length = props.length;
+  while (++index < length) {
+    var key = props[index];
+    var newValue = customizer ? customizer(object[key], source[key], key, object, source) : void 0;
+    assignValue(object, key, newValue === void 0 ? source[key] : newValue);
+  }
+  return object;
+}
+function createAssigner(assigner) {
+  return baseRest(function(object, sources) {
+    var index = -1, length = sources.length, customizer = length > 1 ? sources[length - 1] : void 0, guard = length > 2 ? sources[2] : void 0;
+    customizer = assigner.length > 3 && typeof customizer == "function" ? (length--, customizer) : void 0;
+    if (guard && isIterateeCall(sources[0], sources[1], guard)) {
+      customizer = length < 3 ? void 0 : customizer;
+      length = 1;
+    }
+    object = Object(object);
+    while (++index < length) {
+      var source = sources[index];
+      if (source) {
+        assigner(object, source, index, customizer);
+      }
+    }
+    return object;
+  });
+}
+function isIndex(value, length) {
+  length = length == null ? MAX_SAFE_INTEGER : length;
+  return !!length && (typeof value == "number" || reIsUint.test(value)) && (value > -1 && value % 1 == 0 && value < length);
+}
+function isIterateeCall(value, index, object) {
+  if (!isObject$1(object)) {
+    return false;
+  }
+  var type = typeof index;
+  if (type == "number" ? isArrayLike$1(object) && isIndex(index, object.length) : type == "string" && index in object) {
+    return eq(object[index], value);
+  }
+  return false;
+}
+function isPrototype(value) {
+  var Ctor = value && value.constructor, proto = typeof Ctor == "function" && Ctor.prototype || objectProto;
+  return value === proto;
+}
+function nativeKeysIn(object) {
+  var result = [];
+  if (object != null) {
+    for (var key in Object(object)) {
+      result.push(key);
+    }
+  }
+  return result;
+}
+function eq(value, other) {
+  return value === other || value !== value && other !== other;
+}
+function isArguments(value) {
+  return isArrayLikeObject(value) && hasOwnProperty.call(value, "callee") && (!propertyIsEnumerable.call(value, "callee") || objectToString.call(value) == argsTag);
+}
+var isArray$1 = Array.isArray;
+function isArrayLike$1(value) {
+  return value != null && isLength(value.length) && !isFunction$1(value);
+}
+function isArrayLikeObject(value) {
+  return isObjectLike(value) && isArrayLike$1(value);
+}
+function isFunction$1(value) {
+  var tag = isObject$1(value) ? objectToString.call(value) : "";
+  return tag == funcTag || tag == genTag;
+}
+function isLength(value) {
+  return typeof value == "number" && value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER;
+}
+function isObject$1(value) {
+  var type = typeof value;
+  return !!value && (type == "object" || type == "function");
+}
+function isObjectLike(value) {
+  return !!value && typeof value == "object";
+}
+var assignInWith = createAssigner(function(object, source, srcIndex, customizer) {
+  copyObject(source, keysIn(source), object, customizer);
+});
+var defaults$1 = baseRest(function(args) {
+  args.push(void 0, assignInDefaults);
+  return apply(assignInWith, void 0, args);
+});
+function keysIn(object) {
+  return isArrayLike$1(object) ? arrayLikeKeys(object, true) : baseKeysIn(object);
+}
+var lodash_defaults = defaults$1;
+Object.defineProperty(dist, "__esModule", { value: true });
+var defaults = lodash_defaults;
+var SHOULD_RECONNECT_FALSE_MESSAGE = "Provided shouldReconnect() returned false. Closing permanently.";
+var SHOULD_RECONNECT_PROMISE_FALSE_MESSAGE = "Provided shouldReconnect() resolved to false. Closing permanently.";
+var SturdyWebSocket = function() {
+  function SturdyWebSocket2(url, protocolsOrOptions, options) {
+    this.url = url;
+    this.onclose = null;
+    this.onerror = null;
+    this.onmessage = null;
+    this.onopen = null;
+    this.ondown = null;
+    this.onreopen = null;
+    this.CONNECTING = SturdyWebSocket2.CONNECTING;
+    this.OPEN = SturdyWebSocket2.OPEN;
+    this.CLOSING = SturdyWebSocket2.CLOSING;
+    this.CLOSED = SturdyWebSocket2.CLOSED;
+    this.hasBeenOpened = false;
+    this.isClosed = false;
+    this.messageBuffer = [];
+    this.nextRetryTime = 0;
+    this.reconnectCount = 0;
+    this.lastKnownExtensions = "";
+    this.lastKnownProtocol = "";
+    this.listeners = {};
+    if (protocolsOrOptions == null || typeof protocolsOrOptions === "string" || Array.isArray(protocolsOrOptions)) {
+      this.protocols = protocolsOrOptions;
+    } else {
+      options = protocolsOrOptions;
+    }
+    this.options = defaults({}, options, SturdyWebSocket2.DEFAULT_OPTIONS);
+    if (!this.options.wsConstructor) {
+      if (typeof WebSocket !== "undefined") {
+        this.options.wsConstructor = WebSocket;
+      } else {
+        throw new Error("WebSocket not present in {} scope and no wsConstructor option was provided.");
+      }
+    }
+    this.openNewWebSocket();
+  }
+  Object.defineProperty(SturdyWebSocket2.prototype, "binaryType", {
+    get: function() {
+      return this.binaryTypeInternal || "blob";
+    },
+    set: function(binaryType) {
+      this.binaryTypeInternal = binaryType;
+      if (this.ws) {
+        this.ws.binaryType = binaryType;
+      }
+    },
+    enumerable: true,
+    configurable: true
+  });
+  Object.defineProperty(SturdyWebSocket2.prototype, "bufferedAmount", {
+    get: function() {
+      var sum = this.ws ? this.ws.bufferedAmount : 0;
+      var hasUnknownAmount = false;
+      this.messageBuffer.forEach(function(data) {
+        var byteLength = getDataByteLength(data);
+        if (byteLength != null) {
+          sum += byteLength;
+        } else {
+          hasUnknownAmount = true;
+        }
+      });
+      if (hasUnknownAmount) {
+        this.debugLog("Some buffered data had unknown length. bufferedAmount() return value may be below the correct amount.");
+      }
+      return sum;
+    },
+    enumerable: true,
+    configurable: true
+  });
+  Object.defineProperty(SturdyWebSocket2.prototype, "extensions", {
+    get: function() {
+      return this.ws ? this.ws.extensions : this.lastKnownExtensions;
+    },
+    enumerable: true,
+    configurable: true
+  });
+  Object.defineProperty(SturdyWebSocket2.prototype, "protocol", {
+    get: function() {
+      return this.ws ? this.ws.protocol : this.lastKnownProtocol;
+    },
+    enumerable: true,
+    configurable: true
+  });
+  Object.defineProperty(SturdyWebSocket2.prototype, "readyState", {
+    get: function() {
+      return this.isClosed ? SturdyWebSocket2.CLOSED : SturdyWebSocket2.OPEN;
+    },
+    enumerable: true,
+    configurable: true
+  });
+  SturdyWebSocket2.prototype.close = function(code, reason) {
+    if (this.ws) {
+      this.ws.close(code, reason);
+    }
+    this.shutdown();
+    this.debugLog("WebSocket permanently closed by client.");
+  };
+  SturdyWebSocket2.prototype.send = function(data) {
+    if (this.ws && this.ws.readyState === this.OPEN) {
+      this.ws.send(data);
+    } else {
+      this.messageBuffer.push(data);
+    }
+  };
+  SturdyWebSocket2.prototype.addEventListener = function(type, listener) {
+    if (!this.listeners[type]) {
+      this.listeners[type] = [];
+    }
+    this.listeners[type].push(listener);
+  };
+  SturdyWebSocket2.prototype.dispatchEvent = function(event2) {
+    return this.dispatchEventOfType(event2.type, event2);
+  };
+  SturdyWebSocket2.prototype.removeEventListener = function(type, listener) {
+    if (this.listeners[type]) {
+      this.listeners[type] = this.listeners[type].filter(function(l) {
+        return l !== listener;
+      });
+    }
+  };
+  SturdyWebSocket2.prototype.openNewWebSocket = function() {
+    var _this = this;
+    if (this.isClosed) {
+      return;
+    }
+    var _a = this.options, connectTimeout = _a.connectTimeout, wsConstructor = _a.wsConstructor;
+    this.debugLog("Opening new WebSocket to " + this.url + ".");
+    var ws = new wsConstructor(this.url, this.protocols);
+    ws.onclose = function(event2) {
+      return _this.handleClose(event2);
+    };
+    ws.onerror = function(event2) {
+      return _this.handleError(event2);
+    };
+    ws.onmessage = function(event2) {
+      return _this.handleMessage(event2);
+    };
+    ws.onopen = function(event2) {
+      return _this.handleOpen(event2);
+    };
+    this.connectTimeoutId = setTimeout(function() {
+      _this.clearConnectTimeout();
+      ws.close();
+    }, connectTimeout);
+    this.ws = ws;
+  };
+  SturdyWebSocket2.prototype.handleOpen = function(event2) {
+    var _this = this;
+    if (!this.ws || this.isClosed) {
+      return;
+    }
+    var allClearResetTime = this.options.allClearResetTime;
+    this.debugLog("WebSocket opened.");
+    if (this.binaryTypeInternal != null) {
+      this.ws.binaryType = this.binaryTypeInternal;
+    } else {
+      this.binaryTypeInternal = this.ws.binaryType;
+    }
+    this.clearConnectTimeout();
+    if (this.hasBeenOpened) {
+      this.dispatchEventOfType("reopen", event2);
+    } else {
+      this.dispatchEventOfType("open", event2);
+      this.hasBeenOpened = true;
+    }
+    this.messageBuffer.forEach(function(message) {
+      return _this.send(message);
+    });
+    this.messageBuffer = [];
+    this.allClearTimeoutId = setTimeout(function() {
+      _this.clearAllClearTimeout();
+      _this.nextRetryTime = 0;
+      _this.reconnectCount = 0;
+      var openTime = allClearResetTime / 1e3 | 0;
+      _this.debugLog("WebSocket remained open for " + openTime + " seconds. Resetting retry time and count.");
+    }, allClearResetTime);
+  };
+  SturdyWebSocket2.prototype.handleMessage = function(event2) {
+    if (this.isClosed) {
+      return;
+    }
+    this.dispatchEventOfType("message", event2);
+  };
+  SturdyWebSocket2.prototype.handleClose = function(event2) {
+    var _this = this;
+    if (this.isClosed) {
+      return;
+    }
+    var _a = this.options, maxReconnectAttempts = _a.maxReconnectAttempts, shouldReconnect = _a.shouldReconnect;
+    this.clearConnectTimeout();
+    this.clearAllClearTimeout();
+    if (this.ws) {
+      this.lastKnownExtensions = this.ws.extensions;
+      this.lastKnownProtocol = this.ws.protocol;
+      this.ws = void 0;
+    }
+    this.dispatchEventOfType("down", event2);
+    if (this.reconnectCount >= maxReconnectAttempts) {
+      this.stopReconnecting(event2, this.getTooManyFailedReconnectsMessage());
+      return;
+    }
+    var willReconnect = shouldReconnect(event2);
+    if (typeof willReconnect === "boolean") {
+      this.handleWillReconnect(willReconnect, event2, SHOULD_RECONNECT_FALSE_MESSAGE);
+    } else {
+      willReconnect.then(function(willReconnectResolved) {
+        if (_this.isClosed) {
+          return;
+        }
+        _this.handleWillReconnect(willReconnectResolved, event2, SHOULD_RECONNECT_PROMISE_FALSE_MESSAGE);
+      });
+    }
+  };
+  SturdyWebSocket2.prototype.handleError = function(event2) {
+    this.dispatchEventOfType("error", event2);
+    this.debugLog("WebSocket encountered an error.");
+  };
+  SturdyWebSocket2.prototype.handleWillReconnect = function(willReconnect, event2, denialReason) {
+    if (willReconnect) {
+      this.reconnect();
+    } else {
+      this.stopReconnecting(event2, denialReason);
+    }
+  };
+  SturdyWebSocket2.prototype.reconnect = function() {
+    var _this = this;
+    var _a = this.options, minReconnectDelay = _a.minReconnectDelay, maxReconnectDelay = _a.maxReconnectDelay, reconnectBackoffFactor = _a.reconnectBackoffFactor;
+    this.reconnectCount++;
+    var retryTime = this.nextRetryTime;
+    this.nextRetryTime = Math.max(minReconnectDelay, Math.min(this.nextRetryTime * reconnectBackoffFactor, maxReconnectDelay));
+    setTimeout(function() {
+      return _this.openNewWebSocket();
+    }, retryTime);
+    var retryTimeSeconds = retryTime / 1e3 | 0;
+    this.debugLog("WebSocket was closed. Re-opening in " + retryTimeSeconds + " seconds.");
+  };
+  SturdyWebSocket2.prototype.stopReconnecting = function(event2, debugReason) {
+    this.debugLog(debugReason);
+    this.shutdown();
+    this.dispatchEventOfType("close", event2);
+  };
+  SturdyWebSocket2.prototype.shutdown = function() {
+    this.isClosed = true;
+    this.clearAllTimeouts();
+    this.messageBuffer = [];
+  };
+  SturdyWebSocket2.prototype.clearAllTimeouts = function() {
+    this.clearConnectTimeout();
+    this.clearAllClearTimeout();
+  };
+  SturdyWebSocket2.prototype.clearConnectTimeout = function() {
+    if (this.connectTimeoutId != null) {
+      clearTimeout(this.connectTimeoutId);
+      this.connectTimeoutId = void 0;
+    }
+  };
+  SturdyWebSocket2.prototype.clearAllClearTimeout = function() {
+    if (this.allClearTimeoutId != null) {
+      clearTimeout(this.allClearTimeoutId);
+      this.allClearTimeoutId = void 0;
+    }
+  };
+  SturdyWebSocket2.prototype.dispatchEventOfType = function(type, event2) {
+    var _this = this;
+    switch (type) {
+      case "close":
+        if (this.onclose) {
+          this.onclose(event2);
+        }
+        break;
+      case "error":
+        if (this.onerror) {
+          this.onerror(event2);
+        }
+        break;
+      case "message":
+        if (this.onmessage) {
+          this.onmessage(event2);
+        }
+        break;
+      case "open":
+        if (this.onopen) {
+          this.onopen(event2);
+        }
+        break;
+      case "down":
+        if (this.ondown) {
+          this.ondown(event2);
+        }
+        break;
+      case "reopen":
+        if (this.onreopen) {
+          this.onreopen(event2);
+        }
+        break;
+    }
+    if (type in this.listeners) {
+      this.listeners[type].slice().forEach(function(listener) {
+        return _this.callListener(listener, event2);
+      });
+    }
+    return !event2 || !event2.defaultPrevented;
+  };
+  SturdyWebSocket2.prototype.callListener = function(listener, event2) {
+    if (typeof listener === "function") {
+      listener.call(this, event2);
+    } else {
+      listener.handleEvent.call(this, event2);
+    }
+  };
+  SturdyWebSocket2.prototype.debugLog = function(message) {
+    if (this.options.debug) {
+      console.log(message);
+    }
+  };
+  SturdyWebSocket2.prototype.getTooManyFailedReconnectsMessage = function() {
+    var maxReconnectAttempts = this.options.maxReconnectAttempts;
+    return "Failed to reconnect after " + maxReconnectAttempts + " " + pluralize("attempt", maxReconnectAttempts) + ". Closing permanently.";
+  };
+  SturdyWebSocket2.DEFAULT_OPTIONS = {
+    allClearResetTime: 5e3,
+    connectTimeout: 5e3,
+    debug: false,
+    minReconnectDelay: 1e3,
+    maxReconnectDelay: 3e4,
+    maxReconnectAttempts: Number.POSITIVE_INFINITY,
+    reconnectBackoffFactor: 1.5,
+    shouldReconnect: function() {
+      return true;
+    },
+    wsConstructor: void 0
+  };
+  SturdyWebSocket2.CONNECTING = 0;
+  SturdyWebSocket2.OPEN = 1;
+  SturdyWebSocket2.CLOSING = 2;
+  SturdyWebSocket2.CLOSED = 3;
+  return SturdyWebSocket2;
+}();
+var _default = dist.default = SturdyWebSocket;
+function getDataByteLength(data) {
+  if (typeof data === "string") {
+    return 2 * data.length;
+  } else if (data instanceof ArrayBuffer) {
+    return data.byteLength;
+  } else if (data instanceof Blob) {
+    return data.size;
+  } else {
+    return void 0;
+  }
+}
+function pluralize(s, n2) {
+  return n2 === 1 ? s : s + "s";
+}
+class Base {
+  static create(...args) {
+    return new this(...args);
+  }
+  mixIn(properties) {
+    return Object.assign(this, properties);
+  }
+  clone() {
+    const clone = new this.constructor();
+    Object.assign(clone, this);
+    return clone;
+  }
+}
+class WordArray extends Base {
+  constructor(words = [], sigBytes = words.length * 4) {
+    super();
+    let typedArray = words;
+    if (typedArray instanceof ArrayBuffer) {
+      typedArray = new Uint8Array(typedArray);
+    }
+    if (typedArray instanceof Int8Array || typedArray instanceof Uint8ClampedArray || typedArray instanceof Int16Array || typedArray instanceof Uint16Array || typedArray instanceof Int32Array || typedArray instanceof Uint32Array || typedArray instanceof Float32Array || typedArray instanceof Float64Array) {
+      typedArray = new Uint8Array(typedArray.buffer, typedArray.byteOffset, typedArray.byteLength);
+    }
+    if (typedArray instanceof Uint8Array) {
+      const typedArrayByteLength = typedArray.byteLength;
+      const _words = [];
+      for (let i = 0; i < typedArrayByteLength; i += 1) {
+        _words[i >>> 2] |= typedArray[i] << 24 - i % 4 * 8;
+      }
+      this.words = _words;
+      this.sigBytes = typedArrayByteLength;
+    } else {
+      this.words = words;
+      this.sigBytes = sigBytes;
+    }
+  }
+  static random(nBytes) {
+    const words = [];
+    const r = (m_w) => {
+      let _m_w = m_w;
+      let _m_z = 987654321;
+      const mask = 4294967295;
+      return () => {
+        _m_z = 36969 * (_m_z & 65535) + (_m_z >> 16) & mask;
+        _m_w = 18e3 * (_m_w & 65535) + (_m_w >> 16) & mask;
+        let result = (_m_z << 16) + _m_w & mask;
+        result /= 4294967296;
+        result += 0.5;
+        return result * (Math.random() > 0.5 ? 1 : -1);
+      };
+    };
+    for (let i = 0, rcache; i < nBytes; i += 4) {
+      const _r = r((rcache || Math.random()) * 4294967296);
+      rcache = _r() * 987654071;
+      words.push(_r() * 4294967296 | 0);
+    }
+    return new WordArray(words, nBytes);
+  }
+  toString(encoder = Hex) {
+    return encoder.stringify(this);
+  }
+  concat(wordArray) {
+    const thisWords = this.words;
+    const thatWords = wordArray.words;
+    const thisSigBytes = this.sigBytes;
+    const thatSigBytes = wordArray.sigBytes;
+    this.clamp();
+    if (thisSigBytes % 4) {
+      for (let i = 0; i < thatSigBytes; i += 1) {
+        const thatByte = thatWords[i >>> 2] >>> 24 - i % 4 * 8 & 255;
+        thisWords[thisSigBytes + i >>> 2] |= thatByte << 24 - (thisSigBytes + i) % 4 * 8;
+      }
+    } else {
+      for (let i = 0; i < thatSigBytes; i += 4) {
+        thisWords[thisSigBytes + i >>> 2] = thatWords[i >>> 2];
+      }
+    }
+    this.sigBytes += thatSigBytes;
+    return this;
+  }
+  clamp() {
+    const { words, sigBytes } = this;
+    words[sigBytes >>> 2] &= 4294967295 << 32 - sigBytes % 4 * 8;
+    words.length = Math.ceil(sigBytes / 4);
+  }
+  clone() {
+    const clone = super.clone.call(this);
+    clone.words = this.words.slice(0);
+    return clone;
+  }
+}
+const Hex = {
+  stringify(wordArray) {
+    const { words, sigBytes } = wordArray;
+    const hexChars = [];
+    for (let i = 0; i < sigBytes; i += 1) {
+      const bite = words[i >>> 2] >>> 24 - i % 4 * 8 & 255;
+      hexChars.push((bite >>> 4).toString(16));
+      hexChars.push((bite & 15).toString(16));
+    }
+    return hexChars.join("");
+  },
+  parse(hexStr) {
+    const hexStrLength = hexStr.length;
+    const words = [];
+    for (let i = 0; i < hexStrLength; i += 2) {
+      words[i >>> 3] |= parseInt(hexStr.substr(i, 2), 16) << 24 - i % 8 * 4;
+    }
+    return new WordArray(words, hexStrLength / 2);
+  }
+};
+const Latin1 = {
+  stringify(wordArray) {
+    const { words, sigBytes } = wordArray;
+    const latin1Chars = [];
+    for (let i = 0; i < sigBytes; i += 1) {
+      const bite = words[i >>> 2] >>> 24 - i % 4 * 8 & 255;
+      latin1Chars.push(String.fromCharCode(bite));
+    }
+    return latin1Chars.join("");
+  },
+  parse(latin1Str) {
+    const latin1StrLength = latin1Str.length;
+    const words = [];
+    for (let i = 0; i < latin1StrLength; i += 1) {
+      words[i >>> 2] |= (latin1Str.charCodeAt(i) & 255) << 24 - i % 4 * 8;
+    }
+    return new WordArray(words, latin1StrLength);
+  }
+};
+const Utf8 = {
+  stringify(wordArray) {
+    try {
+      return decodeURIComponent(escape(Latin1.stringify(wordArray)));
+    } catch (e) {
+      throw new Error("Malformed UTF-8 data");
+    }
+  },
+  parse(utf8Str) {
+    return Latin1.parse(unescape(encodeURIComponent(utf8Str)));
+  }
+};
+class BufferedBlockAlgorithm extends Base {
+  constructor() {
+    super();
+    this._minBufferSize = 0;
+  }
+  reset() {
+    this._data = new WordArray();
+    this._nDataBytes = 0;
+  }
+  _append(data) {
+    let m_data = data;
+    if (typeof m_data === "string") {
+      m_data = Utf8.parse(m_data);
+    }
+    this._data.concat(m_data);
+    this._nDataBytes += m_data.sigBytes;
+  }
+  _process(doFlush) {
+    let processedWords;
+    const { _data: data, blockSize } = this;
+    const dataWords = data.words;
+    const dataSigBytes = data.sigBytes;
+    const blockSizeBytes = blockSize * 4;
+    let nBlocksReady = dataSigBytes / blockSizeBytes;
+    if (doFlush) {
+      nBlocksReady = Math.ceil(nBlocksReady);
+    } else {
+      nBlocksReady = Math.max((nBlocksReady | 0) - this._minBufferSize, 0);
+    }
+    const nWordsReady = nBlocksReady * blockSize;
+    const nBytesReady = Math.min(nWordsReady * 4, dataSigBytes);
+    if (nWordsReady) {
+      for (let offset = 0; offset < nWordsReady; offset += blockSize) {
+        this._doProcessBlock(dataWords, offset);
+      }
+      processedWords = dataWords.splice(0, nWordsReady);
+      data.sigBytes -= nBytesReady;
+    }
+    return new WordArray(processedWords, nBytesReady);
+  }
+  clone() {
+    const clone = super.clone.call(this);
+    clone._data = this._data.clone();
+    return clone;
+  }
+}
+class Hasher extends BufferedBlockAlgorithm {
+  constructor(cfg) {
+    super();
+    this.blockSize = 512 / 32;
+    this.cfg = Object.assign(new Base(), cfg);
+    this.reset();
+  }
+  static _createHelper(SubHasher) {
+    return (message, cfg) => new SubHasher(cfg).finalize(message);
+  }
+  static _createHmacHelper(SubHasher) {
+    return (message, key) => new HMAC(SubHasher, key).finalize(message);
+  }
+  reset() {
+    super.reset.call(this);
+    this._doReset();
+  }
+  update(messageUpdate) {
+    this._append(messageUpdate);
+    this._process();
+    return this;
+  }
+  finalize(messageUpdate) {
+    if (messageUpdate) {
+      this._append(messageUpdate);
+    }
+    const hash = this._doFinalize();
+    return hash;
+  }
+}
+class HMAC extends Base {
+  constructor(SubHasher, key) {
+    super();
+    const hasher = new SubHasher();
+    this._hasher = hasher;
+    let _key = key;
+    if (typeof _key === "string") {
+      _key = Utf8.parse(_key);
+    }
+    const hasherBlockSize = hasher.blockSize;
+    const hasherBlockSizeBytes = hasherBlockSize * 4;
+    if (_key.sigBytes > hasherBlockSizeBytes) {
+      _key = hasher.finalize(key);
+    }
+    _key.clamp();
+    const oKey = _key.clone();
+    this._oKey = oKey;
+    const iKey = _key.clone();
+    this._iKey = iKey;
+    const oKeyWords = oKey.words;
+    const iKeyWords = iKey.words;
+    for (let i = 0; i < hasherBlockSize; i += 1) {
+      oKeyWords[i] ^= 1549556828;
+      iKeyWords[i] ^= 909522486;
+    }
+    oKey.sigBytes = hasherBlockSizeBytes;
+    iKey.sigBytes = hasherBlockSizeBytes;
+    this.reset();
+  }
+  reset() {
+    const hasher = this._hasher;
+    hasher.reset();
+    hasher.update(this._iKey);
+  }
+  update(messageUpdate) {
+    this._hasher.update(messageUpdate);
+    return this;
+  }
+  finalize(messageUpdate) {
+    const hasher = this._hasher;
+    const innerHash = hasher.finalize(messageUpdate);
+    hasher.reset();
+    const hmac = hasher.finalize(this._oKey.clone().concat(innerHash));
+    return hmac;
+  }
+}
+const X32WordArray = WordArray;
+class X64Word extends Base {
+  constructor(high, low) {
+    super();
+    this.high = high;
+    this.low = low;
+  }
+}
+class X64WordArray extends Base {
+  constructor(words = [], sigBytes = words.length * 8) {
+    super();
+    this.words = words;
+    this.sigBytes = sigBytes;
+  }
+  toX32() {
+    const x64Words = this.words;
+    const x64WordsLength = x64Words.length;
+    const x32Words = [];
+    for (let i = 0; i < x64WordsLength; i += 1) {
+      const x64Word = x64Words[i];
+      x32Words.push(x64Word.high);
+      x32Words.push(x64Word.low);
+    }
+    return X32WordArray.create(x32Words, this.sigBytes);
+  }
+  clone() {
+    const clone = super.clone.call(this);
+    clone.words = this.words.slice(0);
+    const { words } = clone;
+    const wordsLength = words.length;
+    for (let i = 0; i < wordsLength; i += 1) {
+      words[i] = words[i].clone();
+    }
+    return clone;
+  }
+}
+const parseLoop = (base64Str, base64StrLength, reverseMap) => {
+  const words = [];
+  let nBytes = 0;
+  for (let i = 0; i < base64StrLength; i += 1) {
+    if (i % 4) {
+      const bits1 = reverseMap[base64Str.charCodeAt(i - 1)] << i % 4 * 2;
+      const bits2 = reverseMap[base64Str.charCodeAt(i)] >>> 6 - i % 4 * 2;
+      const bitsCombined = bits1 | bits2;
+      words[nBytes >>> 2] |= bitsCombined << 24 - nBytes % 4 * 8;
+      nBytes += 1;
+    }
+  }
+  return WordArray.create(words, nBytes);
+};
+const Base64 = {
+  stringify(wordArray) {
+    const { words, sigBytes } = wordArray;
+    const map = this._map;
+    wordArray.clamp();
+    const base64Chars = [];
+    for (let i = 0; i < sigBytes; i += 3) {
+      const byte1 = words[i >>> 2] >>> 24 - i % 4 * 8 & 255;
+      const byte2 = words[i + 1 >>> 2] >>> 24 - (i + 1) % 4 * 8 & 255;
+      const byte3 = words[i + 2 >>> 2] >>> 24 - (i + 2) % 4 * 8 & 255;
+      const triplet = byte1 << 16 | byte2 << 8 | byte3;
+      for (let j = 0; j < 4 && i + j * 0.75 < sigBytes; j += 1) {
+        base64Chars.push(map.charAt(triplet >>> 6 * (3 - j) & 63));
+      }
+    }
+    const paddingChar = map.charAt(64);
+    if (paddingChar) {
+      while (base64Chars.length % 4) {
+        base64Chars.push(paddingChar);
+      }
+    }
+    return base64Chars.join("");
+  },
+  parse(base64Str) {
+    let base64StrLength = base64Str.length;
+    const map = this._map;
+    let reverseMap = this._reverseMap;
+    if (!reverseMap) {
+      this._reverseMap = [];
+      reverseMap = this._reverseMap;
+      for (let j = 0; j < map.length; j += 1) {
+        reverseMap[map.charCodeAt(j)] = j;
+      }
+    }
+    const paddingChar = map.charAt(64);
+    if (paddingChar) {
+      const paddingIndex = base64Str.indexOf(paddingChar);
+      if (paddingIndex !== -1) {
+        base64StrLength = paddingIndex;
+      }
+    }
+    return parseLoop(base64Str, base64StrLength, reverseMap);
+  },
+  _map: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/="
+};
+const T$1 = [];
+for (let i = 0; i < 64; i += 1) {
+  T$1[i] = Math.abs(Math.sin(i + 1)) * 4294967296 | 0;
+}
+const FF = (a, b, c, d2, x2, s, t) => {
+  const n2 = a + (b & c | ~b & d2) + x2 + t;
+  return (n2 << s | n2 >>> 32 - s) + b;
+};
+const GG = (a, b, c, d2, x2, s, t) => {
+  const n2 = a + (b & d2 | c & ~d2) + x2 + t;
+  return (n2 << s | n2 >>> 32 - s) + b;
+};
+const HH = (a, b, c, d2, x2, s, t) => {
+  const n2 = a + (b ^ c ^ d2) + x2 + t;
+  return (n2 << s | n2 >>> 32 - s) + b;
+};
+const II = (a, b, c, d2, x2, s, t) => {
+  const n2 = a + (c ^ (b | ~d2)) + x2 + t;
+  return (n2 << s | n2 >>> 32 - s) + b;
+};
+class MD5Algo extends Hasher {
+  _doReset() {
+    this._hash = new WordArray([
+      1732584193,
+      4023233417,
+      2562383102,
+      271733878
+    ]);
+  }
+  _doProcessBlock(M, offset) {
+    const _M = M;
+    for (let i = 0; i < 16; i += 1) {
+      const offset_i = offset + i;
+      const M_offset_i = M[offset_i];
+      _M[offset_i] = (M_offset_i << 8 | M_offset_i >>> 24) & 16711935 | (M_offset_i << 24 | M_offset_i >>> 8) & 4278255360;
+    }
+    const H2 = this._hash.words;
+    const M_offset_0 = _M[offset + 0];
+    const M_offset_1 = _M[offset + 1];
+    const M_offset_2 = _M[offset + 2];
+    const M_offset_3 = _M[offset + 3];
+    const M_offset_4 = _M[offset + 4];
+    const M_offset_5 = _M[offset + 5];
+    const M_offset_6 = _M[offset + 6];
+    const M_offset_7 = _M[offset + 7];
+    const M_offset_8 = _M[offset + 8];
+    const M_offset_9 = _M[offset + 9];
+    const M_offset_10 = _M[offset + 10];
+    const M_offset_11 = _M[offset + 11];
+    const M_offset_12 = _M[offset + 12];
+    const M_offset_13 = _M[offset + 13];
+    const M_offset_14 = _M[offset + 14];
+    const M_offset_15 = _M[offset + 15];
+    let a = H2[0];
+    let b = H2[1];
+    let c = H2[2];
+    let d2 = H2[3];
+    a = FF(a, b, c, d2, M_offset_0, 7, T$1[0]);
+    d2 = FF(d2, a, b, c, M_offset_1, 12, T$1[1]);
+    c = FF(c, d2, a, b, M_offset_2, 17, T$1[2]);
+    b = FF(b, c, d2, a, M_offset_3, 22, T$1[3]);
+    a = FF(a, b, c, d2, M_offset_4, 7, T$1[4]);
+    d2 = FF(d2, a, b, c, M_offset_5, 12, T$1[5]);
+    c = FF(c, d2, a, b, M_offset_6, 17, T$1[6]);
+    b = FF(b, c, d2, a, M_offset_7, 22, T$1[7]);
+    a = FF(a, b, c, d2, M_offset_8, 7, T$1[8]);
+    d2 = FF(d2, a, b, c, M_offset_9, 12, T$1[9]);
+    c = FF(c, d2, a, b, M_offset_10, 17, T$1[10]);
+    b = FF(b, c, d2, a, M_offset_11, 22, T$1[11]);
+    a = FF(a, b, c, d2, M_offset_12, 7, T$1[12]);
+    d2 = FF(d2, a, b, c, M_offset_13, 12, T$1[13]);
+    c = FF(c, d2, a, b, M_offset_14, 17, T$1[14]);
+    b = FF(b, c, d2, a, M_offset_15, 22, T$1[15]);
+    a = GG(a, b, c, d2, M_offset_1, 5, T$1[16]);
+    d2 = GG(d2, a, b, c, M_offset_6, 9, T$1[17]);
+    c = GG(c, d2, a, b, M_offset_11, 14, T$1[18]);
+    b = GG(b, c, d2, a, M_offset_0, 20, T$1[19]);
+    a = GG(a, b, c, d2, M_offset_5, 5, T$1[20]);
+    d2 = GG(d2, a, b, c, M_offset_10, 9, T$1[21]);
+    c = GG(c, d2, a, b, M_offset_15, 14, T$1[22]);
+    b = GG(b, c, d2, a, M_offset_4, 20, T$1[23]);
+    a = GG(a, b, c, d2, M_offset_9, 5, T$1[24]);
+    d2 = GG(d2, a, b, c, M_offset_14, 9, T$1[25]);
+    c = GG(c, d2, a, b, M_offset_3, 14, T$1[26]);
+    b = GG(b, c, d2, a, M_offset_8, 20, T$1[27]);
+    a = GG(a, b, c, d2, M_offset_13, 5, T$1[28]);
+    d2 = GG(d2, a, b, c, M_offset_2, 9, T$1[29]);
+    c = GG(c, d2, a, b, M_offset_7, 14, T$1[30]);
+    b = GG(b, c, d2, a, M_offset_12, 20, T$1[31]);
+    a = HH(a, b, c, d2, M_offset_5, 4, T$1[32]);
+    d2 = HH(d2, a, b, c, M_offset_8, 11, T$1[33]);
+    c = HH(c, d2, a, b, M_offset_11, 16, T$1[34]);
+    b = HH(b, c, d2, a, M_offset_14, 23, T$1[35]);
+    a = HH(a, b, c, d2, M_offset_1, 4, T$1[36]);
+    d2 = HH(d2, a, b, c, M_offset_4, 11, T$1[37]);
+    c = HH(c, d2, a, b, M_offset_7, 16, T$1[38]);
+    b = HH(b, c, d2, a, M_offset_10, 23, T$1[39]);
+    a = HH(a, b, c, d2, M_offset_13, 4, T$1[40]);
+    d2 = HH(d2, a, b, c, M_offset_0, 11, T$1[41]);
+    c = HH(c, d2, a, b, M_offset_3, 16, T$1[42]);
+    b = HH(b, c, d2, a, M_offset_6, 23, T$1[43]);
+    a = HH(a, b, c, d2, M_offset_9, 4, T$1[44]);
+    d2 = HH(d2, a, b, c, M_offset_12, 11, T$1[45]);
+    c = HH(c, d2, a, b, M_offset_15, 16, T$1[46]);
+    b = HH(b, c, d2, a, M_offset_2, 23, T$1[47]);
+    a = II(a, b, c, d2, M_offset_0, 6, T$1[48]);
+    d2 = II(d2, a, b, c, M_offset_7, 10, T$1[49]);
+    c = II(c, d2, a, b, M_offset_14, 15, T$1[50]);
+    b = II(b, c, d2, a, M_offset_5, 21, T$1[51]);
+    a = II(a, b, c, d2, M_offset_12, 6, T$1[52]);
+    d2 = II(d2, a, b, c, M_offset_3, 10, T$1[53]);
+    c = II(c, d2, a, b, M_offset_10, 15, T$1[54]);
+    b = II(b, c, d2, a, M_offset_1, 21, T$1[55]);
+    a = II(a, b, c, d2, M_offset_8, 6, T$1[56]);
+    d2 = II(d2, a, b, c, M_offset_15, 10, T$1[57]);
+    c = II(c, d2, a, b, M_offset_6, 15, T$1[58]);
+    b = II(b, c, d2, a, M_offset_13, 21, T$1[59]);
+    a = II(a, b, c, d2, M_offset_4, 6, T$1[60]);
+    d2 = II(d2, a, b, c, M_offset_11, 10, T$1[61]);
+    c = II(c, d2, a, b, M_offset_2, 15, T$1[62]);
+    b = II(b, c, d2, a, M_offset_9, 21, T$1[63]);
+    H2[0] = H2[0] + a | 0;
+    H2[1] = H2[1] + b | 0;
+    H2[2] = H2[2] + c | 0;
+    H2[3] = H2[3] + d2 | 0;
+  }
+  _doFinalize() {
+    const data = this._data;
+    const dataWords = data.words;
+    const nBitsTotal = this._nDataBytes * 8;
+    const nBitsLeft = data.sigBytes * 8;
+    dataWords[nBitsLeft >>> 5] |= 128 << 24 - nBitsLeft % 32;
+    const nBitsTotalH = Math.floor(nBitsTotal / 4294967296);
+    const nBitsTotalL = nBitsTotal;
+    dataWords[(nBitsLeft + 64 >>> 9 << 4) + 15] = (nBitsTotalH << 8 | nBitsTotalH >>> 24) & 16711935 | (nBitsTotalH << 24 | nBitsTotalH >>> 8) & 4278255360;
+    dataWords[(nBitsLeft + 64 >>> 9 << 4) + 14] = (nBitsTotalL << 8 | nBitsTotalL >>> 24) & 16711935 | (nBitsTotalL << 24 | nBitsTotalL >>> 8) & 4278255360;
+    data.sigBytes = (dataWords.length + 1) * 4;
+    this._process();
+    const hash = this._hash;
+    const H2 = hash.words;
+    for (let i = 0; i < 4; i += 1) {
+      const H_i = H2[i];
+      H2[i] = (H_i << 8 | H_i >>> 24) & 16711935 | (H_i << 24 | H_i >>> 8) & 4278255360;
+    }
+    return hash;
+  }
+  clone() {
+    const clone = super.clone.call(this);
+    clone._hash = this._hash.clone();
+    return clone;
+  }
+}
+const MD5 = Hasher._createHelper(MD5Algo);
+const HmacMD5 = Hasher._createHmacHelper(MD5Algo);
+class EvpKDFAlgo extends Base {
+  constructor(cfg) {
+    super();
+    this.cfg = Object.assign(
+      new Base(),
+      {
+        keySize: 128 / 32,
+        hasher: MD5Algo,
+        iterations: 1
+      },
+      cfg
+    );
+  }
+  compute(password, salt) {
+    let block;
+    const { cfg } = this;
+    const hasher = cfg.hasher.create();
+    const derivedKey = WordArray.create();
+    const derivedKeyWords = derivedKey.words;
+    const { keySize, iterations } = cfg;
+    while (derivedKeyWords.length < keySize) {
+      if (block) {
+        hasher.update(block);
+      }
+      block = hasher.update(password).finalize(salt);
+      hasher.reset();
+      for (let i = 1; i < iterations; i += 1) {
+        block = hasher.finalize(block);
+        hasher.reset();
+      }
+      derivedKey.concat(block);
+    }
+    derivedKey.sigBytes = keySize * 4;
+    return derivedKey;
+  }
+}
+const EvpKDF = (password, salt, cfg) => EvpKDFAlgo.create(cfg).compute(password, salt);
+class Cipher extends BufferedBlockAlgorithm {
+  constructor(xformMode, key, cfg) {
+    super();
+    this.cfg = Object.assign(new Base(), cfg);
+    this._xformMode = xformMode;
+    this._key = key;
+    this.reset();
+  }
+  static createEncryptor(key, cfg) {
+    return this.create(this._ENC_XFORM_MODE, key, cfg);
+  }
+  static createDecryptor(key, cfg) {
+    return this.create(this._DEC_XFORM_MODE, key, cfg);
+  }
+  static _createHelper(SubCipher) {
+    const selectCipherStrategy = (key) => {
+      if (typeof key === "string") {
+        return PasswordBasedCipher;
+      }
+      return SerializableCipher;
+    };
+    return {
+      encrypt(message, key, cfg) {
+        return selectCipherStrategy(key).encrypt(SubCipher, message, key, cfg);
+      },
+      decrypt(ciphertext, key, cfg) {
+        return selectCipherStrategy(key).decrypt(SubCipher, ciphertext, key, cfg);
+      }
+    };
+  }
+  reset() {
+    super.reset.call(this);
+    this._doReset();
+  }
+  process(dataUpdate) {
+    this._append(dataUpdate);
+    return this._process();
+  }
+  finalize(dataUpdate) {
+    if (dataUpdate) {
+      this._append(dataUpdate);
+    }
+    const finalProcessedData = this._doFinalize();
+    return finalProcessedData;
+  }
+}
+Cipher._ENC_XFORM_MODE = 1;
+Cipher._DEC_XFORM_MODE = 2;
+Cipher.keySize = 128 / 32;
+Cipher.ivSize = 128 / 32;
+class StreamCipher extends Cipher {
+  constructor(...args) {
+    super(...args);
+    this.blockSize = 1;
+  }
+  _doFinalize() {
+    const finalProcessedBlocks = this._process(true);
+    return finalProcessedBlocks;
+  }
+}
+class BlockCipherMode extends Base {
+  constructor(cipher, iv) {
+    super();
+    this._cipher = cipher;
+    this._iv = iv;
+  }
+  static createEncryptor(cipher, iv) {
+    return this.Encryptor.create(cipher, iv);
+  }
+  static createDecryptor(cipher, iv) {
+    return this.Decryptor.create(cipher, iv);
+  }
+}
+function xorBlock(words, offset, blockSize) {
+  const _words = words;
+  let block;
+  const iv = this._iv;
+  if (iv) {
+    block = iv;
+    this._iv = void 0;
+  } else {
+    block = this._prevBlock;
+  }
+  for (let i = 0; i < blockSize; i += 1) {
+    _words[offset + i] ^= block[i];
+  }
+}
+class CBC extends BlockCipherMode {
+}
+CBC.Encryptor = class extends CBC {
+  processBlock(words, offset) {
+    const cipher = this._cipher;
+    const { blockSize } = cipher;
+    xorBlock.call(this, words, offset, blockSize);
+    cipher.encryptBlock(words, offset);
+    this._prevBlock = words.slice(offset, offset + blockSize);
+  }
+};
+CBC.Decryptor = class extends CBC {
+  processBlock(words, offset) {
+    const cipher = this._cipher;
+    const { blockSize } = cipher;
+    const thisBlock = words.slice(offset, offset + blockSize);
+    cipher.decryptBlock(words, offset);
+    xorBlock.call(this, words, offset, blockSize);
+    this._prevBlock = thisBlock;
+  }
+};
+const Pkcs7 = {
+  pad(data, blockSize) {
+    const blockSizeBytes = blockSize * 4;
+    const nPaddingBytes = blockSizeBytes - data.sigBytes % blockSizeBytes;
+    const paddingWord = nPaddingBytes << 24 | nPaddingBytes << 16 | nPaddingBytes << 8 | nPaddingBytes;
+    const paddingWords = [];
+    for (let i = 0; i < nPaddingBytes; i += 4) {
+      paddingWords.push(paddingWord);
+    }
+    const padding = WordArray.create(paddingWords, nPaddingBytes);
+    data.concat(padding);
+  },
+  unpad(data) {
+    const _data = data;
+    const nPaddingBytes = _data.words[_data.sigBytes - 1 >>> 2] & 255;
+    _data.sigBytes -= nPaddingBytes;
+  }
+};
+class BlockCipher extends Cipher {
+  constructor(xformMode, key, cfg) {
+    super(xformMode, key, Object.assign(
+      {
+        mode: CBC,
+        padding: Pkcs7
+      },
+      cfg
+    ));
+    this.blockSize = 128 / 32;
+  }
+  reset() {
+    let modeCreator;
+    super.reset.call(this);
+    const { cfg } = this;
+    const { iv, mode } = cfg;
+    if (this._xformMode === this.constructor._ENC_XFORM_MODE) {
+      modeCreator = mode.createEncryptor;
+    } else {
+      modeCreator = mode.createDecryptor;
+      this._minBufferSize = 1;
+    }
+    this._mode = modeCreator.call(mode, this, iv && iv.words);
+    this._mode.__creator = modeCreator;
+  }
+  _doProcessBlock(words, offset) {
+    this._mode.processBlock(words, offset);
+  }
+  _doFinalize() {
+    let finalProcessedBlocks;
+    const { padding } = this.cfg;
+    if (this._xformMode === this.constructor._ENC_XFORM_MODE) {
+      padding.pad(this._data, this.blockSize);
+      finalProcessedBlocks = this._process(true);
+    } else {
+      finalProcessedBlocks = this._process(true);
+      padding.unpad(finalProcessedBlocks);
+    }
+    return finalProcessedBlocks;
+  }
+}
+class CipherParams extends Base {
+  constructor(cipherParams) {
+    super();
+    this.mixIn(cipherParams);
+  }
+  toString(formatter) {
+    return (formatter || this.formatter).stringify(this);
+  }
+}
+const OpenSSLFormatter = {
+  stringify(cipherParams) {
+    let wordArray;
+    const { ciphertext, salt } = cipherParams;
+    if (salt) {
+      wordArray = WordArray.create([1398893684, 1701076831]).concat(salt).concat(ciphertext);
+    } else {
+      wordArray = ciphertext;
+    }
+    return wordArray.toString(Base64);
+  },
+  parse(openSSLStr) {
+    let salt;
+    const ciphertext = Base64.parse(openSSLStr);
+    const ciphertextWords = ciphertext.words;
+    if (ciphertextWords[0] === 1398893684 && ciphertextWords[1] === 1701076831) {
+      salt = WordArray.create(ciphertextWords.slice(2, 4));
+      ciphertextWords.splice(0, 4);
+      ciphertext.sigBytes -= 16;
+    }
+    return CipherParams.create({ ciphertext, salt });
+  }
+};
+class SerializableCipher extends Base {
+  static encrypt(cipher, message, key, cfg) {
+    const _cfg = Object.assign(new Base(), this.cfg, cfg);
+    const encryptor = cipher.createEncryptor(key, _cfg);
+    const ciphertext = encryptor.finalize(message);
+    const cipherCfg = encryptor.cfg;
+    return CipherParams.create({
+      ciphertext,
+      key,
+      iv: cipherCfg.iv,
+      algorithm: cipher,
+      mode: cipherCfg.mode,
+      padding: cipherCfg.padding,
+      blockSize: encryptor.blockSize,
+      formatter: _cfg.format
+    });
+  }
+  static decrypt(cipher, ciphertext, key, cfg) {
+    let _ciphertext = ciphertext;
+    const _cfg = Object.assign(new Base(), this.cfg, cfg);
+    _ciphertext = this._parse(_ciphertext, _cfg.format);
+    const plaintext = cipher.createDecryptor(key, _cfg).finalize(_ciphertext.ciphertext);
+    return plaintext;
+  }
+  static _parse(ciphertext, format) {
+    if (typeof ciphertext === "string") {
+      return format.parse(ciphertext, this);
+    }
+    return ciphertext;
+  }
+}
+SerializableCipher.cfg = Object.assign(
+  new Base(),
+  { format: OpenSSLFormatter }
+);
+const OpenSSLKdf = {
+  execute(password, keySize, ivSize, salt) {
+    let _salt = salt;
+    if (!_salt) {
+      _salt = WordArray.random(64 / 8);
+    }
+    const key = EvpKDFAlgo.create({ keySize: keySize + ivSize }).compute(password, _salt);
+    const iv = WordArray.create(key.words.slice(keySize), ivSize * 4);
+    key.sigBytes = keySize * 4;
+    return CipherParams.create({ key, iv, salt: _salt });
+  }
+};
+class PasswordBasedCipher extends SerializableCipher {
+  static encrypt(cipher, message, password, cfg) {
+    const _cfg = Object.assign(new Base(), this.cfg, cfg);
+    const derivedParams = _cfg.kdf.execute(password, cipher.keySize, cipher.ivSize);
+    _cfg.iv = derivedParams.iv;
+    const ciphertext = SerializableCipher.encrypt.call(this, cipher, message, derivedParams.key, _cfg);
+    ciphertext.mixIn(derivedParams);
+    return ciphertext;
+  }
+  static decrypt(cipher, ciphertext, password, cfg) {
+    let _ciphertext = ciphertext;
+    const _cfg = Object.assign(new Base(), this.cfg, cfg);
+    _ciphertext = this._parse(_ciphertext, _cfg.format);
+    const derivedParams = _cfg.kdf.execute(password, cipher.keySize, cipher.ivSize, _ciphertext.salt);
+    _cfg.iv = derivedParams.iv;
+    const plaintext = SerializableCipher.decrypt.call(this, cipher, _ciphertext, derivedParams.key, _cfg);
+    return plaintext;
+  }
+}
+PasswordBasedCipher.cfg = Object.assign(SerializableCipher.cfg, { kdf: OpenSSLKdf });
+const swapEndian = (word) => word << 8 & 4278255360 | word >>> 8 & 16711935;
+const Utf16BE = {
+  stringify(wordArray) {
+    const { words, sigBytes } = wordArray;
+    const utf16Chars = [];
+    for (let i = 0; i < sigBytes; i += 2) {
+      const codePoint = words[i >>> 2] >>> 16 - i % 4 * 8 & 65535;
+      utf16Chars.push(String.fromCharCode(codePoint));
+    }
+    return utf16Chars.join("");
+  },
+  parse(utf16Str) {
+    const utf16StrLength = utf16Str.length;
+    const words = [];
+    for (let i = 0; i < utf16StrLength; i += 1) {
+      words[i >>> 1] |= utf16Str.charCodeAt(i) << 16 - i % 2 * 16;
+    }
+    return WordArray.create(words, utf16StrLength * 2);
+  }
+};
+const Utf16 = Utf16BE;
+const Utf16LE = {
+  stringify(wordArray) {
+    const { words, sigBytes } = wordArray;
+    const utf16Chars = [];
+    for (let i = 0; i < sigBytes; i += 2) {
+      const codePoint = swapEndian(words[i >>> 2] >>> 16 - i % 4 * 8 & 65535);
+      utf16Chars.push(String.fromCharCode(codePoint));
+    }
+    return utf16Chars.join("");
+  },
+  parse(utf16Str) {
+    const utf16StrLength = utf16Str.length;
+    const words = [];
+    for (let i = 0; i < utf16StrLength; i += 1) {
+      words[i >>> 1] |= swapEndian(utf16Str.charCodeAt(i) << 16 - i % 2 * 16);
+    }
+    return WordArray.create(words, utf16StrLength * 2);
+  }
+};
+const W$2 = [];
+class SHA1Algo extends Hasher {
+  _doReset() {
+    this._hash = new WordArray([
+      1732584193,
+      4023233417,
+      2562383102,
+      271733878,
+      3285377520
+    ]);
+  }
+  _doProcessBlock(M, offset) {
+    const H2 = this._hash.words;
+    let a = H2[0];
+    let b = H2[1];
+    let c = H2[2];
+    let d2 = H2[3];
+    let e = H2[4];
+    for (let i = 0; i < 80; i += 1) {
+      if (i < 16) {
+        W$2[i] = M[offset + i] | 0;
+      } else {
+        const n2 = W$2[i - 3] ^ W$2[i - 8] ^ W$2[i - 14] ^ W$2[i - 16];
+        W$2[i] = n2 << 1 | n2 >>> 31;
+      }
+      let t = (a << 5 | a >>> 27) + e + W$2[i];
+      if (i < 20) {
+        t += (b & c | ~b & d2) + 1518500249;
+      } else if (i < 40) {
+        t += (b ^ c ^ d2) + 1859775393;
+      } else if (i < 60) {
+        t += (b & c | b & d2 | c & d2) - 1894007588;
+      } else {
+        t += (b ^ c ^ d2) - 899497514;
+      }
+      e = d2;
+      d2 = c;
+      c = b << 30 | b >>> 2;
+      b = a;
+      a = t;
+    }
+    H2[0] = H2[0] + a | 0;
+    H2[1] = H2[1] + b | 0;
+    H2[2] = H2[2] + c | 0;
+    H2[3] = H2[3] + d2 | 0;
+    H2[4] = H2[4] + e | 0;
+  }
+  _doFinalize() {
+    const data = this._data;
+    const dataWords = data.words;
+    const nBitsTotal = this._nDataBytes * 8;
+    const nBitsLeft = data.sigBytes * 8;
+    dataWords[nBitsLeft >>> 5] |= 128 << 24 - nBitsLeft % 32;
+    dataWords[(nBitsLeft + 64 >>> 9 << 4) + 14] = Math.floor(nBitsTotal / 4294967296);
+    dataWords[(nBitsLeft + 64 >>> 9 << 4) + 15] = nBitsTotal;
+    data.sigBytes = dataWords.length * 4;
+    this._process();
+    return this._hash;
+  }
+  clone() {
+    const clone = super.clone.call(this);
+    clone._hash = this._hash.clone();
+    return clone;
+  }
+}
+const SHA1 = Hasher._createHelper(SHA1Algo);
+const HmacSHA1 = Hasher._createHmacHelper(SHA1Algo);
+const H = [];
+const K$1 = [];
+const isPrime = (n2) => {
+  const sqrtN = Math.sqrt(n2);
+  for (let factor = 2; factor <= sqrtN; factor += 1) {
+    if (!(n2 % factor)) {
+      return false;
+    }
+  }
+  return true;
+};
+const getFractionalBits = (n2) => (n2 - (n2 | 0)) * 4294967296 | 0;
+let n = 2;
+let nPrime = 0;
+while (nPrime < 64) {
+  if (isPrime(n)) {
+    if (nPrime < 8) {
+      H[nPrime] = getFractionalBits(n ** (1 / 2));
+    }
+    K$1[nPrime] = getFractionalBits(n ** (1 / 3));
+    nPrime += 1;
+  }
+  n += 1;
+}
+const W$1 = [];
+class SHA256Algo extends Hasher {
+  _doReset() {
+    this._hash = new WordArray(H.slice(0));
+  }
+  _doProcessBlock(M, offset) {
+    const _H = this._hash.words;
+    let a = _H[0];
+    let b = _H[1];
+    let c = _H[2];
+    let d2 = _H[3];
+    let e = _H[4];
+    let f = _H[5];
+    let g = _H[6];
+    let h = _H[7];
+    for (let i = 0; i < 64; i += 1) {
+      if (i < 16) {
+        W$1[i] = M[offset + i] | 0;
+      } else {
+        const gamma0x = W$1[i - 15];
+        const gamma0 = (gamma0x << 25 | gamma0x >>> 7) ^ (gamma0x << 14 | gamma0x >>> 18) ^ gamma0x >>> 3;
+        const gamma1x = W$1[i - 2];
+        const gamma1 = (gamma1x << 15 | gamma1x >>> 17) ^ (gamma1x << 13 | gamma1x >>> 19) ^ gamma1x >>> 10;
+        W$1[i] = gamma0 + W$1[i - 7] + gamma1 + W$1[i - 16];
+      }
+      const ch = e & f ^ ~e & g;
+      const maj = a & b ^ a & c ^ b & c;
+      const sigma0 = (a << 30 | a >>> 2) ^ (a << 19 | a >>> 13) ^ (a << 10 | a >>> 22);
+      const sigma1 = (e << 26 | e >>> 6) ^ (e << 21 | e >>> 11) ^ (e << 7 | e >>> 25);
+      const t1 = h + sigma1 + ch + K$1[i] + W$1[i];
+      const t2 = sigma0 + maj;
+      h = g;
+      g = f;
+      f = e;
+      e = d2 + t1 | 0;
+      d2 = c;
+      c = b;
+      b = a;
+      a = t1 + t2 | 0;
+    }
+    _H[0] = _H[0] + a | 0;
+    _H[1] = _H[1] + b | 0;
+    _H[2] = _H[2] + c | 0;
+    _H[3] = _H[3] + d2 | 0;
+    _H[4] = _H[4] + e | 0;
+    _H[5] = _H[5] + f | 0;
+    _H[6] = _H[6] + g | 0;
+    _H[7] = _H[7] + h | 0;
+  }
+  _doFinalize() {
+    const data = this._data;
+    const dataWords = data.words;
+    const nBitsTotal = this._nDataBytes * 8;
+    const nBitsLeft = data.sigBytes * 8;
+    dataWords[nBitsLeft >>> 5] |= 128 << 24 - nBitsLeft % 32;
+    dataWords[(nBitsLeft + 64 >>> 9 << 4) + 14] = Math.floor(nBitsTotal / 4294967296);
+    dataWords[(nBitsLeft + 64 >>> 9 << 4) + 15] = nBitsTotal;
+    data.sigBytes = dataWords.length * 4;
+    this._process();
+    return this._hash;
+  }
+  clone() {
+    const clone = super.clone.call(this);
+    clone._hash = this._hash.clone();
+    return clone;
+  }
+}
+const SHA256 = Hasher._createHelper(SHA256Algo);
+const HmacSHA256 = Hasher._createHmacHelper(SHA256Algo);
+class SHA224Algo extends SHA256Algo {
+  _doReset() {
+    this._hash = new WordArray([
+      3238371032,
+      914150663,
+      812702999,
+      4144912697,
+      4290775857,
+      1750603025,
+      1694076839,
+      3204075428
+    ]);
+  }
+  _doFinalize() {
+    const hash = super._doFinalize.call(this);
+    hash.sigBytes -= 4;
+    return hash;
+  }
+}
+const SHA224 = SHA256Algo._createHelper(SHA224Algo);
+const HmacSHA224 = SHA256Algo._createHmacHelper(SHA224Algo);
+const K = [
+  new X64Word(1116352408, 3609767458),
+  new X64Word(1899447441, 602891725),
+  new X64Word(3049323471, 3964484399),
+  new X64Word(3921009573, 2173295548),
+  new X64Word(961987163, 4081628472),
+  new X64Word(1508970993, 3053834265),
+  new X64Word(2453635748, 2937671579),
+  new X64Word(2870763221, 3664609560),
+  new X64Word(3624381080, 2734883394),
+  new X64Word(310598401, 1164996542),
+  new X64Word(607225278, 1323610764),
+  new X64Word(1426881987, 3590304994),
+  new X64Word(1925078388, 4068182383),
+  new X64Word(2162078206, 991336113),
+  new X64Word(2614888103, 633803317),
+  new X64Word(3248222580, 3479774868),
+  new X64Word(3835390401, 2666613458),
+  new X64Word(4022224774, 944711139),
+  new X64Word(264347078, 2341262773),
+  new X64Word(604807628, 2007800933),
+  new X64Word(770255983, 1495990901),
+  new X64Word(1249150122, 1856431235),
+  new X64Word(1555081692, 3175218132),
+  new X64Word(1996064986, 2198950837),
+  new X64Word(2554220882, 3999719339),
+  new X64Word(2821834349, 766784016),
+  new X64Word(2952996808, 2566594879),
+  new X64Word(3210313671, 3203337956),
+  new X64Word(3336571891, 1034457026),
+  new X64Word(3584528711, 2466948901),
+  new X64Word(113926993, 3758326383),
+  new X64Word(338241895, 168717936),
+  new X64Word(666307205, 1188179964),
+  new X64Word(773529912, 1546045734),
+  new X64Word(1294757372, 1522805485),
+  new X64Word(1396182291, 2643833823),
+  new X64Word(1695183700, 2343527390),
+  new X64Word(1986661051, 1014477480),
+  new X64Word(2177026350, 1206759142),
+  new X64Word(2456956037, 344077627),
+  new X64Word(2730485921, 1290863460),
+  new X64Word(2820302411, 3158454273),
+  new X64Word(3259730800, 3505952657),
+  new X64Word(3345764771, 106217008),
+  new X64Word(3516065817, 3606008344),
+  new X64Word(3600352804, 1432725776),
+  new X64Word(4094571909, 1467031594),
+  new X64Word(275423344, 851169720),
+  new X64Word(430227734, 3100823752),
+  new X64Word(506948616, 1363258195),
+  new X64Word(659060556, 3750685593),
+  new X64Word(883997877, 3785050280),
+  new X64Word(958139571, 3318307427),
+  new X64Word(1322822218, 3812723403),
+  new X64Word(1537002063, 2003034995),
+  new X64Word(1747873779, 3602036899),
+  new X64Word(1955562222, 1575990012),
+  new X64Word(2024104815, 1125592928),
+  new X64Word(2227730452, 2716904306),
+  new X64Word(2361852424, 442776044),
+  new X64Word(2428436474, 593698344),
+  new X64Word(2756734187, 3733110249),
+  new X64Word(3204031479, 2999351573),
+  new X64Word(3329325298, 3815920427),
+  new X64Word(3391569614, 3928383900),
+  new X64Word(3515267271, 566280711),
+  new X64Word(3940187606, 3454069534),
+  new X64Word(4118630271, 4000239992),
+  new X64Word(116418474, 1914138554),
+  new X64Word(174292421, 2731055270),
+  new X64Word(289380356, 3203993006),
+  new X64Word(460393269, 320620315),
+  new X64Word(685471733, 587496836),
+  new X64Word(852142971, 1086792851),
+  new X64Word(1017036298, 365543100),
+  new X64Word(1126000580, 2618297676),
+  new X64Word(1288033470, 3409855158),
+  new X64Word(1501505948, 4234509866),
+  new X64Word(1607167915, 987167468),
+  new X64Word(1816402316, 1246189591)
+];
+const W = [];
+for (let i = 0; i < 80; i += 1) {
+  W[i] = new X64Word();
+}
+class SHA512Algo extends Hasher {
+  constructor() {
+    super();
+    this.blockSize = 1024 / 32;
+  }
+  _doReset() {
+    this._hash = new X64WordArray([
+      new X64Word(1779033703, 4089235720),
+      new X64Word(3144134277, 2227873595),
+      new X64Word(1013904242, 4271175723),
+      new X64Word(2773480762, 1595750129),
+      new X64Word(1359893119, 2917565137),
+      new X64Word(2600822924, 725511199),
+      new X64Word(528734635, 4215389547),
+      new X64Word(1541459225, 327033209)
+    ]);
+  }
+  _doProcessBlock(M, offset) {
+    const H2 = this._hash.words;
+    const H0 = H2[0];
+    const H1 = H2[1];
+    const H22 = H2[2];
+    const H3 = H2[3];
+    const H4 = H2[4];
+    const H5 = H2[5];
+    const H6 = H2[6];
+    const H7 = H2[7];
+    const H0h = H0.high;
+    let H0l = H0.low;
+    const H1h = H1.high;
+    let H1l = H1.low;
+    const H2h = H22.high;
+    let H2l = H22.low;
+    const H3h = H3.high;
+    let H3l = H3.low;
+    const H4h = H4.high;
+    let H4l = H4.low;
+    const H5h = H5.high;
+    let H5l = H5.low;
+    const H6h = H6.high;
+    let H6l = H6.low;
+    const H7h = H7.high;
+    let H7l = H7.low;
+    let ah = H0h;
+    let al = H0l;
+    let bh = H1h;
+    let bl = H1l;
+    let ch = H2h;
+    let cl = H2l;
+    let dh = H3h;
+    let dl = H3l;
+    let eh = H4h;
+    let el = H4l;
+    let fh = H5h;
+    let fl = H5l;
+    let gh = H6h;
+    let gl = H6l;
+    let hh = H7h;
+    let hl = H7l;
+    for (let i = 0; i < 80; i += 1) {
+      let Wil;
+      let Wih;
+      const Wi = W[i];
+      if (i < 16) {
+        Wi.high = M[offset + i * 2] | 0;
+        Wih = Wi.high;
+        Wi.low = M[offset + i * 2 + 1] | 0;
+        Wil = Wi.low;
+      } else {
+        const gamma0x = W[i - 15];
+        const gamma0xh = gamma0x.high;
+        const gamma0xl = gamma0x.low;
+        const gamma0h = (gamma0xh >>> 1 | gamma0xl << 31) ^ (gamma0xh >>> 8 | gamma0xl << 24) ^ gamma0xh >>> 7;
+        const gamma0l = (gamma0xl >>> 1 | gamma0xh << 31) ^ (gamma0xl >>> 8 | gamma0xh << 24) ^ (gamma0xl >>> 7 | gamma0xh << 25);
+        const gamma1x = W[i - 2];
+        const gamma1xh = gamma1x.high;
+        const gamma1xl = gamma1x.low;
+        const gamma1h = (gamma1xh >>> 19 | gamma1xl << 13) ^ (gamma1xh << 3 | gamma1xl >>> 29) ^ gamma1xh >>> 6;
+        const gamma1l = (gamma1xl >>> 19 | gamma1xh << 13) ^ (gamma1xl << 3 | gamma1xh >>> 29) ^ (gamma1xl >>> 6 | gamma1xh << 26);
+        const Wi7 = W[i - 7];
+        const Wi7h = Wi7.high;
+        const Wi7l = Wi7.low;
+        const Wi16 = W[i - 16];
+        const Wi16h = Wi16.high;
+        const Wi16l = Wi16.low;
+        Wil = gamma0l + Wi7l;
+        Wih = gamma0h + Wi7h + (Wil >>> 0 < gamma0l >>> 0 ? 1 : 0);
+        Wil += gamma1l;
+        Wih = Wih + gamma1h + (Wil >>> 0 < gamma1l >>> 0 ? 1 : 0);
+        Wil += Wi16l;
+        Wih = Wih + Wi16h + (Wil >>> 0 < Wi16l >>> 0 ? 1 : 0);
+        Wi.high = Wih;
+        Wi.low = Wil;
+      }
+      const chh = eh & fh ^ ~eh & gh;
+      const chl = el & fl ^ ~el & gl;
+      const majh = ah & bh ^ ah & ch ^ bh & ch;
+      const majl = al & bl ^ al & cl ^ bl & cl;
+      const sigma0h = (ah >>> 28 | al << 4) ^ (ah << 30 | al >>> 2) ^ (ah << 25 | al >>> 7);
+      const sigma0l = (al >>> 28 | ah << 4) ^ (al << 30 | ah >>> 2) ^ (al << 25 | ah >>> 7);
+      const sigma1h = (eh >>> 14 | el << 18) ^ (eh >>> 18 | el << 14) ^ (eh << 23 | el >>> 9);
+      const sigma1l = (el >>> 14 | eh << 18) ^ (el >>> 18 | eh << 14) ^ (el << 23 | eh >>> 9);
+      const Ki = K[i];
+      const Kih = Ki.high;
+      const Kil = Ki.low;
+      let t1l = hl + sigma1l;
+      let t1h = hh + sigma1h + (t1l >>> 0 < hl >>> 0 ? 1 : 0);
+      t1l += chl;
+      t1h = t1h + chh + (t1l >>> 0 < chl >>> 0 ? 1 : 0);
+      t1l += Kil;
+      t1h = t1h + Kih + (t1l >>> 0 < Kil >>> 0 ? 1 : 0);
+      t1l += Wil;
+      t1h = t1h + Wih + (t1l >>> 0 < Wil >>> 0 ? 1 : 0);
+      const t2l = sigma0l + majl;
+      const t2h = sigma0h + majh + (t2l >>> 0 < sigma0l >>> 0 ? 1 : 0);
+      hh = gh;
+      hl = gl;
+      gh = fh;
+      gl = fl;
+      fh = eh;
+      fl = el;
+      el = dl + t1l | 0;
+      eh = dh + t1h + (el >>> 0 < dl >>> 0 ? 1 : 0) | 0;
+      dh = ch;
+      dl = cl;
+      ch = bh;
+      cl = bl;
+      bh = ah;
+      bl = al;
+      al = t1l + t2l | 0;
+      ah = t1h + t2h + (al >>> 0 < t1l >>> 0 ? 1 : 0) | 0;
+    }
+    H0.low = H0l + al;
+    H0l = H0.low;
+    H0.high = H0h + ah + (H0l >>> 0 < al >>> 0 ? 1 : 0);
+    H1.low = H1l + bl;
+    H1l = H1.low;
+    H1.high = H1h + bh + (H1l >>> 0 < bl >>> 0 ? 1 : 0);
+    H22.low = H2l + cl;
+    H2l = H22.low;
+    H22.high = H2h + ch + (H2l >>> 0 < cl >>> 0 ? 1 : 0);
+    H3.low = H3l + dl;
+    H3l = H3.low;
+    H3.high = H3h + dh + (H3l >>> 0 < dl >>> 0 ? 1 : 0);
+    H4.low = H4l + el;
+    H4l = H4.low;
+    H4.high = H4h + eh + (H4l >>> 0 < el >>> 0 ? 1 : 0);
+    H5.low = H5l + fl;
+    H5l = H5.low;
+    H5.high = H5h + fh + (H5l >>> 0 < fl >>> 0 ? 1 : 0);
+    H6.low = H6l + gl;
+    H6l = H6.low;
+    H6.high = H6h + gh + (H6l >>> 0 < gl >>> 0 ? 1 : 0);
+    H7.low = H7l + hl;
+    H7l = H7.low;
+    H7.high = H7h + hh + (H7l >>> 0 < hl >>> 0 ? 1 : 0);
+  }
+  _doFinalize() {
+    const data = this._data;
+    const dataWords = data.words;
+    const nBitsTotal = this._nDataBytes * 8;
+    const nBitsLeft = data.sigBytes * 8;
+    dataWords[nBitsLeft >>> 5] |= 128 << 24 - nBitsLeft % 32;
+    dataWords[(nBitsLeft + 128 >>> 10 << 5) + 30] = Math.floor(nBitsTotal / 4294967296);
+    dataWords[(nBitsLeft + 128 >>> 10 << 5) + 31] = nBitsTotal;
+    data.sigBytes = dataWords.length * 4;
+    this._process();
+    const hash = this._hash.toX32();
+    return hash;
+  }
+  clone() {
+    const clone = super.clone.call(this);
+    clone._hash = this._hash.clone();
+    return clone;
+  }
+}
+const SHA512 = Hasher._createHelper(SHA512Algo);
+const HmacSHA512 = Hasher._createHmacHelper(SHA512Algo);
+class SHA384Algo extends SHA512Algo {
+  _doReset() {
+    this._hash = new X64WordArray([
+      new X64Word(3418070365, 3238371032),
+      new X64Word(1654270250, 914150663),
+      new X64Word(2438529370, 812702999),
+      new X64Word(355462360, 4144912697),
+      new X64Word(1731405415, 4290775857),
+      new X64Word(2394180231, 1750603025),
+      new X64Word(3675008525, 1694076839),
+      new X64Word(1203062813, 3204075428)
+    ]);
+  }
+  _doFinalize() {
+    const hash = super._doFinalize.call(this);
+    hash.sigBytes -= 16;
+    return hash;
+  }
+}
+const SHA384 = SHA512Algo._createHelper(SHA384Algo);
+const HmacSHA384 = SHA512Algo._createHmacHelper(SHA384Algo);
+const RHO_OFFSETS = [];
+const PI_INDEXES = [];
+const ROUND_CONSTANTS = [];
+let _x = 1;
+let _y = 0;
+for (let t = 0; t < 24; t += 1) {
+  RHO_OFFSETS[_x + 5 * _y] = (t + 1) * (t + 2) / 2 % 64;
+  const newX = _y % 5;
+  const newY = (2 * _x + 3 * _y) % 5;
+  _x = newX;
+  _y = newY;
+}
+for (let x2 = 0; x2 < 5; x2 += 1) {
+  for (let y = 0; y < 5; y += 1) {
+    PI_INDEXES[x2 + 5 * y] = y + (2 * x2 + 3 * y) % 5 * 5;
+  }
+}
+let LFSR = 1;
+for (let i = 0; i < 24; i += 1) {
+  let roundConstantMsw = 0;
+  let roundConstantLsw = 0;
+  for (let j = 0; j < 7; j += 1) {
+    if (LFSR & 1) {
+      const bitPosition = (1 << j) - 1;
+      if (bitPosition < 32) {
+        roundConstantLsw ^= 1 << bitPosition;
+      } else {
+        roundConstantMsw ^= 1 << bitPosition - 32;
+      }
+    }
+    if (LFSR & 128) {
+      LFSR = LFSR << 1 ^ 113;
+    } else {
+      LFSR <<= 1;
+    }
+  }
+  ROUND_CONSTANTS[i] = X64Word.create(roundConstantMsw, roundConstantLsw);
+}
+const T = [];
+for (let i = 0; i < 25; i += 1) {
+  T[i] = X64Word.create();
+}
+class SHA3Algo extends Hasher {
+  constructor(cfg) {
+    super(Object.assign(
+      { outputLength: 512 },
+      cfg
+    ));
+  }
+  _doReset() {
+    this._state = [];
+    const state = this._state;
+    for (let i = 0; i < 25; i += 1) {
+      state[i] = new X64Word();
+    }
+    this.blockSize = (1600 - 2 * this.cfg.outputLength) / 32;
+  }
+  _doProcessBlock(M, offset) {
+    const state = this._state;
+    const nBlockSizeLanes = this.blockSize / 2;
+    for (let i = 0; i < nBlockSizeLanes; i += 1) {
+      let M2i = M[offset + 2 * i];
+      let M2i1 = M[offset + 2 * i + 1];
+      M2i = (M2i << 8 | M2i >>> 24) & 16711935 | (M2i << 24 | M2i >>> 8) & 4278255360;
+      M2i1 = (M2i1 << 8 | M2i1 >>> 24) & 16711935 | (M2i1 << 24 | M2i1 >>> 8) & 4278255360;
+      const lane = state[i];
+      lane.high ^= M2i1;
+      lane.low ^= M2i;
+    }
+    for (let round = 0; round < 24; round += 1) {
+      for (let x2 = 0; x2 < 5; x2 += 1) {
+        let tMsw = 0;
+        let tLsw = 0;
+        for (let y = 0; y < 5; y += 1) {
+          const lane2 = state[x2 + 5 * y];
+          tMsw ^= lane2.high;
+          tLsw ^= lane2.low;
+        }
+        const Tx = T[x2];
+        Tx.high = tMsw;
+        Tx.low = tLsw;
+      }
+      for (let x2 = 0; x2 < 5; x2 += 1) {
+        const Tx4 = T[(x2 + 4) % 5];
+        const Tx1 = T[(x2 + 1) % 5];
+        const Tx1Msw = Tx1.high;
+        const Tx1Lsw = Tx1.low;
+        const tMsw = Tx4.high ^ (Tx1Msw << 1 | Tx1Lsw >>> 31);
+        const tLsw = Tx4.low ^ (Tx1Lsw << 1 | Tx1Msw >>> 31);
+        for (let y = 0; y < 5; y += 1) {
+          const lane2 = state[x2 + 5 * y];
+          lane2.high ^= tMsw;
+          lane2.low ^= tLsw;
+        }
+      }
+      for (let laneIndex = 1; laneIndex < 25; laneIndex += 1) {
+        let tMsw;
+        let tLsw;
+        const lane2 = state[laneIndex];
+        const laneMsw = lane2.high;
+        const laneLsw = lane2.low;
+        const rhoOffset = RHO_OFFSETS[laneIndex];
+        if (rhoOffset < 32) {
+          tMsw = laneMsw << rhoOffset | laneLsw >>> 32 - rhoOffset;
+          tLsw = laneLsw << rhoOffset | laneMsw >>> 32 - rhoOffset;
+        } else {
+          tMsw = laneLsw << rhoOffset - 32 | laneMsw >>> 64 - rhoOffset;
+          tLsw = laneMsw << rhoOffset - 32 | laneLsw >>> 64 - rhoOffset;
+        }
+        const TPiLane = T[PI_INDEXES[laneIndex]];
+        TPiLane.high = tMsw;
+        TPiLane.low = tLsw;
+      }
+      const T0 = T[0];
+      const state0 = state[0];
+      T0.high = state0.high;
+      T0.low = state0.low;
+      for (let x2 = 0; x2 < 5; x2 += 1) {
+        for (let y = 0; y < 5; y += 1) {
+          const laneIndex = x2 + 5 * y;
+          const lane2 = state[laneIndex];
+          const TLane = T[laneIndex];
+          const Tx1Lane = T[(x2 + 1) % 5 + 5 * y];
+          const Tx2Lane = T[(x2 + 2) % 5 + 5 * y];
+          lane2.high = TLane.high ^ ~Tx1Lane.high & Tx2Lane.high;
+          lane2.low = TLane.low ^ ~Tx1Lane.low & Tx2Lane.low;
+        }
+      }
+      const lane = state[0];
+      const roundConstant = ROUND_CONSTANTS[round];
+      lane.high ^= roundConstant.high;
+      lane.low ^= roundConstant.low;
+    }
+  }
+  _doFinalize() {
+    const data = this._data;
+    const dataWords = data.words;
+    const nBitsLeft = data.sigBytes * 8;
+    const blockSizeBits = this.blockSize * 32;
+    dataWords[nBitsLeft >>> 5] |= 1 << 24 - nBitsLeft % 32;
+    dataWords[(Math.ceil((nBitsLeft + 1) / blockSizeBits) * blockSizeBits >>> 5) - 1] |= 128;
+    data.sigBytes = dataWords.length * 4;
+    this._process();
+    const state = this._state;
+    const outputLengthBytes = this.cfg.outputLength / 8;
+    const outputLengthLanes = outputLengthBytes / 8;
+    const hashWords = [];
+    for (let i = 0; i < outputLengthLanes; i += 1) {
+      const lane = state[i];
+      let laneMsw = lane.high;
+      let laneLsw = lane.low;
+      laneMsw = (laneMsw << 8 | laneMsw >>> 24) & 16711935 | (laneMsw << 24 | laneMsw >>> 8) & 4278255360;
+      laneLsw = (laneLsw << 8 | laneLsw >>> 24) & 16711935 | (laneLsw << 24 | laneLsw >>> 8) & 4278255360;
+      hashWords.push(laneLsw);
+      hashWords.push(laneMsw);
+    }
+    return new WordArray(hashWords, outputLengthBytes);
+  }
+  clone() {
+    const clone = super.clone.call(this);
+    clone._state = this._state.slice(0);
+    const state = clone._state;
+    for (let i = 0; i < 25; i += 1) {
+      state[i] = state[i].clone();
+    }
+    return clone;
+  }
+}
+const SHA3 = Hasher._createHelper(SHA3Algo);
+const HmacSHA3 = Hasher._createHmacHelper(SHA3Algo);
+/** @preserve
 (c) 2012 by Cédric Mesnil. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, are permitted
@@ -18,11 +2040,2381 @@ DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVI
 DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
 WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY
 WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-*/const ds=T.create([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,7,4,13,1,10,6,15,3,12,0,9,5,2,14,11,8,3,10,14,4,9,15,8,1,2,7,0,6,13,11,5,12,1,9,11,10,0,8,12,4,13,3,7,15,14,5,6,2,4,0,5,9,7,12,2,10,14,1,3,8,11,6,15,13]),ps=T.create([5,14,7,0,9,2,11,4,13,6,15,8,1,10,3,12,6,11,3,7,0,13,5,10,14,15,8,12,4,9,1,2,15,5,1,3,7,14,6,9,11,8,12,2,10,0,4,13,8,6,4,1,3,11,15,0,5,12,2,13,9,7,10,14,12,15,10,4,1,5,8,7,6,2,13,14,0,3,9,11]),bs=T.create([11,14,15,12,5,8,7,9,11,13,14,15,6,7,9,8,7,6,8,13,11,9,7,15,7,12,15,9,11,7,13,12,11,13,6,7,14,9,13,15,14,8,13,6,5,12,7,5,11,12,14,15,14,15,9,8,9,14,5,6,8,6,5,12,9,15,5,11,6,8,13,12,5,12,13,14,11,8,5,6]),_s=T.create([8,9,9,11,13,15,15,5,7,7,8,11,14,14,12,6,9,13,15,7,12,8,9,11,7,7,12,7,6,15,13,11,9,7,15,11,8,6,6,14,12,13,5,14,13,13,7,5,15,5,8,11,14,14,6,14,6,9,12,9,12,5,15,8,8,5,12,9,12,5,14,6,8,13,6,5,15,13,11,11]),ys=T.create([0,1518500249,1859775393,2400959708,2840853838]),ws=T.create([1352829926,1548603684,1836072691,2053994217,0]),se=(n,t,e)=>n^t^e,re=(n,t,e)=>n&t|~n&e,ie=(n,t,e)=>(n|~t)^e,oe=(n,t,e)=>n&e|t&~e,ce=(n,t,e)=>n^(t|~e),Y0=(n,t)=>n<<t|n>>>32-t;class Dt extends R{_doReset(){this._hash=T.create([1732584193,4023233417,2562383102,271733878,3285377520])}_doProcessBlock(t,e){const s=t;for(let f=0;f<16;f+=1){const p=e+f,b=s[p];s[p]=(b<<8|b>>>24)&16711935|(b<<24|b>>>8)&4278255360}const r=this._hash.words,i=ys.words,o=ws.words,c=ds.words,a=ps.words,l=bs.words,u=_s.words;let x=r[0],_=r[1],v=r[2],m=r[3],g=r[4],S=r[0],y=r[1],C=r[2],k=r[3],A=r[4],h;for(let f=0;f<80;f+=1)h=x+s[e+c[f]]|0,f<16?h+=se(_,v,m)+i[0]:f<32?h+=re(_,v,m)+i[1]:f<48?h+=ie(_,v,m)+i[2]:f<64?h+=oe(_,v,m)+i[3]:h+=ce(_,v,m)+i[4],h|=0,h=Y0(h,l[f]),h=h+g|0,x=g,g=m,m=Y0(v,10),v=_,_=h,h=S+s[e+a[f]]|0,f<16?h+=ce(y,C,k)+o[0]:f<32?h+=oe(y,C,k)+o[1]:f<48?h+=ie(y,C,k)+o[2]:f<64?h+=re(y,C,k)+o[3]:h+=se(y,C,k)+o[4],h|=0,h=Y0(h,u[f]),h=h+A|0,S=A,A=k,k=Y0(C,10),C=y,y=h;h=r[1]+v+k|0,r[1]=r[2]+m+A|0,r[2]=r[3]+g+S|0,r[3]=r[4]+x+y|0,r[4]=r[0]+_+C|0,r[0]=h}_doFinalize(){const t=this._data,e=t.words,s=this._nDataBytes*8,r=t.sigBytes*8;e[r>>>5]|=128<<24-r%32,e[(r+64>>>9<<4)+14]=(s<<8|s>>>24)&16711935|(s<<24|s>>>8)&4278255360,t.sigBytes=(e.length+1)*4,this._process();const i=this._hash,o=i.words;for(let c=0;c<5;c+=1){const a=o[c];o[c]=(a<<8|a>>>24)&16711935|(a<<24|a>>>8)&4278255360}return i}clone(){const t=super.clone.call(this);return t._hash=this._hash.clone(),t}}const gs=R._createHelper(Dt),ms=R._createHmacHelper(Dt);class Pe extends I{constructor(t){super(),this.cfg=Object.assign(new I,{keySize:128/32,hasher:it,iterations:1},t)}compute(t,e){const{cfg:s}=this,r=At.create(s.hasher,t),i=T.create(),o=T.create([1]),c=i.words,a=o.words,{keySize:l,iterations:u}=s;for(;c.length<l;){const x=r.update(e).finalize(o);r.reset();const _=x.words,v=_.length;let m=x;for(let g=1;g<u;g+=1){m=r.finalize(m),r.reset();const S=m.words;for(let y=0;y<v;y+=1)_[y]^=S[y]}i.concat(x),a[0]+=1}return i.sigBytes=l*4,i}}const vs=(n,t,e)=>Pe.create(e).compute(n,t),z=[],Oe=[],Me=[],De=[],ze=[],Le=[],pt=[],bt=[],_t=[],yt=[],N=[];for(let n=0;n<256;n+=1)n<128?N[n]=n<<1:N[n]=n<<1^283;let U=0,Z=0;for(let n=0;n<256;n+=1){let t=Z^Z<<1^Z<<2^Z<<3^Z<<4;t=t>>>8^t&255^99,z[U]=t,Oe[t]=U;const e=N[U],s=N[e],r=N[s];let i=N[t]*257^t*16843008;Me[U]=i<<24|i>>>8,De[U]=i<<16|i>>>16,ze[U]=i<<8|i>>>24,Le[U]=i,i=r*16843009^s*65537^e*257^U*16843008,pt[t]=i<<24|i>>>8,bt[t]=i<<16|i>>>16,_t[t]=i<<8|i>>>24,yt[t]=i,U?(U=e^N[N[N[r^e]]],Z^=N[N[Z]]):(Z=1,U=Z)}const Ss=[0,1,2,4,8,16,32,64,128,27,54];class zt extends u0{_doReset(){let t;if(this._nRounds&&this._keyPriorReset===this._key)return;this._keyPriorReset=this._key;const e=this._keyPriorReset,s=e.words,r=e.sigBytes/4;this._nRounds=r+6;const o=(this._nRounds+1)*4;this._keySchedule=[];const c=this._keySchedule;for(let l=0;l<o;l+=1)l<r?c[l]=s[l]:(t=c[l-1],l%r?r>6&&l%r===4&&(t=z[t>>>24]<<24|z[t>>>16&255]<<16|z[t>>>8&255]<<8|z[t&255]):(t=t<<8|t>>>24,t=z[t>>>24]<<24|z[t>>>16&255]<<16|z[t>>>8&255]<<8|z[t&255],t^=Ss[l/r|0]<<24),c[l]=c[l-r]^t);this._invKeySchedule=[];const a=this._invKeySchedule;for(let l=0;l<o;l+=1){const u=o-l;l%4?t=c[u]:t=c[u-4],l<4||u<=4?a[l]=t:a[l]=pt[z[t>>>24]]^bt[z[t>>>16&255]]^_t[z[t>>>8&255]]^yt[z[t&255]]}}encryptBlock(t,e){this._doCryptBlock(t,e,this._keySchedule,Me,De,ze,Le,z)}decryptBlock(t,e){const s=t;let r=s[e+1];s[e+1]=s[e+3],s[e+3]=r,this._doCryptBlock(s,e,this._invKeySchedule,pt,bt,_t,yt,Oe),r=s[e+1],s[e+1]=s[e+3],s[e+3]=r}_doCryptBlock(t,e,s,r,i,o,c,a){const l=t,u=this._nRounds;let x=l[e]^s[0],_=l[e+1]^s[1],v=l[e+2]^s[2],m=l[e+3]^s[3],g=4;for(let A=1;A<u;A+=1){const h=r[x>>>24]^i[_>>>16&255]^o[v>>>8&255]^c[m&255]^s[g];g+=1;const f=r[_>>>24]^i[v>>>16&255]^o[m>>>8&255]^c[x&255]^s[g];g+=1;const p=r[v>>>24]^i[m>>>16&255]^o[x>>>8&255]^c[_&255]^s[g];g+=1;const b=r[m>>>24]^i[x>>>16&255]^o[_>>>8&255]^c[v&255]^s[g];g+=1,x=h,_=f,v=p,m=b}const S=(a[x>>>24]<<24|a[_>>>16&255]<<16|a[v>>>8&255]<<8|a[m&255])^s[g];g+=1;const y=(a[_>>>24]<<24|a[v>>>16&255]<<16|a[m>>>8&255]<<8|a[x&255])^s[g];g+=1;const C=(a[v>>>24]<<24|a[m>>>16&255]<<16|a[x>>>8&255]<<8|a[_&255])^s[g];g+=1;const k=(a[m>>>24]<<24|a[x>>>16&255]<<16|a[_>>>8&255]<<8|a[v&255])^s[g];g+=1,l[e]=S,l[e+1]=y,l[e+2]=C,l[e+3]=k}}zt.keySize=256/32;const ks=u0._createHelper(zt),Es=[57,49,41,33,25,17,9,1,58,50,42,34,26,18,10,2,59,51,43,35,27,19,11,3,60,52,44,36,63,55,47,39,31,23,15,7,62,54,46,38,30,22,14,6,61,53,45,37,29,21,13,5,28,20,12,4],ae=[14,17,11,24,1,5,3,28,15,6,21,10,23,19,12,4,26,8,16,7,27,20,13,2,41,52,31,37,47,55,30,40,51,45,33,48,44,49,39,56,34,53,46,42,50,36,29,32],Bs=[1,2,4,6,8,10,12,14,15,17,19,21,23,25,27,28],Ts=[{0:8421888,268435456:32768,536870912:8421378,805306368:2,1073741824:512,1342177280:8421890,1610612736:8389122,1879048192:8388608,2147483648:514,2415919104:8389120,2684354560:33280,2952790016:8421376,3221225472:32770,3489660928:8388610,3758096384:0,4026531840:33282,134217728:0,402653184:8421890,671088640:33282,939524096:32768,1207959552:8421888,1476395008:512,1744830464:8421378,2013265920:2,2281701376:8389120,2550136832:33280,2818572288:8421376,3087007744:8389122,3355443200:8388610,3623878656:32770,3892314112:514,4160749568:8388608,1:32768,268435457:2,536870913:8421888,805306369:8388608,1073741825:8421378,1342177281:33280,1610612737:512,1879048193:8389122,2147483649:8421890,2415919105:8421376,2684354561:8388610,2952790017:33282,3221225473:514,3489660929:8389120,3758096385:32770,4026531841:0,134217729:8421890,402653185:8421376,671088641:8388608,939524097:512,1207959553:32768,1476395009:8388610,1744830465:2,2013265921:33282,2281701377:32770,2550136833:8389122,2818572289:514,3087007745:8421888,3355443201:8389120,3623878657:0,3892314113:33280,4160749569:8421378},{0:1074282512,16777216:16384,33554432:524288,50331648:1074266128,67108864:1073741840,83886080:1074282496,100663296:1073758208,117440512:16,134217728:540672,150994944:1073758224,167772160:1073741824,184549376:540688,201326592:524304,218103808:0,234881024:16400,251658240:1074266112,8388608:1073758208,25165824:540688,41943040:16,58720256:1073758224,75497472:1074282512,92274688:1073741824,109051904:524288,125829120:1074266128,142606336:524304,159383552:0,176160768:16384,192937984:1074266112,209715200:1073741840,226492416:540672,243269632:1074282496,260046848:16400,268435456:0,285212672:1074266128,301989888:1073758224,318767104:1074282496,335544320:1074266112,352321536:16,369098752:540688,385875968:16384,402653184:16400,419430400:524288,436207616:524304,452984832:1073741840,469762048:540672,486539264:1073758208,503316480:1073741824,520093696:1074282512,276824064:540688,293601280:524288,310378496:1074266112,327155712:16384,343932928:1073758208,360710144:1074282512,377487360:16,394264576:1073741824,411041792:1074282496,427819008:1073741840,444596224:1073758224,461373440:524304,478150656:0,494927872:16400,511705088:1074266128,528482304:540672},{0:260,1048576:0,2097152:67109120,3145728:65796,4194304:65540,5242880:67108868,6291456:67174660,7340032:67174400,8388608:67108864,9437184:67174656,10485760:65792,11534336:67174404,12582912:67109124,13631488:65536,14680064:4,15728640:256,524288:67174656,1572864:67174404,2621440:0,3670016:67109120,4718592:67108868,5767168:65536,6815744:65540,7864320:260,8912896:4,9961472:256,11010048:67174400,12058624:65796,13107200:65792,14155776:67109124,15204352:67174660,16252928:67108864,16777216:67174656,17825792:65540,18874368:65536,19922944:67109120,20971520:256,22020096:67174660,23068672:67108868,24117248:0,25165824:67109124,26214400:67108864,27262976:4,28311552:65792,29360128:67174400,30408704:260,31457280:65796,32505856:67174404,17301504:67108864,18350080:260,19398656:67174656,20447232:0,21495808:65540,22544384:67109120,23592960:256,24641536:67174404,25690112:65536,26738688:67174660,27787264:65796,28835840:67108868,29884416:67109124,30932992:67174400,31981568:4,33030144:65792},{0:2151682048,65536:2147487808,131072:4198464,196608:2151677952,262144:0,327680:4198400,393216:2147483712,458752:4194368,524288:2147483648,589824:4194304,655360:64,720896:2147487744,786432:2151678016,851968:4160,917504:4096,983040:2151682112,32768:2147487808,98304:64,163840:2151678016,229376:2147487744,294912:4198400,360448:2151682112,425984:0,491520:2151677952,557056:4096,622592:2151682048,688128:4194304,753664:4160,819200:2147483648,884736:4194368,950272:4198464,1015808:2147483712,1048576:4194368,1114112:4198400,1179648:2147483712,1245184:0,1310720:4160,1376256:2151678016,1441792:2151682048,1507328:2147487808,1572864:2151682112,1638400:2147483648,1703936:2151677952,1769472:4198464,1835008:2147487744,1900544:4194304,1966080:64,2031616:4096,1081344:2151677952,1146880:2151682112,1212416:0,1277952:4198400,1343488:4194368,1409024:2147483648,1474560:2147487808,1540096:64,1605632:2147483712,1671168:4096,1736704:2147487744,1802240:2151678016,1867776:4160,1933312:2151682048,1998848:4194304,2064384:4198464},{0:128,4096:17039360,8192:262144,12288:536870912,16384:537133184,20480:16777344,24576:553648256,28672:262272,32768:16777216,36864:537133056,40960:536871040,45056:553910400,49152:553910272,53248:0,57344:17039488,61440:553648128,2048:17039488,6144:553648256,10240:128,14336:17039360,18432:262144,22528:537133184,26624:553910272,30720:536870912,34816:537133056,38912:0,43008:553910400,47104:16777344,51200:536871040,55296:553648128,59392:16777216,63488:262272,65536:262144,69632:128,73728:536870912,77824:553648256,81920:16777344,86016:553910272,90112:537133184,94208:16777216,98304:553910400,102400:553648128,106496:17039360,110592:537133056,114688:262272,118784:536871040,122880:0,126976:17039488,67584:553648256,71680:16777216,75776:17039360,79872:537133184,83968:536870912,88064:17039488,92160:128,96256:553910272,100352:262272,104448:553910400,108544:0,112640:553648128,116736:16777344,120832:262144,124928:537133056,129024:536871040},{0:268435464,256:8192,512:270532608,768:270540808,1024:268443648,1280:2097152,1536:2097160,1792:268435456,2048:0,2304:268443656,2560:2105344,2816:8,3072:270532616,3328:2105352,3584:8200,3840:270540800,128:270532608,384:270540808,640:8,896:2097152,1152:2105352,1408:268435464,1664:268443648,1920:8200,2176:2097160,2432:8192,2688:268443656,2944:270532616,3200:0,3456:270540800,3712:2105344,3968:268435456,4096:268443648,4352:270532616,4608:270540808,4864:8200,5120:2097152,5376:268435456,5632:268435464,5888:2105344,6144:2105352,6400:0,6656:8,6912:270532608,7168:8192,7424:268443656,7680:270540800,7936:2097160,4224:8,4480:2105344,4736:2097152,4992:268435464,5248:268443648,5504:8200,5760:270540808,6016:270532608,6272:270540800,6528:270532616,6784:8192,7040:2105352,7296:2097160,7552:0,7808:268435456,8064:268443656},{0:1048576,16:33555457,32:1024,48:1049601,64:34604033,80:0,96:1,112:34603009,128:33555456,144:1048577,160:33554433,176:34604032,192:34603008,208:1025,224:1049600,240:33554432,8:34603009,24:0,40:33555457,56:34604032,72:1048576,88:33554433,104:33554432,120:1025,136:1049601,152:33555456,168:34603008,184:1048577,200:1024,216:34604033,232:1,248:1049600,256:33554432,272:1048576,288:33555457,304:34603009,320:1048577,336:33555456,352:34604032,368:1049601,384:1025,400:34604033,416:1049600,432:1,448:0,464:34603008,480:33554433,496:1024,264:1049600,280:33555457,296:34603009,312:1,328:33554432,344:1048576,360:1025,376:34604032,392:33554433,408:34603008,424:0,440:34604033,456:1049601,472:1024,488:33555456,504:1048577},{0:134219808,1:131072,2:134217728,3:32,4:131104,5:134350880,6:134350848,7:2048,8:134348800,9:134219776,10:133120,11:134348832,12:2080,13:0,14:134217760,15:133152,2147483648:2048,2147483649:134350880,2147483650:134219808,2147483651:134217728,2147483652:134348800,2147483653:133120,2147483654:133152,2147483655:32,2147483656:134217760,2147483657:2080,2147483658:131104,2147483659:134350848,2147483660:0,2147483661:134348832,2147483662:134219776,2147483663:131072,16:133152,17:134350848,18:32,19:2048,20:134219776,21:134217760,22:134348832,23:131072,24:0,25:131104,26:134348800,27:134219808,28:134350880,29:133120,30:2080,31:134217728,2147483664:131072,2147483665:2048,2147483666:134348832,2147483667:133152,2147483668:32,2147483669:134348800,2147483670:134217728,2147483671:134219808,2147483672:134350880,2147483673:134217760,2147483674:134219776,2147483675:0,2147483676:133120,2147483677:2080,2147483678:131104,2147483679:134350848}],Cs=[4160749569,528482304,33030144,2064384,129024,8064,504,2147483679];function w0(n,t){const e=(this._lBlock>>>n^this._rBlock)&t;this._rBlock^=e,this._lBlock^=e<<n}function J0(n,t){const e=(this._rBlock>>>n^this._lBlock)&t;this._lBlock^=e,this._rBlock^=e<<n}class o0 extends u0{_doReset(){const e=this._key.words,s=[];for(let o=0;o<56;o+=1){const c=Es[o]-1;s[o]=e[c>>>5]>>>31-c%32&1}this._subKeys=[];const r=this._subKeys;for(let o=0;o<16;o+=1){r[o]=[];const c=r[o],a=Bs[o];for(let l=0;l<24;l+=1)c[l/6|0]|=s[(ae[l]-1+a)%28]<<31-l%6,c[4+(l/6|0)]|=s[28+(ae[l+24]-1+a)%28]<<31-l%6;c[0]=c[0]<<1|c[0]>>>31;for(let l=1;l<7;l+=1)c[l]>>>=(l-1)*4+3;c[7]=c[7]<<5|c[7]>>>27}this._invSubKeys=[];const i=this._invSubKeys;for(let o=0;o<16;o+=1)i[o]=r[15-o]}encryptBlock(t,e){this._doCryptBlock(t,e,this._subKeys)}decryptBlock(t,e){this._doCryptBlock(t,e,this._invSubKeys)}_doCryptBlock(t,e,s){const r=t;this._lBlock=t[e],this._rBlock=t[e+1],w0.call(this,4,252645135),w0.call(this,16,65535),J0.call(this,2,858993459),J0.call(this,8,16711935),w0.call(this,1,1431655765);for(let o=0;o<16;o+=1){const c=s[o],a=this._lBlock,l=this._rBlock;let u=0;for(let x=0;x<8;x+=1)u|=Ts[x][((l^c[x])&Cs[x])>>>0];this._lBlock=l,this._rBlock=a^u}const i=this._lBlock;this._lBlock=this._rBlock,this._rBlock=i,w0.call(this,1,1431655765),J0.call(this,8,16711935),J0.call(this,2,858993459),w0.call(this,16,65535),w0.call(this,4,252645135),r[e]=this._lBlock,r[e+1]=this._rBlock}}o0.keySize=64/32;o0.ivSize=64/32;o0.blockSize=64/32;const As=u0._createHelper(o0);class N0 extends u0{_doReset(){const e=this._key.words;if(e.length!==2&&e.length!==4&&e.length<6)throw new Error("Invalid key length - 3DES requires the key length to be 64, 128, 192 or >192.");const s=e.slice(0,2),r=e.length<4?e.slice(0,2):e.slice(2,4),i=e.length<6?e.slice(0,2):e.slice(4,6);this._des1=o0.createEncryptor(T.create(s)),this._des2=o0.createEncryptor(T.create(r)),this._des3=o0.createEncryptor(T.create(i))}encryptBlock(t,e){this._des1.encryptBlock(t,e),this._des2.decryptBlock(t,e),this._des3.encryptBlock(t,e)}decryptBlock(t,e){this._des3.decryptBlock(t,e),this._des2.encryptBlock(t,e),this._des1.decryptBlock(t,e)}}N0.keySize=192/32;N0.ivSize=64/32;N0.blockSize=64/32;const Is=u0._createHelper(N0),X=[],t0=[],E=[];function xt(){const n=this._X,t=this._C;for(let e=0;e<8;e+=1)t0[e]=t[e];t[0]=t[0]+1295307597+this._b|0,t[1]=t[1]+3545052371+(t[0]>>>0<t0[0]>>>0?1:0)|0,t[2]=t[2]+886263092+(t[1]>>>0<t0[1]>>>0?1:0)|0,t[3]=t[3]+1295307597+(t[2]>>>0<t0[2]>>>0?1:0)|0,t[4]=t[4]+3545052371+(t[3]>>>0<t0[3]>>>0?1:0)|0,t[5]=t[5]+886263092+(t[4]>>>0<t0[4]>>>0?1:0)|0,t[6]=t[6]+1295307597+(t[5]>>>0<t0[5]>>>0?1:0)|0,t[7]=t[7]+3545052371+(t[6]>>>0<t0[6]>>>0?1:0)|0,this._b=t[7]>>>0<t0[7]>>>0?1:0;for(let e=0;e<8;e+=1){const s=n[e]+t[e],r=s&65535,i=s>>>16,o=((r*r>>>17)+r*i>>>15)+i*i,c=((s&4294901760)*s|0)+((s&65535)*s|0);E[e]=o^c}n[0]=E[0]+(E[7]<<16|E[7]>>>16)+(E[6]<<16|E[6]>>>16)|0,n[1]=E[1]+(E[0]<<8|E[0]>>>24)+E[7]|0,n[2]=E[2]+(E[1]<<16|E[1]>>>16)+(E[0]<<16|E[0]>>>16)|0,n[3]=E[3]+(E[2]<<8|E[2]>>>24)+E[1]|0,n[4]=E[4]+(E[3]<<16|E[3]>>>16)+(E[2]<<16|E[2]>>>16)|0,n[5]=E[5]+(E[4]<<8|E[4]>>>24)+E[3]|0,n[6]=E[6]+(E[5]<<16|E[5]>>>16)+(E[4]<<16|E[4]>>>16)|0,n[7]=E[7]+(E[6]<<8|E[6]>>>24)+E[5]|0}class Fe extends c0{constructor(...t){super(...t),this.blockSize=128/32,this.ivSize=64/32}_doReset(){const t=this._key.words,{iv:e}=this.cfg;for(let i=0;i<4;i+=1)t[i]=(t[i]<<8|t[i]>>>24)&16711935|(t[i]<<24|t[i]>>>8)&4278255360;this._X=[t[0],t[3]<<16|t[2]>>>16,t[1],t[0]<<16|t[3]>>>16,t[2],t[1]<<16|t[0]>>>16,t[3],t[2]<<16|t[1]>>>16];const s=this._X;this._C=[t[2]<<16|t[2]>>>16,t[0]&4294901760|t[1]&65535,t[3]<<16|t[3]>>>16,t[1]&4294901760|t[2]&65535,t[0]<<16|t[0]>>>16,t[2]&4294901760|t[3]&65535,t[1]<<16|t[1]>>>16,t[3]&4294901760|t[0]&65535];const r=this._C;this._b=0;for(let i=0;i<4;i+=1)xt.call(this);for(let i=0;i<8;i+=1)r[i]^=s[i+4&7];if(e){const i=e.words,o=i[0],c=i[1],a=(o<<8|o>>>24)&16711935|(o<<24|o>>>8)&4278255360,l=(c<<8|c>>>24)&16711935|(c<<24|c>>>8)&4278255360,u=a>>>16|l&4294901760,x=l<<16|a&65535;r[0]^=a,r[1]^=u,r[2]^=l,r[3]^=x,r[4]^=a,r[5]^=u,r[6]^=l,r[7]^=x;for(let _=0;_<4;_+=1)xt.call(this)}}_doProcessBlock(t,e){const s=t,r=this._X;xt.call(this),X[0]=r[0]^r[5]>>>16^r[3]<<16,X[1]=r[2]^r[7]>>>16^r[5]<<16,X[2]=r[4]^r[1]>>>16^r[7]<<16,X[3]=r[6]^r[3]>>>16^r[1]<<16;for(let i=0;i<4;i+=1)X[i]=(X[i]<<8|X[i]>>>24)&16711935|(X[i]<<24|X[i]>>>8)&4278255360,s[e+i]^=X[i]}}const Rs=c0._createHelper(Fe),Q=[],e0=[],B=[];function ft(){const n=this._X,t=this._C;for(let e=0;e<8;e+=1)e0[e]=t[e];t[0]=t[0]+1295307597+this._b|0,t[1]=t[1]+3545052371+(t[0]>>>0<e0[0]>>>0?1:0)|0,t[2]=t[2]+886263092+(t[1]>>>0<e0[1]>>>0?1:0)|0,t[3]=t[3]+1295307597+(t[2]>>>0<e0[2]>>>0?1:0)|0,t[4]=t[4]+3545052371+(t[3]>>>0<e0[3]>>>0?1:0)|0,t[5]=t[5]+886263092+(t[4]>>>0<e0[4]>>>0?1:0)|0,t[6]=t[6]+1295307597+(t[5]>>>0<e0[5]>>>0?1:0)|0,t[7]=t[7]+3545052371+(t[6]>>>0<e0[6]>>>0?1:0)|0,this._b=t[7]>>>0<e0[7]>>>0?1:0;for(let e=0;e<8;e+=1){const s=n[e]+t[e],r=s&65535,i=s>>>16,o=((r*r>>>17)+r*i>>>15)+i*i,c=((s&4294901760)*s|0)+((s&65535)*s|0);B[e]=o^c}n[0]=B[0]+(B[7]<<16|B[7]>>>16)+(B[6]<<16|B[6]>>>16)|0,n[1]=B[1]+(B[0]<<8|B[0]>>>24)+B[7]|0,n[2]=B[2]+(B[1]<<16|B[1]>>>16)+(B[0]<<16|B[0]>>>16)|0,n[3]=B[3]+(B[2]<<8|B[2]>>>24)+B[1]|0,n[4]=B[4]+(B[3]<<16|B[3]>>>16)+(B[2]<<16|B[2]>>>16)|0,n[5]=B[5]+(B[4]<<8|B[4]>>>24)+B[3]|0,n[6]=B[6]+(B[5]<<16|B[5]>>>16)+(B[4]<<16|B[4]>>>16)|0,n[7]=B[7]+(B[6]<<8|B[6]>>>24)+B[5]|0}class We extends c0{constructor(...t){super(...t),this.blockSize=128/32,this.ivSize=64/32}_doReset(){const t=this._key.words,{iv:e}=this.cfg;this._X=[t[0],t[3]<<16|t[2]>>>16,t[1],t[0]<<16|t[3]>>>16,t[2],t[1]<<16|t[0]>>>16,t[3],t[2]<<16|t[1]>>>16];const s=this._X;this._C=[t[2]<<16|t[2]>>>16,t[0]&4294901760|t[1]&65535,t[3]<<16|t[3]>>>16,t[1]&4294901760|t[2]&65535,t[0]<<16|t[0]>>>16,t[2]&4294901760|t[3]&65535,t[1]<<16|t[1]>>>16,t[3]&4294901760|t[0]&65535];const r=this._C;this._b=0;for(let i=0;i<4;i+=1)ft.call(this);for(let i=0;i<8;i+=1)r[i]^=s[i+4&7];if(e){const i=e.words,o=i[0],c=i[1],a=(o<<8|o>>>24)&16711935|(o<<24|o>>>8)&4278255360,l=(c<<8|c>>>24)&16711935|(c<<24|c>>>8)&4278255360,u=a>>>16|l&4294901760,x=l<<16|a&65535;r[0]^=a,r[1]^=u,r[2]^=l,r[3]^=x,r[4]^=a,r[5]^=u,r[6]^=l,r[7]^=x;for(let _=0;_<4;_+=1)ft.call(this)}}_doProcessBlock(t,e){const s=t,r=this._X;ft.call(this),Q[0]=r[0]^r[5]>>>16^r[3]<<16,Q[1]=r[2]^r[7]>>>16^r[5]<<16,Q[2]=r[4]^r[1]>>>16^r[7]<<16,Q[3]=r[6]^r[3]>>>16^r[1]<<16;for(let i=0;i<4;i+=1)Q[i]=(Q[i]<<8|Q[i]>>>24)&16711935|(Q[i]<<24|Q[i]>>>8)&4278255360,s[e+i]^=Q[i]}}const Hs=c0._createHelper(We);function Ke(){const n=this._S;let t=this._i,e=this._j,s=0;for(let r=0;r<4;r+=1){t=(t+1)%256,e=(e+n[t])%256;const i=n[t];n[t]=n[e],n[e]=i,s|=n[(n[t]+n[e])%256]<<24-r*8}return this._i=t,this._j=e,s}class V0 extends c0{_doReset(){const t=this._key,e=t.words,s=t.sigBytes;this._S=[];const r=this._S;for(let i=0;i<256;i+=1)r[i]=i;for(let i=0,o=0;i<256;i+=1){const c=i%s,a=e[c>>>2]>>>24-c%4*8&255;o=(o+r[i]+a)%256;const l=r[i];r[i]=r[o],r[o]=l}this._j=0,this._i=this._j}_doProcessBlock(t,e){const s=t;s[e]^=Ke.call(this)}}V0.keySize=256/32;V0.ivSize=0;const Ps=c0._createHelper(V0);class je extends V0{constructor(...t){super(...t),Object.assign(this.cfg,{drop:192})}_doReset(){super._doReset.call(this);for(let t=this.cfg.drop;t>0;t-=1)Ke.call(this)}}const Os=c0._createHelper(je);function $e(n,t,e,s){const r=n;let i;const o=this._iv;o?(i=o.slice(0),this._iv=void 0):i=this._prevBlock,s.encryptBlock(i,0);for(let c=0;c<e;c+=1)r[t+c]^=i[c]}class D0 extends f0{}D0.Encryptor=class extends D0{processBlock(n,t){const e=this._cipher,{blockSize:s}=e;$e.call(this,n,t,s,e),this._prevBlock=n.slice(t,t+s)}};D0.Decryptor=class extends D0{processBlock(n,t){const e=this._cipher,{blockSize:s}=e,r=n.slice(t,t+s);$e.call(this,n,t,s,e),this._prevBlock=r}};class z0 extends f0{}z0.Encryptor=class extends z0{processBlock(n,t){const e=n,s=this._cipher,{blockSize:r}=s,i=this._iv;let o=this._counter;i&&(this._counter=i.slice(0),o=this._counter,this._iv=void 0);const c=o.slice(0);s.encryptBlock(c,0),o[r-1]=o[r-1]+1|0;for(let a=0;a<r;a+=1)e[t+a]^=c[a]}};z0.Decryptor=z0.Encryptor;const le=n=>{let t=n;if((n>>24&255)===255){let e=n>>16&255,s=n>>8&255,r=n&255;e===255?(e=0,s===255?(s=0,r===255?r=0:r+=1):s+=1):e+=1,t=0,t+=e<<16,t+=s<<8,t+=r}else t+=1<<24;return t},Ms=n=>{const t=n;return t[0]=le(t[0]),t[0]===0&&(t[1]=le(t[1])),t};/** @preserve
+*/
+const _zl = WordArray.create([
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  7,
+  4,
+  13,
+  1,
+  10,
+  6,
+  15,
+  3,
+  12,
+  0,
+  9,
+  5,
+  2,
+  14,
+  11,
+  8,
+  3,
+  10,
+  14,
+  4,
+  9,
+  15,
+  8,
+  1,
+  2,
+  7,
+  0,
+  6,
+  13,
+  11,
+  5,
+  12,
+  1,
+  9,
+  11,
+  10,
+  0,
+  8,
+  12,
+  4,
+  13,
+  3,
+  7,
+  15,
+  14,
+  5,
+  6,
+  2,
+  4,
+  0,
+  5,
+  9,
+  7,
+  12,
+  2,
+  10,
+  14,
+  1,
+  3,
+  8,
+  11,
+  6,
+  15,
+  13
+]);
+const _zr = WordArray.create([
+  5,
+  14,
+  7,
+  0,
+  9,
+  2,
+  11,
+  4,
+  13,
+  6,
+  15,
+  8,
+  1,
+  10,
+  3,
+  12,
+  6,
+  11,
+  3,
+  7,
+  0,
+  13,
+  5,
+  10,
+  14,
+  15,
+  8,
+  12,
+  4,
+  9,
+  1,
+  2,
+  15,
+  5,
+  1,
+  3,
+  7,
+  14,
+  6,
+  9,
+  11,
+  8,
+  12,
+  2,
+  10,
+  0,
+  4,
+  13,
+  8,
+  6,
+  4,
+  1,
+  3,
+  11,
+  15,
+  0,
+  5,
+  12,
+  2,
+  13,
+  9,
+  7,
+  10,
+  14,
+  12,
+  15,
+  10,
+  4,
+  1,
+  5,
+  8,
+  7,
+  6,
+  2,
+  13,
+  14,
+  0,
+  3,
+  9,
+  11
+]);
+const _sl = WordArray.create([
+  11,
+  14,
+  15,
+  12,
+  5,
+  8,
+  7,
+  9,
+  11,
+  13,
+  14,
+  15,
+  6,
+  7,
+  9,
+  8,
+  7,
+  6,
+  8,
+  13,
+  11,
+  9,
+  7,
+  15,
+  7,
+  12,
+  15,
+  9,
+  11,
+  7,
+  13,
+  12,
+  11,
+  13,
+  6,
+  7,
+  14,
+  9,
+  13,
+  15,
+  14,
+  8,
+  13,
+  6,
+  5,
+  12,
+  7,
+  5,
+  11,
+  12,
+  14,
+  15,
+  14,
+  15,
+  9,
+  8,
+  9,
+  14,
+  5,
+  6,
+  8,
+  6,
+  5,
+  12,
+  9,
+  15,
+  5,
+  11,
+  6,
+  8,
+  13,
+  12,
+  5,
+  12,
+  13,
+  14,
+  11,
+  8,
+  5,
+  6
+]);
+const _sr = WordArray.create([
+  8,
+  9,
+  9,
+  11,
+  13,
+  15,
+  15,
+  5,
+  7,
+  7,
+  8,
+  11,
+  14,
+  14,
+  12,
+  6,
+  9,
+  13,
+  15,
+  7,
+  12,
+  8,
+  9,
+  11,
+  7,
+  7,
+  12,
+  7,
+  6,
+  15,
+  13,
+  11,
+  9,
+  7,
+  15,
+  11,
+  8,
+  6,
+  6,
+  14,
+  12,
+  13,
+  5,
+  14,
+  13,
+  13,
+  7,
+  5,
+  15,
+  5,
+  8,
+  11,
+  14,
+  14,
+  6,
+  14,
+  6,
+  9,
+  12,
+  9,
+  12,
+  5,
+  15,
+  8,
+  8,
+  5,
+  12,
+  9,
+  12,
+  5,
+  14,
+  6,
+  8,
+  13,
+  6,
+  5,
+  15,
+  13,
+  11,
+  11
+]);
+const _hl = WordArray.create([0, 1518500249, 1859775393, 2400959708, 2840853838]);
+const _hr = WordArray.create([1352829926, 1548603684, 1836072691, 2053994217, 0]);
+const f1 = (x2, y, z) => x2 ^ y ^ z;
+const f2 = (x2, y, z) => x2 & y | ~x2 & z;
+const f3 = (x2, y, z) => (x2 | ~y) ^ z;
+const f4 = (x2, y, z) => x2 & z | y & ~z;
+const f5 = (x2, y, z) => x2 ^ (y | ~z);
+const rotl = (x2, n2) => x2 << n2 | x2 >>> 32 - n2;
+class RIPEMD160Algo extends Hasher {
+  _doReset() {
+    this._hash = WordArray.create([1732584193, 4023233417, 2562383102, 271733878, 3285377520]);
+  }
+  _doProcessBlock(M, offset) {
+    const _M = M;
+    for (let i = 0; i < 16; i += 1) {
+      const offset_i = offset + i;
+      const M_offset_i = _M[offset_i];
+      _M[offset_i] = (M_offset_i << 8 | M_offset_i >>> 24) & 16711935 | (M_offset_i << 24 | M_offset_i >>> 8) & 4278255360;
+    }
+    const H2 = this._hash.words;
+    const hl = _hl.words;
+    const hr = _hr.words;
+    const zl = _zl.words;
+    const zr = _zr.words;
+    const sl = _sl.words;
+    const sr = _sr.words;
+    let al = H2[0];
+    let bl = H2[1];
+    let cl = H2[2];
+    let dl = H2[3];
+    let el = H2[4];
+    let ar = H2[0];
+    let br = H2[1];
+    let cr = H2[2];
+    let dr = H2[3];
+    let er = H2[4];
+    let t;
+    for (let i = 0; i < 80; i += 1) {
+      t = al + _M[offset + zl[i]] | 0;
+      if (i < 16) {
+        t += f1(bl, cl, dl) + hl[0];
+      } else if (i < 32) {
+        t += f2(bl, cl, dl) + hl[1];
+      } else if (i < 48) {
+        t += f3(bl, cl, dl) + hl[2];
+      } else if (i < 64) {
+        t += f4(bl, cl, dl) + hl[3];
+      } else {
+        t += f5(bl, cl, dl) + hl[4];
+      }
+      t |= 0;
+      t = rotl(t, sl[i]);
+      t = t + el | 0;
+      al = el;
+      el = dl;
+      dl = rotl(cl, 10);
+      cl = bl;
+      bl = t;
+      t = ar + _M[offset + zr[i]] | 0;
+      if (i < 16) {
+        t += f5(br, cr, dr) + hr[0];
+      } else if (i < 32) {
+        t += f4(br, cr, dr) + hr[1];
+      } else if (i < 48) {
+        t += f3(br, cr, dr) + hr[2];
+      } else if (i < 64) {
+        t += f2(br, cr, dr) + hr[3];
+      } else {
+        t += f1(br, cr, dr) + hr[4];
+      }
+      t |= 0;
+      t = rotl(t, sr[i]);
+      t = t + er | 0;
+      ar = er;
+      er = dr;
+      dr = rotl(cr, 10);
+      cr = br;
+      br = t;
+    }
+    t = H2[1] + cl + dr | 0;
+    H2[1] = H2[2] + dl + er | 0;
+    H2[2] = H2[3] + el + ar | 0;
+    H2[3] = H2[4] + al + br | 0;
+    H2[4] = H2[0] + bl + cr | 0;
+    H2[0] = t;
+  }
+  _doFinalize() {
+    const data = this._data;
+    const dataWords = data.words;
+    const nBitsTotal = this._nDataBytes * 8;
+    const nBitsLeft = data.sigBytes * 8;
+    dataWords[nBitsLeft >>> 5] |= 128 << 24 - nBitsLeft % 32;
+    dataWords[(nBitsLeft + 64 >>> 9 << 4) + 14] = (nBitsTotal << 8 | nBitsTotal >>> 24) & 16711935 | (nBitsTotal << 24 | nBitsTotal >>> 8) & 4278255360;
+    data.sigBytes = (dataWords.length + 1) * 4;
+    this._process();
+    const hash = this._hash;
+    const H2 = hash.words;
+    for (let i = 0; i < 5; i += 1) {
+      const H_i = H2[i];
+      H2[i] = (H_i << 8 | H_i >>> 24) & 16711935 | (H_i << 24 | H_i >>> 8) & 4278255360;
+    }
+    return hash;
+  }
+  clone() {
+    const clone = super.clone.call(this);
+    clone._hash = this._hash.clone();
+    return clone;
+  }
+}
+const RIPEMD160 = Hasher._createHelper(RIPEMD160Algo);
+const HmacRIPEMD160 = Hasher._createHmacHelper(RIPEMD160Algo);
+class PBKDF2Algo extends Base {
+  constructor(cfg) {
+    super();
+    this.cfg = Object.assign(
+      new Base(),
+      {
+        keySize: 128 / 32,
+        hasher: SHA1Algo,
+        iterations: 1
+      },
+      cfg
+    );
+  }
+  compute(password, salt) {
+    const { cfg } = this;
+    const hmac = HMAC.create(cfg.hasher, password);
+    const derivedKey = WordArray.create();
+    const blockIndex = WordArray.create([1]);
+    const derivedKeyWords = derivedKey.words;
+    const blockIndexWords = blockIndex.words;
+    const { keySize, iterations } = cfg;
+    while (derivedKeyWords.length < keySize) {
+      const block = hmac.update(salt).finalize(blockIndex);
+      hmac.reset();
+      const blockWords = block.words;
+      const blockWordsLength = blockWords.length;
+      let intermediate = block;
+      for (let i = 1; i < iterations; i += 1) {
+        intermediate = hmac.finalize(intermediate);
+        hmac.reset();
+        const intermediateWords = intermediate.words;
+        for (let j = 0; j < blockWordsLength; j += 1) {
+          blockWords[j] ^= intermediateWords[j];
+        }
+      }
+      derivedKey.concat(block);
+      blockIndexWords[0] += 1;
+    }
+    derivedKey.sigBytes = keySize * 4;
+    return derivedKey;
+  }
+}
+const PBKDF2 = (password, salt, cfg) => PBKDF2Algo.create(cfg).compute(password, salt);
+const _SBOX = [];
+const INV_SBOX = [];
+const _SUB_MIX_0 = [];
+const _SUB_MIX_1 = [];
+const _SUB_MIX_2 = [];
+const _SUB_MIX_3 = [];
+const INV_SUB_MIX_0 = [];
+const INV_SUB_MIX_1 = [];
+const INV_SUB_MIX_2 = [];
+const INV_SUB_MIX_3 = [];
+const d = [];
+for (let i = 0; i < 256; i += 1) {
+  if (i < 128) {
+    d[i] = i << 1;
+  } else {
+    d[i] = i << 1 ^ 283;
+  }
+}
+let x = 0;
+let xi = 0;
+for (let i = 0; i < 256; i += 1) {
+  let sx = xi ^ xi << 1 ^ xi << 2 ^ xi << 3 ^ xi << 4;
+  sx = sx >>> 8 ^ sx & 255 ^ 99;
+  _SBOX[x] = sx;
+  INV_SBOX[sx] = x;
+  const x2 = d[x];
+  const x4 = d[x2];
+  const x8 = d[x4];
+  let t = d[sx] * 257 ^ sx * 16843008;
+  _SUB_MIX_0[x] = t << 24 | t >>> 8;
+  _SUB_MIX_1[x] = t << 16 | t >>> 16;
+  _SUB_MIX_2[x] = t << 8 | t >>> 24;
+  _SUB_MIX_3[x] = t;
+  t = x8 * 16843009 ^ x4 * 65537 ^ x2 * 257 ^ x * 16843008;
+  INV_SUB_MIX_0[sx] = t << 24 | t >>> 8;
+  INV_SUB_MIX_1[sx] = t << 16 | t >>> 16;
+  INV_SUB_MIX_2[sx] = t << 8 | t >>> 24;
+  INV_SUB_MIX_3[sx] = t;
+  if (!x) {
+    xi = 1;
+    x = xi;
+  } else {
+    x = x2 ^ d[d[d[x8 ^ x2]]];
+    xi ^= d[d[xi]];
+  }
+}
+const RCON = [0, 1, 2, 4, 8, 16, 32, 64, 128, 27, 54];
+class AESAlgo extends BlockCipher {
+  _doReset() {
+    let t;
+    if (this._nRounds && this._keyPriorReset === this._key) {
+      return;
+    }
+    this._keyPriorReset = this._key;
+    const key = this._keyPriorReset;
+    const keyWords = key.words;
+    const keySize = key.sigBytes / 4;
+    this._nRounds = keySize + 6;
+    const nRounds = this._nRounds;
+    const ksRows = (nRounds + 1) * 4;
+    this._keySchedule = [];
+    const keySchedule = this._keySchedule;
+    for (let ksRow = 0; ksRow < ksRows; ksRow += 1) {
+      if (ksRow < keySize) {
+        keySchedule[ksRow] = keyWords[ksRow];
+      } else {
+        t = keySchedule[ksRow - 1];
+        if (!(ksRow % keySize)) {
+          t = t << 8 | t >>> 24;
+          t = _SBOX[t >>> 24] << 24 | _SBOX[t >>> 16 & 255] << 16 | _SBOX[t >>> 8 & 255] << 8 | _SBOX[t & 255];
+          t ^= RCON[ksRow / keySize | 0] << 24;
+        } else if (keySize > 6 && ksRow % keySize === 4) {
+          t = _SBOX[t >>> 24] << 24 | _SBOX[t >>> 16 & 255] << 16 | _SBOX[t >>> 8 & 255] << 8 | _SBOX[t & 255];
+        }
+        keySchedule[ksRow] = keySchedule[ksRow - keySize] ^ t;
+      }
+    }
+    this._invKeySchedule = [];
+    const invKeySchedule = this._invKeySchedule;
+    for (let invKsRow = 0; invKsRow < ksRows; invKsRow += 1) {
+      const ksRow = ksRows - invKsRow;
+      if (invKsRow % 4) {
+        t = keySchedule[ksRow];
+      } else {
+        t = keySchedule[ksRow - 4];
+      }
+      if (invKsRow < 4 || ksRow <= 4) {
+        invKeySchedule[invKsRow] = t;
+      } else {
+        invKeySchedule[invKsRow] = INV_SUB_MIX_0[_SBOX[t >>> 24]] ^ INV_SUB_MIX_1[_SBOX[t >>> 16 & 255]] ^ INV_SUB_MIX_2[_SBOX[t >>> 8 & 255]] ^ INV_SUB_MIX_3[_SBOX[t & 255]];
+      }
+    }
+  }
+  encryptBlock(M, offset) {
+    this._doCryptBlock(
+      M,
+      offset,
+      this._keySchedule,
+      _SUB_MIX_0,
+      _SUB_MIX_1,
+      _SUB_MIX_2,
+      _SUB_MIX_3,
+      _SBOX
+    );
+  }
+  decryptBlock(M, offset) {
+    const _M = M;
+    let t = _M[offset + 1];
+    _M[offset + 1] = _M[offset + 3];
+    _M[offset + 3] = t;
+    this._doCryptBlock(
+      _M,
+      offset,
+      this._invKeySchedule,
+      INV_SUB_MIX_0,
+      INV_SUB_MIX_1,
+      INV_SUB_MIX_2,
+      INV_SUB_MIX_3,
+      INV_SBOX
+    );
+    t = _M[offset + 1];
+    _M[offset + 1] = _M[offset + 3];
+    _M[offset + 3] = t;
+  }
+  _doCryptBlock(M, offset, keySchedule, SUB_MIX_0, SUB_MIX_1, SUB_MIX_2, SUB_MIX_3, SBOX) {
+    const _M = M;
+    const nRounds = this._nRounds;
+    let s0 = _M[offset] ^ keySchedule[0];
+    let s1 = _M[offset + 1] ^ keySchedule[1];
+    let s2 = _M[offset + 2] ^ keySchedule[2];
+    let s3 = _M[offset + 3] ^ keySchedule[3];
+    let ksRow = 4;
+    for (let round = 1; round < nRounds; round += 1) {
+      const t02 = SUB_MIX_0[s0 >>> 24] ^ SUB_MIX_1[s1 >>> 16 & 255] ^ SUB_MIX_2[s2 >>> 8 & 255] ^ SUB_MIX_3[s3 & 255] ^ keySchedule[ksRow];
+      ksRow += 1;
+      const t12 = SUB_MIX_0[s1 >>> 24] ^ SUB_MIX_1[s2 >>> 16 & 255] ^ SUB_MIX_2[s3 >>> 8 & 255] ^ SUB_MIX_3[s0 & 255] ^ keySchedule[ksRow];
+      ksRow += 1;
+      const t22 = SUB_MIX_0[s2 >>> 24] ^ SUB_MIX_1[s3 >>> 16 & 255] ^ SUB_MIX_2[s0 >>> 8 & 255] ^ SUB_MIX_3[s1 & 255] ^ keySchedule[ksRow];
+      ksRow += 1;
+      const t32 = SUB_MIX_0[s3 >>> 24] ^ SUB_MIX_1[s0 >>> 16 & 255] ^ SUB_MIX_2[s1 >>> 8 & 255] ^ SUB_MIX_3[s2 & 255] ^ keySchedule[ksRow];
+      ksRow += 1;
+      s0 = t02;
+      s1 = t12;
+      s2 = t22;
+      s3 = t32;
+    }
+    const t0 = (SBOX[s0 >>> 24] << 24 | SBOX[s1 >>> 16 & 255] << 16 | SBOX[s2 >>> 8 & 255] << 8 | SBOX[s3 & 255]) ^ keySchedule[ksRow];
+    ksRow += 1;
+    const t1 = (SBOX[s1 >>> 24] << 24 | SBOX[s2 >>> 16 & 255] << 16 | SBOX[s3 >>> 8 & 255] << 8 | SBOX[s0 & 255]) ^ keySchedule[ksRow];
+    ksRow += 1;
+    const t2 = (SBOX[s2 >>> 24] << 24 | SBOX[s3 >>> 16 & 255] << 16 | SBOX[s0 >>> 8 & 255] << 8 | SBOX[s1 & 255]) ^ keySchedule[ksRow];
+    ksRow += 1;
+    const t3 = (SBOX[s3 >>> 24] << 24 | SBOX[s0 >>> 16 & 255] << 16 | SBOX[s1 >>> 8 & 255] << 8 | SBOX[s2 & 255]) ^ keySchedule[ksRow];
+    ksRow += 1;
+    _M[offset] = t0;
+    _M[offset + 1] = t1;
+    _M[offset + 2] = t2;
+    _M[offset + 3] = t3;
+  }
+}
+AESAlgo.keySize = 256 / 32;
+const AES = BlockCipher._createHelper(AESAlgo);
+const PC1 = [
+  57,
+  49,
+  41,
+  33,
+  25,
+  17,
+  9,
+  1,
+  58,
+  50,
+  42,
+  34,
+  26,
+  18,
+  10,
+  2,
+  59,
+  51,
+  43,
+  35,
+  27,
+  19,
+  11,
+  3,
+  60,
+  52,
+  44,
+  36,
+  63,
+  55,
+  47,
+  39,
+  31,
+  23,
+  15,
+  7,
+  62,
+  54,
+  46,
+  38,
+  30,
+  22,
+  14,
+  6,
+  61,
+  53,
+  45,
+  37,
+  29,
+  21,
+  13,
+  5,
+  28,
+  20,
+  12,
+  4
+];
+const PC2 = [
+  14,
+  17,
+  11,
+  24,
+  1,
+  5,
+  3,
+  28,
+  15,
+  6,
+  21,
+  10,
+  23,
+  19,
+  12,
+  4,
+  26,
+  8,
+  16,
+  7,
+  27,
+  20,
+  13,
+  2,
+  41,
+  52,
+  31,
+  37,
+  47,
+  55,
+  30,
+  40,
+  51,
+  45,
+  33,
+  48,
+  44,
+  49,
+  39,
+  56,
+  34,
+  53,
+  46,
+  42,
+  50,
+  36,
+  29,
+  32
+];
+const BIT_SHIFTS = [1, 2, 4, 6, 8, 10, 12, 14, 15, 17, 19, 21, 23, 25, 27, 28];
+const SBOX_P = [
+  {
+    0: 8421888,
+    268435456: 32768,
+    536870912: 8421378,
+    805306368: 2,
+    1073741824: 512,
+    1342177280: 8421890,
+    1610612736: 8389122,
+    1879048192: 8388608,
+    2147483648: 514,
+    2415919104: 8389120,
+    2684354560: 33280,
+    2952790016: 8421376,
+    3221225472: 32770,
+    3489660928: 8388610,
+    3758096384: 0,
+    4026531840: 33282,
+    134217728: 0,
+    402653184: 8421890,
+    671088640: 33282,
+    939524096: 32768,
+    1207959552: 8421888,
+    1476395008: 512,
+    1744830464: 8421378,
+    2013265920: 2,
+    2281701376: 8389120,
+    2550136832: 33280,
+    2818572288: 8421376,
+    3087007744: 8389122,
+    3355443200: 8388610,
+    3623878656: 32770,
+    3892314112: 514,
+    4160749568: 8388608,
+    1: 32768,
+    268435457: 2,
+    536870913: 8421888,
+    805306369: 8388608,
+    1073741825: 8421378,
+    1342177281: 33280,
+    1610612737: 512,
+    1879048193: 8389122,
+    2147483649: 8421890,
+    2415919105: 8421376,
+    2684354561: 8388610,
+    2952790017: 33282,
+    3221225473: 514,
+    3489660929: 8389120,
+    3758096385: 32770,
+    4026531841: 0,
+    134217729: 8421890,
+    402653185: 8421376,
+    671088641: 8388608,
+    939524097: 512,
+    1207959553: 32768,
+    1476395009: 8388610,
+    1744830465: 2,
+    2013265921: 33282,
+    2281701377: 32770,
+    2550136833: 8389122,
+    2818572289: 514,
+    3087007745: 8421888,
+    3355443201: 8389120,
+    3623878657: 0,
+    3892314113: 33280,
+    4160749569: 8421378
+  },
+  {
+    0: 1074282512,
+    16777216: 16384,
+    33554432: 524288,
+    50331648: 1074266128,
+    67108864: 1073741840,
+    83886080: 1074282496,
+    100663296: 1073758208,
+    117440512: 16,
+    134217728: 540672,
+    150994944: 1073758224,
+    167772160: 1073741824,
+    184549376: 540688,
+    201326592: 524304,
+    218103808: 0,
+    234881024: 16400,
+    251658240: 1074266112,
+    8388608: 1073758208,
+    25165824: 540688,
+    41943040: 16,
+    58720256: 1073758224,
+    75497472: 1074282512,
+    92274688: 1073741824,
+    109051904: 524288,
+    125829120: 1074266128,
+    142606336: 524304,
+    159383552: 0,
+    176160768: 16384,
+    192937984: 1074266112,
+    209715200: 1073741840,
+    226492416: 540672,
+    243269632: 1074282496,
+    260046848: 16400,
+    268435456: 0,
+    285212672: 1074266128,
+    301989888: 1073758224,
+    318767104: 1074282496,
+    335544320: 1074266112,
+    352321536: 16,
+    369098752: 540688,
+    385875968: 16384,
+    402653184: 16400,
+    419430400: 524288,
+    436207616: 524304,
+    452984832: 1073741840,
+    469762048: 540672,
+    486539264: 1073758208,
+    503316480: 1073741824,
+    520093696: 1074282512,
+    276824064: 540688,
+    293601280: 524288,
+    310378496: 1074266112,
+    327155712: 16384,
+    343932928: 1073758208,
+    360710144: 1074282512,
+    377487360: 16,
+    394264576: 1073741824,
+    411041792: 1074282496,
+    427819008: 1073741840,
+    444596224: 1073758224,
+    461373440: 524304,
+    478150656: 0,
+    494927872: 16400,
+    511705088: 1074266128,
+    528482304: 540672
+  },
+  {
+    0: 260,
+    1048576: 0,
+    2097152: 67109120,
+    3145728: 65796,
+    4194304: 65540,
+    5242880: 67108868,
+    6291456: 67174660,
+    7340032: 67174400,
+    8388608: 67108864,
+    9437184: 67174656,
+    10485760: 65792,
+    11534336: 67174404,
+    12582912: 67109124,
+    13631488: 65536,
+    14680064: 4,
+    15728640: 256,
+    524288: 67174656,
+    1572864: 67174404,
+    2621440: 0,
+    3670016: 67109120,
+    4718592: 67108868,
+    5767168: 65536,
+    6815744: 65540,
+    7864320: 260,
+    8912896: 4,
+    9961472: 256,
+    11010048: 67174400,
+    12058624: 65796,
+    13107200: 65792,
+    14155776: 67109124,
+    15204352: 67174660,
+    16252928: 67108864,
+    16777216: 67174656,
+    17825792: 65540,
+    18874368: 65536,
+    19922944: 67109120,
+    20971520: 256,
+    22020096: 67174660,
+    23068672: 67108868,
+    24117248: 0,
+    25165824: 67109124,
+    26214400: 67108864,
+    27262976: 4,
+    28311552: 65792,
+    29360128: 67174400,
+    30408704: 260,
+    31457280: 65796,
+    32505856: 67174404,
+    17301504: 67108864,
+    18350080: 260,
+    19398656: 67174656,
+    20447232: 0,
+    21495808: 65540,
+    22544384: 67109120,
+    23592960: 256,
+    24641536: 67174404,
+    25690112: 65536,
+    26738688: 67174660,
+    27787264: 65796,
+    28835840: 67108868,
+    29884416: 67109124,
+    30932992: 67174400,
+    31981568: 4,
+    33030144: 65792
+  },
+  {
+    0: 2151682048,
+    65536: 2147487808,
+    131072: 4198464,
+    196608: 2151677952,
+    262144: 0,
+    327680: 4198400,
+    393216: 2147483712,
+    458752: 4194368,
+    524288: 2147483648,
+    589824: 4194304,
+    655360: 64,
+    720896: 2147487744,
+    786432: 2151678016,
+    851968: 4160,
+    917504: 4096,
+    983040: 2151682112,
+    32768: 2147487808,
+    98304: 64,
+    163840: 2151678016,
+    229376: 2147487744,
+    294912: 4198400,
+    360448: 2151682112,
+    425984: 0,
+    491520: 2151677952,
+    557056: 4096,
+    622592: 2151682048,
+    688128: 4194304,
+    753664: 4160,
+    819200: 2147483648,
+    884736: 4194368,
+    950272: 4198464,
+    1015808: 2147483712,
+    1048576: 4194368,
+    1114112: 4198400,
+    1179648: 2147483712,
+    1245184: 0,
+    1310720: 4160,
+    1376256: 2151678016,
+    1441792: 2151682048,
+    1507328: 2147487808,
+    1572864: 2151682112,
+    1638400: 2147483648,
+    1703936: 2151677952,
+    1769472: 4198464,
+    1835008: 2147487744,
+    1900544: 4194304,
+    1966080: 64,
+    2031616: 4096,
+    1081344: 2151677952,
+    1146880: 2151682112,
+    1212416: 0,
+    1277952: 4198400,
+    1343488: 4194368,
+    1409024: 2147483648,
+    1474560: 2147487808,
+    1540096: 64,
+    1605632: 2147483712,
+    1671168: 4096,
+    1736704: 2147487744,
+    1802240: 2151678016,
+    1867776: 4160,
+    1933312: 2151682048,
+    1998848: 4194304,
+    2064384: 4198464
+  },
+  {
+    0: 128,
+    4096: 17039360,
+    8192: 262144,
+    12288: 536870912,
+    16384: 537133184,
+    20480: 16777344,
+    24576: 553648256,
+    28672: 262272,
+    32768: 16777216,
+    36864: 537133056,
+    40960: 536871040,
+    45056: 553910400,
+    49152: 553910272,
+    53248: 0,
+    57344: 17039488,
+    61440: 553648128,
+    2048: 17039488,
+    6144: 553648256,
+    10240: 128,
+    14336: 17039360,
+    18432: 262144,
+    22528: 537133184,
+    26624: 553910272,
+    30720: 536870912,
+    34816: 537133056,
+    38912: 0,
+    43008: 553910400,
+    47104: 16777344,
+    51200: 536871040,
+    55296: 553648128,
+    59392: 16777216,
+    63488: 262272,
+    65536: 262144,
+    69632: 128,
+    73728: 536870912,
+    77824: 553648256,
+    81920: 16777344,
+    86016: 553910272,
+    90112: 537133184,
+    94208: 16777216,
+    98304: 553910400,
+    102400: 553648128,
+    106496: 17039360,
+    110592: 537133056,
+    114688: 262272,
+    118784: 536871040,
+    122880: 0,
+    126976: 17039488,
+    67584: 553648256,
+    71680: 16777216,
+    75776: 17039360,
+    79872: 537133184,
+    83968: 536870912,
+    88064: 17039488,
+    92160: 128,
+    96256: 553910272,
+    100352: 262272,
+    104448: 553910400,
+    108544: 0,
+    112640: 553648128,
+    116736: 16777344,
+    120832: 262144,
+    124928: 537133056,
+    129024: 536871040
+  },
+  {
+    0: 268435464,
+    256: 8192,
+    512: 270532608,
+    768: 270540808,
+    1024: 268443648,
+    1280: 2097152,
+    1536: 2097160,
+    1792: 268435456,
+    2048: 0,
+    2304: 268443656,
+    2560: 2105344,
+    2816: 8,
+    3072: 270532616,
+    3328: 2105352,
+    3584: 8200,
+    3840: 270540800,
+    128: 270532608,
+    384: 270540808,
+    640: 8,
+    896: 2097152,
+    1152: 2105352,
+    1408: 268435464,
+    1664: 268443648,
+    1920: 8200,
+    2176: 2097160,
+    2432: 8192,
+    2688: 268443656,
+    2944: 270532616,
+    3200: 0,
+    3456: 270540800,
+    3712: 2105344,
+    3968: 268435456,
+    4096: 268443648,
+    4352: 270532616,
+    4608: 270540808,
+    4864: 8200,
+    5120: 2097152,
+    5376: 268435456,
+    5632: 268435464,
+    5888: 2105344,
+    6144: 2105352,
+    6400: 0,
+    6656: 8,
+    6912: 270532608,
+    7168: 8192,
+    7424: 268443656,
+    7680: 270540800,
+    7936: 2097160,
+    4224: 8,
+    4480: 2105344,
+    4736: 2097152,
+    4992: 268435464,
+    5248: 268443648,
+    5504: 8200,
+    5760: 270540808,
+    6016: 270532608,
+    6272: 270540800,
+    6528: 270532616,
+    6784: 8192,
+    7040: 2105352,
+    7296: 2097160,
+    7552: 0,
+    7808: 268435456,
+    8064: 268443656
+  },
+  {
+    0: 1048576,
+    16: 33555457,
+    32: 1024,
+    48: 1049601,
+    64: 34604033,
+    80: 0,
+    96: 1,
+    112: 34603009,
+    128: 33555456,
+    144: 1048577,
+    160: 33554433,
+    176: 34604032,
+    192: 34603008,
+    208: 1025,
+    224: 1049600,
+    240: 33554432,
+    8: 34603009,
+    24: 0,
+    40: 33555457,
+    56: 34604032,
+    72: 1048576,
+    88: 33554433,
+    104: 33554432,
+    120: 1025,
+    136: 1049601,
+    152: 33555456,
+    168: 34603008,
+    184: 1048577,
+    200: 1024,
+    216: 34604033,
+    232: 1,
+    248: 1049600,
+    256: 33554432,
+    272: 1048576,
+    288: 33555457,
+    304: 34603009,
+    320: 1048577,
+    336: 33555456,
+    352: 34604032,
+    368: 1049601,
+    384: 1025,
+    400: 34604033,
+    416: 1049600,
+    432: 1,
+    448: 0,
+    464: 34603008,
+    480: 33554433,
+    496: 1024,
+    264: 1049600,
+    280: 33555457,
+    296: 34603009,
+    312: 1,
+    328: 33554432,
+    344: 1048576,
+    360: 1025,
+    376: 34604032,
+    392: 33554433,
+    408: 34603008,
+    424: 0,
+    440: 34604033,
+    456: 1049601,
+    472: 1024,
+    488: 33555456,
+    504: 1048577
+  },
+  {
+    0: 134219808,
+    1: 131072,
+    2: 134217728,
+    3: 32,
+    4: 131104,
+    5: 134350880,
+    6: 134350848,
+    7: 2048,
+    8: 134348800,
+    9: 134219776,
+    10: 133120,
+    11: 134348832,
+    12: 2080,
+    13: 0,
+    14: 134217760,
+    15: 133152,
+    2147483648: 2048,
+    2147483649: 134350880,
+    2147483650: 134219808,
+    2147483651: 134217728,
+    2147483652: 134348800,
+    2147483653: 133120,
+    2147483654: 133152,
+    2147483655: 32,
+    2147483656: 134217760,
+    2147483657: 2080,
+    2147483658: 131104,
+    2147483659: 134350848,
+    2147483660: 0,
+    2147483661: 134348832,
+    2147483662: 134219776,
+    2147483663: 131072,
+    16: 133152,
+    17: 134350848,
+    18: 32,
+    19: 2048,
+    20: 134219776,
+    21: 134217760,
+    22: 134348832,
+    23: 131072,
+    24: 0,
+    25: 131104,
+    26: 134348800,
+    27: 134219808,
+    28: 134350880,
+    29: 133120,
+    30: 2080,
+    31: 134217728,
+    2147483664: 131072,
+    2147483665: 2048,
+    2147483666: 134348832,
+    2147483667: 133152,
+    2147483668: 32,
+    2147483669: 134348800,
+    2147483670: 134217728,
+    2147483671: 134219808,
+    2147483672: 134350880,
+    2147483673: 134217760,
+    2147483674: 134219776,
+    2147483675: 0,
+    2147483676: 133120,
+    2147483677: 2080,
+    2147483678: 131104,
+    2147483679: 134350848
+  }
+];
+const SBOX_MASK = [
+  4160749569,
+  528482304,
+  33030144,
+  2064384,
+  129024,
+  8064,
+  504,
+  2147483679
+];
+function exchangeLR(offset, mask) {
+  const t = (this._lBlock >>> offset ^ this._rBlock) & mask;
+  this._rBlock ^= t;
+  this._lBlock ^= t << offset;
+}
+function exchangeRL(offset, mask) {
+  const t = (this._rBlock >>> offset ^ this._lBlock) & mask;
+  this._lBlock ^= t;
+  this._rBlock ^= t << offset;
+}
+class DESAlgo extends BlockCipher {
+  _doReset() {
+    const key = this._key;
+    const keyWords = key.words;
+    const keyBits = [];
+    for (let i = 0; i < 56; i += 1) {
+      const keyBitPos = PC1[i] - 1;
+      keyBits[i] = keyWords[keyBitPos >>> 5] >>> 31 - keyBitPos % 32 & 1;
+    }
+    this._subKeys = [];
+    const subKeys = this._subKeys;
+    for (let nSubKey = 0; nSubKey < 16; nSubKey += 1) {
+      subKeys[nSubKey] = [];
+      const subKey = subKeys[nSubKey];
+      const bitShift = BIT_SHIFTS[nSubKey];
+      for (let i = 0; i < 24; i += 1) {
+        subKey[i / 6 | 0] |= keyBits[(PC2[i] - 1 + bitShift) % 28] << 31 - i % 6;
+        subKey[4 + (i / 6 | 0)] |= keyBits[28 + (PC2[i + 24] - 1 + bitShift) % 28] << 31 - i % 6;
+      }
+      subKey[0] = subKey[0] << 1 | subKey[0] >>> 31;
+      for (let i = 1; i < 7; i += 1) {
+        subKey[i] >>>= (i - 1) * 4 + 3;
+      }
+      subKey[7] = subKey[7] << 5 | subKey[7] >>> 27;
+    }
+    this._invSubKeys = [];
+    const invSubKeys = this._invSubKeys;
+    for (let i = 0; i < 16; i += 1) {
+      invSubKeys[i] = subKeys[15 - i];
+    }
+  }
+  encryptBlock(M, offset) {
+    this._doCryptBlock(M, offset, this._subKeys);
+  }
+  decryptBlock(M, offset) {
+    this._doCryptBlock(M, offset, this._invSubKeys);
+  }
+  _doCryptBlock(M, offset, subKeys) {
+    const _M = M;
+    this._lBlock = M[offset];
+    this._rBlock = M[offset + 1];
+    exchangeLR.call(this, 4, 252645135);
+    exchangeLR.call(this, 16, 65535);
+    exchangeRL.call(this, 2, 858993459);
+    exchangeRL.call(this, 8, 16711935);
+    exchangeLR.call(this, 1, 1431655765);
+    for (let round = 0; round < 16; round += 1) {
+      const subKey = subKeys[round];
+      const lBlock = this._lBlock;
+      const rBlock = this._rBlock;
+      let f = 0;
+      for (let i = 0; i < 8; i += 1) {
+        f |= SBOX_P[i][((rBlock ^ subKey[i]) & SBOX_MASK[i]) >>> 0];
+      }
+      this._lBlock = rBlock;
+      this._rBlock = lBlock ^ f;
+    }
+    const t = this._lBlock;
+    this._lBlock = this._rBlock;
+    this._rBlock = t;
+    exchangeLR.call(this, 1, 1431655765);
+    exchangeRL.call(this, 8, 16711935);
+    exchangeRL.call(this, 2, 858993459);
+    exchangeLR.call(this, 16, 65535);
+    exchangeLR.call(this, 4, 252645135);
+    _M[offset] = this._lBlock;
+    _M[offset + 1] = this._rBlock;
+  }
+}
+DESAlgo.keySize = 64 / 32;
+DESAlgo.ivSize = 64 / 32;
+DESAlgo.blockSize = 64 / 32;
+const DES = BlockCipher._createHelper(DESAlgo);
+class TripleDESAlgo extends BlockCipher {
+  _doReset() {
+    const key = this._key;
+    const keyWords = key.words;
+    if (keyWords.length !== 2 && keyWords.length !== 4 && keyWords.length < 6) {
+      throw new Error("Invalid key length - 3DES requires the key length to be 64, 128, 192 or >192.");
+    }
+    const key1 = keyWords.slice(0, 2);
+    const key2 = keyWords.length < 4 ? keyWords.slice(0, 2) : keyWords.slice(2, 4);
+    const key3 = keyWords.length < 6 ? keyWords.slice(0, 2) : keyWords.slice(4, 6);
+    this._des1 = DESAlgo.createEncryptor(WordArray.create(key1));
+    this._des2 = DESAlgo.createEncryptor(WordArray.create(key2));
+    this._des3 = DESAlgo.createEncryptor(WordArray.create(key3));
+  }
+  encryptBlock(M, offset) {
+    this._des1.encryptBlock(M, offset);
+    this._des2.decryptBlock(M, offset);
+    this._des3.encryptBlock(M, offset);
+  }
+  decryptBlock(M, offset) {
+    this._des3.decryptBlock(M, offset);
+    this._des2.encryptBlock(M, offset);
+    this._des1.decryptBlock(M, offset);
+  }
+}
+TripleDESAlgo.keySize = 192 / 32;
+TripleDESAlgo.ivSize = 64 / 32;
+TripleDESAlgo.blockSize = 64 / 32;
+const TripleDES = BlockCipher._createHelper(TripleDESAlgo);
+const S$1 = [];
+const C_$1 = [];
+const G$1 = [];
+function nextState$1() {
+  const X = this._X;
+  const C = this._C;
+  for (let i = 0; i < 8; i += 1) {
+    C_$1[i] = C[i];
+  }
+  C[0] = C[0] + 1295307597 + this._b | 0;
+  C[1] = C[1] + 3545052371 + (C[0] >>> 0 < C_$1[0] >>> 0 ? 1 : 0) | 0;
+  C[2] = C[2] + 886263092 + (C[1] >>> 0 < C_$1[1] >>> 0 ? 1 : 0) | 0;
+  C[3] = C[3] + 1295307597 + (C[2] >>> 0 < C_$1[2] >>> 0 ? 1 : 0) | 0;
+  C[4] = C[4] + 3545052371 + (C[3] >>> 0 < C_$1[3] >>> 0 ? 1 : 0) | 0;
+  C[5] = C[5] + 886263092 + (C[4] >>> 0 < C_$1[4] >>> 0 ? 1 : 0) | 0;
+  C[6] = C[6] + 1295307597 + (C[5] >>> 0 < C_$1[5] >>> 0 ? 1 : 0) | 0;
+  C[7] = C[7] + 3545052371 + (C[6] >>> 0 < C_$1[6] >>> 0 ? 1 : 0) | 0;
+  this._b = C[7] >>> 0 < C_$1[7] >>> 0 ? 1 : 0;
+  for (let i = 0; i < 8; i += 1) {
+    const gx = X[i] + C[i];
+    const ga = gx & 65535;
+    const gb = gx >>> 16;
+    const gh = ((ga * ga >>> 17) + ga * gb >>> 15) + gb * gb;
+    const gl = ((gx & 4294901760) * gx | 0) + ((gx & 65535) * gx | 0);
+    G$1[i] = gh ^ gl;
+  }
+  X[0] = G$1[0] + (G$1[7] << 16 | G$1[7] >>> 16) + (G$1[6] << 16 | G$1[6] >>> 16) | 0;
+  X[1] = G$1[1] + (G$1[0] << 8 | G$1[0] >>> 24) + G$1[7] | 0;
+  X[2] = G$1[2] + (G$1[1] << 16 | G$1[1] >>> 16) + (G$1[0] << 16 | G$1[0] >>> 16) | 0;
+  X[3] = G$1[3] + (G$1[2] << 8 | G$1[2] >>> 24) + G$1[1] | 0;
+  X[4] = G$1[4] + (G$1[3] << 16 | G$1[3] >>> 16) + (G$1[2] << 16 | G$1[2] >>> 16) | 0;
+  X[5] = G$1[5] + (G$1[4] << 8 | G$1[4] >>> 24) + G$1[3] | 0;
+  X[6] = G$1[6] + (G$1[5] << 16 | G$1[5] >>> 16) + (G$1[4] << 16 | G$1[4] >>> 16) | 0;
+  X[7] = G$1[7] + (G$1[6] << 8 | G$1[6] >>> 24) + G$1[5] | 0;
+}
+class RabbitAlgo extends StreamCipher {
+  constructor(...args) {
+    super(...args);
+    this.blockSize = 128 / 32;
+    this.ivSize = 64 / 32;
+  }
+  _doReset() {
+    const K2 = this._key.words;
+    const { iv } = this.cfg;
+    for (let i = 0; i < 4; i += 1) {
+      K2[i] = (K2[i] << 8 | K2[i] >>> 24) & 16711935 | (K2[i] << 24 | K2[i] >>> 8) & 4278255360;
+    }
+    this._X = [
+      K2[0],
+      K2[3] << 16 | K2[2] >>> 16,
+      K2[1],
+      K2[0] << 16 | K2[3] >>> 16,
+      K2[2],
+      K2[1] << 16 | K2[0] >>> 16,
+      K2[3],
+      K2[2] << 16 | K2[1] >>> 16
+    ];
+    const X = this._X;
+    this._C = [
+      K2[2] << 16 | K2[2] >>> 16,
+      K2[0] & 4294901760 | K2[1] & 65535,
+      K2[3] << 16 | K2[3] >>> 16,
+      K2[1] & 4294901760 | K2[2] & 65535,
+      K2[0] << 16 | K2[0] >>> 16,
+      K2[2] & 4294901760 | K2[3] & 65535,
+      K2[1] << 16 | K2[1] >>> 16,
+      K2[3] & 4294901760 | K2[0] & 65535
+    ];
+    const C = this._C;
+    this._b = 0;
+    for (let i = 0; i < 4; i += 1) {
+      nextState$1.call(this);
+    }
+    for (let i = 0; i < 8; i += 1) {
+      C[i] ^= X[i + 4 & 7];
+    }
+    if (iv) {
+      const IV = iv.words;
+      const IV_0 = IV[0];
+      const IV_1 = IV[1];
+      const i0 = (IV_0 << 8 | IV_0 >>> 24) & 16711935 | (IV_0 << 24 | IV_0 >>> 8) & 4278255360;
+      const i2 = (IV_1 << 8 | IV_1 >>> 24) & 16711935 | (IV_1 << 24 | IV_1 >>> 8) & 4278255360;
+      const i1 = i0 >>> 16 | i2 & 4294901760;
+      const i3 = i2 << 16 | i0 & 65535;
+      C[0] ^= i0;
+      C[1] ^= i1;
+      C[2] ^= i2;
+      C[3] ^= i3;
+      C[4] ^= i0;
+      C[5] ^= i1;
+      C[6] ^= i2;
+      C[7] ^= i3;
+      for (let i = 0; i < 4; i += 1) {
+        nextState$1.call(this);
+      }
+    }
+  }
+  _doProcessBlock(M, offset) {
+    const _M = M;
+    const X = this._X;
+    nextState$1.call(this);
+    S$1[0] = X[0] ^ X[5] >>> 16 ^ X[3] << 16;
+    S$1[1] = X[2] ^ X[7] >>> 16 ^ X[5] << 16;
+    S$1[2] = X[4] ^ X[1] >>> 16 ^ X[7] << 16;
+    S$1[3] = X[6] ^ X[3] >>> 16 ^ X[1] << 16;
+    for (let i = 0; i < 4; i += 1) {
+      S$1[i] = (S$1[i] << 8 | S$1[i] >>> 24) & 16711935 | (S$1[i] << 24 | S$1[i] >>> 8) & 4278255360;
+      _M[offset + i] ^= S$1[i];
+    }
+  }
+}
+const Rabbit = StreamCipher._createHelper(RabbitAlgo);
+const S = [];
+const C_ = [];
+const G = [];
+function nextState() {
+  const X = this._X;
+  const C = this._C;
+  for (let i = 0; i < 8; i += 1) {
+    C_[i] = C[i];
+  }
+  C[0] = C[0] + 1295307597 + this._b | 0;
+  C[1] = C[1] + 3545052371 + (C[0] >>> 0 < C_[0] >>> 0 ? 1 : 0) | 0;
+  C[2] = C[2] + 886263092 + (C[1] >>> 0 < C_[1] >>> 0 ? 1 : 0) | 0;
+  C[3] = C[3] + 1295307597 + (C[2] >>> 0 < C_[2] >>> 0 ? 1 : 0) | 0;
+  C[4] = C[4] + 3545052371 + (C[3] >>> 0 < C_[3] >>> 0 ? 1 : 0) | 0;
+  C[5] = C[5] + 886263092 + (C[4] >>> 0 < C_[4] >>> 0 ? 1 : 0) | 0;
+  C[6] = C[6] + 1295307597 + (C[5] >>> 0 < C_[5] >>> 0 ? 1 : 0) | 0;
+  C[7] = C[7] + 3545052371 + (C[6] >>> 0 < C_[6] >>> 0 ? 1 : 0) | 0;
+  this._b = C[7] >>> 0 < C_[7] >>> 0 ? 1 : 0;
+  for (let i = 0; i < 8; i += 1) {
+    const gx = X[i] + C[i];
+    const ga = gx & 65535;
+    const gb = gx >>> 16;
+    const gh = ((ga * ga >>> 17) + ga * gb >>> 15) + gb * gb;
+    const gl = ((gx & 4294901760) * gx | 0) + ((gx & 65535) * gx | 0);
+    G[i] = gh ^ gl;
+  }
+  X[0] = G[0] + (G[7] << 16 | G[7] >>> 16) + (G[6] << 16 | G[6] >>> 16) | 0;
+  X[1] = G[1] + (G[0] << 8 | G[0] >>> 24) + G[7] | 0;
+  X[2] = G[2] + (G[1] << 16 | G[1] >>> 16) + (G[0] << 16 | G[0] >>> 16) | 0;
+  X[3] = G[3] + (G[2] << 8 | G[2] >>> 24) + G[1] | 0;
+  X[4] = G[4] + (G[3] << 16 | G[3] >>> 16) + (G[2] << 16 | G[2] >>> 16) | 0;
+  X[5] = G[5] + (G[4] << 8 | G[4] >>> 24) + G[3] | 0;
+  X[6] = G[6] + (G[5] << 16 | G[5] >>> 16) + (G[4] << 16 | G[4] >>> 16) | 0;
+  X[7] = G[7] + (G[6] << 8 | G[6] >>> 24) + G[5] | 0;
+}
+class RabbitLegacyAlgo extends StreamCipher {
+  constructor(...args) {
+    super(...args);
+    this.blockSize = 128 / 32;
+    this.ivSize = 64 / 32;
+  }
+  _doReset() {
+    const K2 = this._key.words;
+    const { iv } = this.cfg;
+    this._X = [
+      K2[0],
+      K2[3] << 16 | K2[2] >>> 16,
+      K2[1],
+      K2[0] << 16 | K2[3] >>> 16,
+      K2[2],
+      K2[1] << 16 | K2[0] >>> 16,
+      K2[3],
+      K2[2] << 16 | K2[1] >>> 16
+    ];
+    const X = this._X;
+    this._C = [
+      K2[2] << 16 | K2[2] >>> 16,
+      K2[0] & 4294901760 | K2[1] & 65535,
+      K2[3] << 16 | K2[3] >>> 16,
+      K2[1] & 4294901760 | K2[2] & 65535,
+      K2[0] << 16 | K2[0] >>> 16,
+      K2[2] & 4294901760 | K2[3] & 65535,
+      K2[1] << 16 | K2[1] >>> 16,
+      K2[3] & 4294901760 | K2[0] & 65535
+    ];
+    const C = this._C;
+    this._b = 0;
+    for (let i = 0; i < 4; i += 1) {
+      nextState.call(this);
+    }
+    for (let i = 0; i < 8; i += 1) {
+      C[i] ^= X[i + 4 & 7];
+    }
+    if (iv) {
+      const IV = iv.words;
+      const IV_0 = IV[0];
+      const IV_1 = IV[1];
+      const i0 = (IV_0 << 8 | IV_0 >>> 24) & 16711935 | (IV_0 << 24 | IV_0 >>> 8) & 4278255360;
+      const i2 = (IV_1 << 8 | IV_1 >>> 24) & 16711935 | (IV_1 << 24 | IV_1 >>> 8) & 4278255360;
+      const i1 = i0 >>> 16 | i2 & 4294901760;
+      const i3 = i2 << 16 | i0 & 65535;
+      C[0] ^= i0;
+      C[1] ^= i1;
+      C[2] ^= i2;
+      C[3] ^= i3;
+      C[4] ^= i0;
+      C[5] ^= i1;
+      C[6] ^= i2;
+      C[7] ^= i3;
+      for (let i = 0; i < 4; i += 1) {
+        nextState.call(this);
+      }
+    }
+  }
+  _doProcessBlock(M, offset) {
+    const _M = M;
+    const X = this._X;
+    nextState.call(this);
+    S[0] = X[0] ^ X[5] >>> 16 ^ X[3] << 16;
+    S[1] = X[2] ^ X[7] >>> 16 ^ X[5] << 16;
+    S[2] = X[4] ^ X[1] >>> 16 ^ X[7] << 16;
+    S[3] = X[6] ^ X[3] >>> 16 ^ X[1] << 16;
+    for (let i = 0; i < 4; i += 1) {
+      S[i] = (S[i] << 8 | S[i] >>> 24) & 16711935 | (S[i] << 24 | S[i] >>> 8) & 4278255360;
+      _M[offset + i] ^= S[i];
+    }
+  }
+}
+const RabbitLegacy = StreamCipher._createHelper(RabbitLegacyAlgo);
+function generateKeystreamWord() {
+  const S2 = this._S;
+  let i = this._i;
+  let j = this._j;
+  let keystreamWord = 0;
+  for (let n2 = 0; n2 < 4; n2 += 1) {
+    i = (i + 1) % 256;
+    j = (j + S2[i]) % 256;
+    const t = S2[i];
+    S2[i] = S2[j];
+    S2[j] = t;
+    keystreamWord |= S2[(S2[i] + S2[j]) % 256] << 24 - n2 * 8;
+  }
+  this._i = i;
+  this._j = j;
+  return keystreamWord;
+}
+class RC4Algo extends StreamCipher {
+  _doReset() {
+    const key = this._key;
+    const keyWords = key.words;
+    const keySigBytes = key.sigBytes;
+    this._S = [];
+    const S2 = this._S;
+    for (let i = 0; i < 256; i += 1) {
+      S2[i] = i;
+    }
+    for (let i = 0, j = 0; i < 256; i += 1) {
+      const keyByteIndex = i % keySigBytes;
+      const keyByte = keyWords[keyByteIndex >>> 2] >>> 24 - keyByteIndex % 4 * 8 & 255;
+      j = (j + S2[i] + keyByte) % 256;
+      const t = S2[i];
+      S2[i] = S2[j];
+      S2[j] = t;
+    }
+    this._j = 0;
+    this._i = this._j;
+  }
+  _doProcessBlock(M, offset) {
+    const _M = M;
+    _M[offset] ^= generateKeystreamWord.call(this);
+  }
+}
+RC4Algo.keySize = 256 / 32;
+RC4Algo.ivSize = 0;
+const RC4 = StreamCipher._createHelper(RC4Algo);
+class RC4DropAlgo extends RC4Algo {
+  constructor(...args) {
+    super(...args);
+    Object.assign(this.cfg, { drop: 192 });
+  }
+  _doReset() {
+    super._doReset.call(this);
+    for (let i = this.cfg.drop; i > 0; i -= 1) {
+      generateKeystreamWord.call(this);
+    }
+  }
+}
+const RC4Drop = StreamCipher._createHelper(RC4DropAlgo);
+function generateKeystreamAndEncrypt(words, offset, blockSize, cipher) {
+  const _words = words;
+  let keystream;
+  const iv = this._iv;
+  if (iv) {
+    keystream = iv.slice(0);
+    this._iv = void 0;
+  } else {
+    keystream = this._prevBlock;
+  }
+  cipher.encryptBlock(keystream, 0);
+  for (let i = 0; i < blockSize; i += 1) {
+    _words[offset + i] ^= keystream[i];
+  }
+}
+class CFB extends BlockCipherMode {
+}
+CFB.Encryptor = class extends CFB {
+  processBlock(words, offset) {
+    const cipher = this._cipher;
+    const { blockSize } = cipher;
+    generateKeystreamAndEncrypt.call(this, words, offset, blockSize, cipher);
+    this._prevBlock = words.slice(offset, offset + blockSize);
+  }
+};
+CFB.Decryptor = class extends CFB {
+  processBlock(words, offset) {
+    const cipher = this._cipher;
+    const { blockSize } = cipher;
+    const thisBlock = words.slice(offset, offset + blockSize);
+    generateKeystreamAndEncrypt.call(this, words, offset, blockSize, cipher);
+    this._prevBlock = thisBlock;
+  }
+};
+class CTR extends BlockCipherMode {
+}
+CTR.Encryptor = class extends CTR {
+  processBlock(words, offset) {
+    const _words = words;
+    const cipher = this._cipher;
+    const { blockSize } = cipher;
+    const iv = this._iv;
+    let counter = this._counter;
+    if (iv) {
+      this._counter = iv.slice(0);
+      counter = this._counter;
+      this._iv = void 0;
+    }
+    const keystream = counter.slice(0);
+    cipher.encryptBlock(keystream, 0);
+    counter[blockSize - 1] = counter[blockSize - 1] + 1 | 0;
+    for (let i = 0; i < blockSize; i += 1) {
+      _words[offset + i] ^= keystream[i];
+    }
+  }
+};
+CTR.Decryptor = CTR.Encryptor;
+const incWord = (word) => {
+  let _word = word;
+  if ((word >> 24 & 255) === 255) {
+    let b1 = word >> 16 & 255;
+    let b2 = word >> 8 & 255;
+    let b3 = word & 255;
+    if (b1 === 255) {
+      b1 = 0;
+      if (b2 === 255) {
+        b2 = 0;
+        if (b3 === 255) {
+          b3 = 0;
+        } else {
+          b3 += 1;
+        }
+      } else {
+        b2 += 1;
+      }
+    } else {
+      b1 += 1;
+    }
+    _word = 0;
+    _word += b1 << 16;
+    _word += b2 << 8;
+    _word += b3;
+  } else {
+    _word += 1 << 24;
+  }
+  return _word;
+};
+const incCounter = (counter) => {
+  const _counter = counter;
+  _counter[0] = incWord(_counter[0]);
+  if (_counter[0] === 0) {
+    _counter[1] = incWord(_counter[1]);
+  }
+  return _counter;
+};
+/** @preserve
  * Counter block mode compatible with  Dr Brian Gladman fileenc.c
  * derived from CryptoJS.mode.CTR
  * Jan Hruby jhruby.web@gmail.com
- */class L0 extends f0{}L0.Encryptor=class extends L0{processBlock(n,t){const e=n,s=this._cipher,{blockSize:r}=s,i=this._iv;let o=this._counter;i&&(this._counter=i.slice(0),o=this._counter,this._iv=void 0),Ms(o);const c=o.slice(0);s.encryptBlock(c,0);for(let a=0;a<r;a+=1)e[t+a]^=c[a]}};L0.Decryptor=L0.Encryptor;class F0 extends f0{}F0.Encryptor=class extends F0{processBlock(n,t){this._cipher.encryptBlock(n,t)}};F0.Decryptor=class extends F0{processBlock(n,t){this._cipher.decryptBlock(n,t)}};class W0 extends f0{}W0.Encryptor=class extends W0{processBlock(n,t){const e=n,s=this._cipher,{blockSize:r}=s,i=this._iv;let o=this._keystream;i&&(this._keystream=i.slice(0),o=this._keystream,this._iv=void 0),s.encryptBlock(o,0);for(let c=0;c<r;c+=1)e[t+c]^=o[c]}};W0.Decryptor=W0.Encryptor;const Ds={pad(n,t){const e=n,s=e.sigBytes,r=t*4,i=r-s%r,o=s+i-1;e.clamp(),e.words[o>>>2]|=i<<24-o%4*8,e.sigBytes+=i},unpad(n){const t=n,e=t.words[t.sigBytes-1>>>2]&255;t.sigBytes-=e}},zs={pad(n,t){const e=t*4,s=e-n.sigBytes%e;n.concat(T.random(s-1)).concat(T.create([s<<24],1))},unpad(n){const t=n,e=t.words[t.sigBytes-1>>>2]&255;t.sigBytes-=e}},wt={pad(n,t){const e=n,s=t*4;e.clamp(),e.sigBytes+=s-(n.sigBytes%s||s)},unpad(n){const t=n,e=t.words;for(let s=t.sigBytes-1;s>=0;s-=1)if(e[s>>>2]>>>24-s%4*8&255){t.sigBytes=s+1;break}}},Ls={pad(n,t){n.concat(T.create([2147483648],1)),wt.pad(n,t)},unpad(n){const t=n;wt.unpad(t),t.sigBytes-=1}},Fs={pad(){},unpad(){}},Ws={stringify(n){return n.ciphertext.toString(et)},parse(n){const t=et.parse(n);return U0.create({ciphertext:t})}};var Ks={lib:{Base:I,WordArray:T,BufferedBlockAlgorithm:Ct,Hasher:R,Cipher:x0,StreamCipher:c0,BlockCipherMode:f0,BlockCipher:u0,CipherParams:U0,SerializableCipher:h0,PasswordBasedCipher:Ht},x64:{Word:d,WordArray:It},enc:{Hex:et,Latin1:ut,Utf8:Tt,Utf16:Jn,Utf16BE:Te,Utf16LE:Zn,Base64:dt},algo:{HMAC:At,MD5:rt,SHA1:it,SHA224:Pt,SHA256:S0,SHA384:Ot,SHA512:k0,SHA3:Mt,RIPEMD160:Dt,PBKDF2:Pe,EvpKDF:Rt,AES:zt,DES:o0,TripleDES:N0,Rabbit:Fe,RabbitLegacy:We,RC4:V0,RC4Drop:je},mode:{CBC:v0,CFB:D0,CTR:z0,CTRGladman:L0,ECB:F0,OFB:W0},pad:{Pkcs7:ke,AnsiX923:Ds,Iso10126:zs,Iso97971:Ls,NoPadding:Fs,ZeroPadding:wt},format:{OpenSSL:Ee,Hex:Ws},kdf:{OpenSSL:Be},MD5:Xn,HmacMD5:Qn,SHA1:ts,HmacSHA1:es,SHA224:is,HmacSHA224:os,SHA256:ss,HmacSHA256:rs,SHA384:hs,HmacSHA384:xs,SHA512:as,HmacSHA512:ls,SHA3:fs,HmacSHA3:us,RIPEMD160:gs,HmacRIPEMD160:ms,PBKDF2:vs,EvpKDF:Yn,AES:ks,DES:As,TripleDES:Is,Rabbit:Rs,RabbitLegacy:Hs,RC4:Ps,RC4Drop:Os};let Ue=(n=21)=>crypto.getRandomValues(new Uint8Array(n)).reduce((t,e)=>(e&=63,e<36?t+=e.toString(36):e<62?t+=(e-26).toString(36).toUpperCase():e>62?t+="-":t+="_",t),"");const Ne={bitcoin:{1:"main",2:"testnet"},ethereum:{1:"main",3:"ropsten",4:"rinkeby",5:"goerli",42:"kovan",56:"bsc-main",100:"xdai",137:"matic-main",250:"fantom-main",80001:"matic-mumbai"}},Ve={points:150,duration:1},he=1e4;function D(n){const{name:t,value:e,type:s,optional:r,customValidation:i}=n;if(!r&&typeof e=="undefined")throw new Error(`"${t}" is required`);if(typeof e!="undefined"&&(s==="array"?Array.isArray(s):typeof e!==s))throw new Error(`"${t}" must be of type: ${s}, received type: ${typeof e} from value: ${e}`);if(typeof e!="undefined"&&i&&!i(e))throw new Error(`"${e}" is not a valid "${t}"`)}function js(n){D({name:"sdk options",value:n,type:"object"});const{dappId:t,system:e,name:s,appVersion:r,networkId:i,transactionHandlers:o,apiUrl:c,ws:a,onopen:l,ondown:u,onreopen:x,onerror:_,onclose:v,multichain:m,...g}=n;Us(g,["dappId","system","name","appVersion","networkId","transactionHandlers","apiUrl","ws","onopen","ondown","onreopen","onerror","onclose","multichain"],"Initialization Options"),D({name:"dappId",value:t,type:"string",optional:!0}),D({name:"system",value:e,type:"string",optional:!0,customValidation:$s}),D({name:"name",value:s,type:"string",optional:!0}),D({name:"appVersion",value:r,type:"string",optional:!0}),D({name:"networkId",value:i,type:"number"}),D({name:"transactionHandler",value:o,type:"array",optional:!0}),o&&o.forEach(S=>D({name:"transactionHandler",value:S,type:"function"})),D({name:"apiUrl",value:c,type:"string",optional:!0}),D({name:"ws",value:a,type:"function",optional:!0}),D({name:"onopen",value:l,type:"function",optional:!0}),D({name:"ondown",value:u,type:"function",optional:!0}),D({name:"onreopen",value:x,type:"function",optional:!0}),D({name:"onerror",value:_,type:"function",optional:!0}),D({name:"onclose",value:v,type:"function",optional:!0}),D({name:"multichain",value:m,type:"boolean",optional:!0})}function $s(n){return!!Ne[n]}function Us(n,t,e){const s=Object.keys(n);if(s.length>0)throw new Error(`${s[0]} is not a valid parameter for ${e}, must be one of the following valid parameters: ${t.join(", ")}`)}function Lt(){return{listeners:{},on:function(n,t){switch(n){case"txSent":case"txPool":case"txConfirmed":case"txSpeedUp":case"txCancel":case"txFailed":case"txDropped":case"txRequest":case"nsfFail":case"txRepeat":case"txAwaitingApproval":case"txConfirmReminder":case"txSendFail":case"txError":case"txUnderPriced":case"txPoolSimulation":case"all":break;default:throw new Error(`${n} is not a valid event code, for a list of valid event codes see: https://docs.blocknative.com/notify-sdk#event-codes`)}if(typeof t!="function")throw new Error("Listener must be a function");this.listeners[n]=t},off:function(n){delete this.listeners[n]},emit:function(n){if(this.listeners[n.eventCode])return this.listeners[n.eventCode](n);if(this.listeners.all)return this.listeners.all(n)}}}function qe(n,t){return Ne[n][t]}function Ns(n){switch(n){case"txRequest":case"nsfFail":case"txRepeat":case"txAwaitingApproval":case"txConfirmReminder":case"txSendFail":case"txError":case"txUnderPriced":case"txSent":return!0;default:return!1}}function Vs(n){return n.reverse()[0]}function qs(n,t){switch(n){case"ethereum":return t.length===42;case"bitcoin":return t.length!==64;default:return!1}}function Gs(n,t){switch(n){case"ethereum":return t.length===66;case"bitcoin":return t.length===64;default:return!1}}function gt(n){return new Promise(t=>{setTimeout(t,n)})}const Xs=(n,t)=>t===void 0?"undefined":t;function Ge(){if(typeof window!="undefined"&&"localStorage"in window){const t="__testLocalStorage";try{return window.localStorage.setItem(t,"1"),window.localStorage.removeItem(t),!0}catch{return!1}}return!1}function Qs(n,t){if(this._destroyed)throw new Error("The WebSocket instance has been destroyed, re-initialize to continue making requests.");const e=Date.now(),s=Lt(),r="txSent";this.watchedTransactions.push({hash:n,emitter:s});const o={...this._system==="ethereum"?{hash:n}:{txid:n},id:t||n,startTime:e,status:"sent"},c={...o,eventCode:r};this._sendMessage({eventCode:r,categoryCode:"activeTransaction",transaction:o});const a={details:c,emitter:s};function l(){const u=s.emit(c);this._transactionHandlers.forEach(x=>x({transaction:c,emitterResult:u}))}return setTimeout(l.bind(this),5),a}function Ys(n){if(this._destroyed)throw new Error("The WebSocket instance has been destroyed, re-initialize to continue making requests.");n=this._system==="ethereum"?n.toLowerCase():n;const t=Lt(),e="watch",s=this.watchedAccounts.find(r=>r.address===n);return s?s.emitters.push(t):this.watchedAccounts.push({address:n,emitters:[t]}),this._sendMessage({eventCode:e,categoryCode:"accountAddress",account:{address:n}}),{emitter:t,details:{address:n}}}function Js(n){if(this._destroyed)throw new Error("The WebSocket instance has been destroyed, re-initialize to continue making requests.");this._sendMessage(n)}/*! *****************************************************************************
+ */
+class CTRGladman extends BlockCipherMode {
+}
+CTRGladman.Encryptor = class extends CTRGladman {
+  processBlock(words, offset) {
+    const _words = words;
+    const cipher = this._cipher;
+    const { blockSize } = cipher;
+    const iv = this._iv;
+    let counter = this._counter;
+    if (iv) {
+      this._counter = iv.slice(0);
+      counter = this._counter;
+      this._iv = void 0;
+    }
+    incCounter(counter);
+    const keystream = counter.slice(0);
+    cipher.encryptBlock(keystream, 0);
+    for (let i = 0; i < blockSize; i += 1) {
+      _words[offset + i] ^= keystream[i];
+    }
+  }
+};
+CTRGladman.Decryptor = CTRGladman.Encryptor;
+class ECB extends BlockCipherMode {
+}
+ECB.Encryptor = class extends ECB {
+  processBlock(words, offset) {
+    this._cipher.encryptBlock(words, offset);
+  }
+};
+ECB.Decryptor = class extends ECB {
+  processBlock(words, offset) {
+    this._cipher.decryptBlock(words, offset);
+  }
+};
+class OFB extends BlockCipherMode {
+}
+OFB.Encryptor = class extends OFB {
+  processBlock(words, offset) {
+    const _words = words;
+    const cipher = this._cipher;
+    const { blockSize } = cipher;
+    const iv = this._iv;
+    let keystream = this._keystream;
+    if (iv) {
+      this._keystream = iv.slice(0);
+      keystream = this._keystream;
+      this._iv = void 0;
+    }
+    cipher.encryptBlock(keystream, 0);
+    for (let i = 0; i < blockSize; i += 1) {
+      _words[offset + i] ^= keystream[i];
+    }
+  }
+};
+OFB.Decryptor = OFB.Encryptor;
+const AnsiX923 = {
+  pad(data, blockSize) {
+    const _data = data;
+    const dataSigBytes = _data.sigBytes;
+    const blockSizeBytes = blockSize * 4;
+    const nPaddingBytes = blockSizeBytes - dataSigBytes % blockSizeBytes;
+    const lastBytePos = dataSigBytes + nPaddingBytes - 1;
+    _data.clamp();
+    _data.words[lastBytePos >>> 2] |= nPaddingBytes << 24 - lastBytePos % 4 * 8;
+    _data.sigBytes += nPaddingBytes;
+  },
+  unpad(data) {
+    const _data = data;
+    const nPaddingBytes = _data.words[_data.sigBytes - 1 >>> 2] & 255;
+    _data.sigBytes -= nPaddingBytes;
+  }
+};
+const Iso10126 = {
+  pad(data, blockSize) {
+    const blockSizeBytes = blockSize * 4;
+    const nPaddingBytes = blockSizeBytes - data.sigBytes % blockSizeBytes;
+    data.concat(WordArray.random(nPaddingBytes - 1)).concat(WordArray.create([nPaddingBytes << 24], 1));
+  },
+  unpad(data) {
+    const _data = data;
+    const nPaddingBytes = _data.words[_data.sigBytes - 1 >>> 2] & 255;
+    _data.sigBytes -= nPaddingBytes;
+  }
+};
+const ZeroPadding = {
+  pad(data, blockSize) {
+    const _data = data;
+    const blockSizeBytes = blockSize * 4;
+    _data.clamp();
+    _data.sigBytes += blockSizeBytes - (data.sigBytes % blockSizeBytes || blockSizeBytes);
+  },
+  unpad(data) {
+    const _data = data;
+    const dataWords = _data.words;
+    for (let i = _data.sigBytes - 1; i >= 0; i -= 1) {
+      if (dataWords[i >>> 2] >>> 24 - i % 4 * 8 & 255) {
+        _data.sigBytes = i + 1;
+        break;
+      }
+    }
+  }
+};
+const Iso97971 = {
+  pad(data, blockSize) {
+    data.concat(WordArray.create([2147483648], 1));
+    ZeroPadding.pad(data, blockSize);
+  },
+  unpad(data) {
+    const _data = data;
+    ZeroPadding.unpad(_data);
+    _data.sigBytes -= 1;
+  }
+};
+const NoPadding = {
+  pad() {
+  },
+  unpad() {
+  }
+};
+const HexFormatter = {
+  stringify(cipherParams) {
+    return cipherParams.ciphertext.toString(Hex);
+  },
+  parse(input) {
+    const ciphertext = Hex.parse(input);
+    return CipherParams.create({ ciphertext });
+  }
+};
+var CryptoEs = {
+  lib: {
+    Base,
+    WordArray,
+    BufferedBlockAlgorithm,
+    Hasher,
+    Cipher,
+    StreamCipher,
+    BlockCipherMode,
+    BlockCipher,
+    CipherParams,
+    SerializableCipher,
+    PasswordBasedCipher
+  },
+  x64: {
+    Word: X64Word,
+    WordArray: X64WordArray
+  },
+  enc: {
+    Hex,
+    Latin1,
+    Utf8,
+    Utf16,
+    Utf16BE,
+    Utf16LE,
+    Base64
+  },
+  algo: {
+    HMAC,
+    MD5: MD5Algo,
+    SHA1: SHA1Algo,
+    SHA224: SHA224Algo,
+    SHA256: SHA256Algo,
+    SHA384: SHA384Algo,
+    SHA512: SHA512Algo,
+    SHA3: SHA3Algo,
+    RIPEMD160: RIPEMD160Algo,
+    PBKDF2: PBKDF2Algo,
+    EvpKDF: EvpKDFAlgo,
+    AES: AESAlgo,
+    DES: DESAlgo,
+    TripleDES: TripleDESAlgo,
+    Rabbit: RabbitAlgo,
+    RabbitLegacy: RabbitLegacyAlgo,
+    RC4: RC4Algo,
+    RC4Drop: RC4DropAlgo
+  },
+  mode: {
+    CBC,
+    CFB,
+    CTR,
+    CTRGladman,
+    ECB,
+    OFB
+  },
+  pad: {
+    Pkcs7,
+    AnsiX923,
+    Iso10126,
+    Iso97971,
+    NoPadding,
+    ZeroPadding
+  },
+  format: {
+    OpenSSL: OpenSSLFormatter,
+    Hex: HexFormatter
+  },
+  kdf: {
+    OpenSSL: OpenSSLKdf
+  },
+  MD5,
+  HmacMD5,
+  SHA1,
+  HmacSHA1,
+  SHA224,
+  HmacSHA224,
+  SHA256,
+  HmacSHA256,
+  SHA384,
+  HmacSHA384,
+  SHA512,
+  HmacSHA512,
+  SHA3,
+  HmacSHA3,
+  RIPEMD160,
+  HmacRIPEMD160,
+  PBKDF2,
+  EvpKDF,
+  AES,
+  DES,
+  TripleDES,
+  Rabbit,
+  RabbitLegacy,
+  RC4,
+  RC4Drop
+};
+let nanoid = (size = 21) => crypto.getRandomValues(new Uint8Array(size)).reduce((id, byte) => {
+  byte &= 63;
+  if (byte < 36) {
+    id += byte.toString(36);
+  } else if (byte < 62) {
+    id += (byte - 26).toString(36).toUpperCase();
+  } else if (byte > 62) {
+    id += "-";
+  } else {
+    id += "_";
+  }
+  return id;
+}, "");
+const networks = {
+  bitcoin: {
+    "1": "main",
+    "2": "testnet"
+  },
+  ethereum: {
+    "1": "main",
+    "3": "ropsten",
+    "4": "rinkeby",
+    "5": "goerli",
+    "42": "kovan",
+    "56": "bsc-main",
+    "100": "xdai",
+    "137": "matic-main",
+    "250": "fantom-main",
+    "80001": "matic-mumbai"
+  }
+};
+const DEFAULT_RATE_LIMIT_RULES = {
+  points: 150,
+  duration: 1
+};
+const QUEUE_LIMIT = 1e4;
+function validateType(options) {
+  const {
+    name,
+    value,
+    type,
+    optional,
+    customValidation
+  } = options;
+  if (!optional && typeof value === "undefined") {
+    throw new Error(`"${name}" is required`);
+  }
+  if (typeof value !== "undefined" && (type === "array" ? Array.isArray(type) : typeof value !== type)) {
+    throw new Error(`"${name}" must be of type: ${type}, received type: ${typeof value} from value: ${value}`);
+  }
+  if (typeof value !== "undefined" && customValidation && !customValidation(value)) {
+    throw new Error(`"${value}" is not a valid "${name}"`);
+  }
+}
+function validateOptions(options) {
+  validateType({
+    name: "sdk options",
+    value: options,
+    type: "object"
+  });
+  const {
+    dappId,
+    system,
+    name,
+    appVersion,
+    networkId,
+    transactionHandlers,
+    apiUrl,
+    ws,
+    onopen,
+    ondown,
+    onreopen,
+    onerror,
+    onclose,
+    multichain,
+    ...otherParams
+  } = options;
+  invalidParams(otherParams, ["dappId", "system", "name", "appVersion", "networkId", "transactionHandlers", "apiUrl", "ws", "onopen", "ondown", "onreopen", "onerror", "onclose", "multichain"], "Initialization Options");
+  validateType({
+    name: "dappId",
+    value: dappId,
+    type: "string",
+    optional: true
+  });
+  validateType({
+    name: "system",
+    value: system,
+    type: "string",
+    optional: true,
+    customValidation: validSystem
+  });
+  validateType({
+    name: "name",
+    value: name,
+    type: "string",
+    optional: true
+  });
+  validateType({
+    name: "appVersion",
+    value: appVersion,
+    type: "string",
+    optional: true
+  });
+  validateType({
+    name: "networkId",
+    value: networkId,
+    type: "number"
+  });
+  validateType({
+    name: "transactionHandler",
+    value: transactionHandlers,
+    type: "array",
+    optional: true
+  });
+  if (transactionHandlers) {
+    transactionHandlers.forEach((handler) => validateType({
+      name: "transactionHandler",
+      value: handler,
+      type: "function"
+    }));
+  }
+  validateType({
+    name: "apiUrl",
+    value: apiUrl,
+    type: "string",
+    optional: true
+  });
+  validateType({
+    name: "ws",
+    value: ws,
+    type: "function",
+    optional: true
+  });
+  validateType({
+    name: "onopen",
+    value: onopen,
+    type: "function",
+    optional: true
+  });
+  validateType({
+    name: "ondown",
+    value: ondown,
+    type: "function",
+    optional: true
+  });
+  validateType({
+    name: "onreopen",
+    value: onreopen,
+    type: "function",
+    optional: true
+  });
+  validateType({
+    name: "onerror",
+    value: onerror,
+    type: "function",
+    optional: true
+  });
+  validateType({
+    name: "onclose",
+    value: onclose,
+    type: "function",
+    optional: true
+  });
+  validateType({
+    name: "multichain",
+    value: multichain,
+    type: "boolean",
+    optional: true
+  });
+}
+function validSystem(system) {
+  return !!networks[system];
+}
+function invalidParams(params, validParams, functionName) {
+  const invalid = Object.keys(params);
+  if (invalid.length > 0) {
+    throw new Error(`${invalid[0]} is not a valid parameter for ${functionName}, must be one of the following valid parameters: ${validParams.join(", ")}`);
+  }
+}
+function createEmitter() {
+  return {
+    listeners: {},
+    on: function(eventCode, listener) {
+      switch (eventCode) {
+        case "txSent":
+        case "txPool":
+        case "txConfirmed":
+        case "txSpeedUp":
+        case "txCancel":
+        case "txFailed":
+        case "txDropped":
+        case "txRequest":
+        case "nsfFail":
+        case "txRepeat":
+        case "txAwaitingApproval":
+        case "txConfirmReminder":
+        case "txSendFail":
+        case "txError":
+        case "txUnderPriced":
+        case "txPoolSimulation":
+        case "all":
+          break;
+        default:
+          throw new Error(`${eventCode} is not a valid event code, for a list of valid event codes see: https://docs.blocknative.com/notify-sdk#event-codes`);
+      }
+      if (typeof listener !== "function") {
+        throw new Error("Listener must be a function");
+      }
+      this.listeners[eventCode] = listener;
+    },
+    off: function(eventCode) {
+      delete this.listeners[eventCode];
+    },
+    emit: function(state) {
+      if (this.listeners[state.eventCode]) {
+        return this.listeners[state.eventCode](state);
+      }
+      if (this.listeners.all) {
+        return this.listeners.all(state);
+      }
+    }
+  };
+}
+function networkName(blockchain, id) {
+  return networks[blockchain][id];
+}
+function serverEcho(eventCode) {
+  switch (eventCode) {
+    case "txRequest":
+    case "nsfFail":
+    case "txRepeat":
+    case "txAwaitingApproval":
+    case "txConfirmReminder":
+    case "txSendFail":
+    case "txError":
+    case "txUnderPriced":
+    case "txSent":
+      return true;
+    default:
+      return false;
+  }
+}
+function last(arr) {
+  return arr.reverse()[0];
+}
+function isAddress(blockchain, addressOrHash) {
+  switch (blockchain) {
+    case "ethereum":
+      return addressOrHash.length === 42;
+    case "bitcoin":
+      return addressOrHash.length !== 64;
+    default:
+      return false;
+  }
+}
+function isTxid(blockchain, addressOrHash) {
+  switch (blockchain) {
+    case "ethereum":
+      return addressOrHash.length === 66;
+    case "bitcoin":
+      return addressOrHash.length === 64;
+    default:
+      return false;
+  }
+}
+function wait(time) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, time);
+  });
+}
+const jsonPreserveUndefined = (k, v) => v === void 0 ? "undefined" : v;
+function isLocalStorageAvailable() {
+  const isSupported = typeof window !== "undefined" && "localStorage" in window;
+  if (isSupported) {
+    const testKey = "__testLocalStorage";
+    try {
+      window.localStorage.setItem(testKey, "1");
+      window.localStorage.removeItem(testKey);
+      return true;
+    } catch (err) {
+      return false;
+    }
+  }
+  return false;
+}
+function transaction(hash, id) {
+  if (this._destroyed)
+    throw new Error("The WebSocket instance has been destroyed, re-initialize to continue making requests.");
+  const startTime = Date.now();
+  const emitter = createEmitter();
+  const eventCode = "txSent";
+  this.watchedTransactions.push({
+    hash,
+    emitter
+  });
+  const transactionId = this._system === "ethereum" ? {
+    hash
+  } : {
+    txid: hash
+  };
+  const transaction2 = {
+    ...transactionId,
+    id: id || hash,
+    startTime,
+    status: "sent"
+  };
+  const newState = {
+    ...transaction2,
+    eventCode
+  };
+  this._sendMessage({
+    eventCode,
+    categoryCode: "activeTransaction",
+    transaction: transaction2
+  });
+  const transactionObj = {
+    details: newState,
+    emitter
+  };
+  function emitState() {
+    const emitterResult = emitter.emit(newState);
+    this._transactionHandlers.forEach((handler) => handler({
+      transaction: newState,
+      emitterResult
+    }));
+  }
+  setTimeout(emitState.bind(this), 5);
+  return transactionObj;
+}
+function account(address) {
+  if (this._destroyed)
+    throw new Error("The WebSocket instance has been destroyed, re-initialize to continue making requests.");
+  address = this._system === "ethereum" ? address.toLowerCase() : address;
+  const emitter = createEmitter();
+  const eventCode = "watch";
+  const existingAddressWatcher = this.watchedAccounts.find((ac) => ac.address === address);
+  if (existingAddressWatcher) {
+    existingAddressWatcher.emitters.push(emitter);
+  } else {
+    this.watchedAccounts.push({
+      address,
+      emitters: [emitter]
+    });
+  }
+  this._sendMessage({
+    eventCode,
+    categoryCode: "accountAddress",
+    account: {
+      address
+    }
+  });
+  return {
+    emitter,
+    details: {
+      address
+    }
+  };
+}
+function event(eventObj) {
+  if (this._destroyed)
+    throw new Error("The WebSocket instance has been destroyed, re-initialize to continue making requests.");
+  this._sendMessage(eventObj);
+}
+/*! *****************************************************************************
 Copyright (c) Microsoft Corporation. All rights reserved.
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use
 this file except in compliance with the License. You may obtain a copy of the
@@ -35,6 +4427,1875 @@ MERCHANTABLITY OR NON-INFRINGEMENT.
 
 See the Apache Version 2.0 License for specific language governing permissions
 and limitations under the License.
-***************************************************************************** */var mt=function(n,t){return mt=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,s){e.__proto__=s}||function(e,s){for(var r in s)s.hasOwnProperty(r)&&(e[r]=s[r])},mt(n,t)};function W(n,t){mt(n,t);function e(){this.constructor=n}n.prototype=t===null?Object.create(t):(e.prototype=t.prototype,new e)}function vt(n){return typeof n=="function"}var xe=!1,Y={Promise:void 0,set useDeprecatedSynchronousErrorHandling(n){if(n){var t=new Error;""+t.stack}xe=n},get useDeprecatedSynchronousErrorHandling(){return xe}};function m0(n){setTimeout(function(){throw n},0)}var nt={closed:!0,next:function(n){},error:function(n){if(Y.useDeprecatedSynchronousErrorHandling)throw n;m0(n)},complete:function(){}},Zs=function(){return Array.isArray||function(n){return n&&typeof n.length=="number"}}();function Xe(n){return n!==null&&typeof n=="object"}var tr=function(){function n(t){return Error.call(this),this.message=t?t.length+` errors occurred during unsubscription:
-`+t.map(function(e,s){return s+1+") "+e.toString()}).join(`
-  `):"",this.name="UnsubscriptionError",this.errors=t,this}return n.prototype=Object.create(Error.prototype),n}(),Z0=tr,Ft=function(){function n(t){this.closed=!1,this._parentOrParents=null,this._subscriptions=null,t&&(this._ctorUnsubscribe=!0,this._unsubscribe=t)}return n.prototype.unsubscribe=function(){var t;if(!this.closed){var e=this,s=e._parentOrParents,r=e._ctorUnsubscribe,i=e._unsubscribe,o=e._subscriptions;if(this.closed=!0,this._parentOrParents=null,this._subscriptions=null,s instanceof n)s.remove(this);else if(s!==null)for(var c=0;c<s.length;++c){var a=s[c];a.remove(this)}if(vt(i)){r&&(this._unsubscribe=void 0);try{i.call(this)}catch(x){t=x instanceof Z0?fe(x.errors):[x]}}if(Zs(o))for(var c=-1,l=o.length;++c<l;){var u=o[c];if(Xe(u))try{u.unsubscribe()}catch(_){t=t||[],_ instanceof Z0?t=t.concat(fe(_.errors)):t.push(_)}}if(t)throw new Z0(t)}},n.prototype.add=function(t){var e=t;if(!t)return n.EMPTY;switch(typeof t){case"function":e=new n(t);case"object":if(e===this||e.closed||typeof e.unsubscribe!="function")return e;if(this.closed)return e.unsubscribe(),e;if(!(e instanceof n)){var s=e;e=new n,e._subscriptions=[s]}break;default:throw new Error("unrecognized teardown "+t+" added to Subscription.")}var r=e._parentOrParents;if(r===null)e._parentOrParents=this;else if(r instanceof n){if(r===this)return e;e._parentOrParents=[r,this]}else if(r.indexOf(this)===-1)r.push(this);else return e;var i=this._subscriptions;return i===null?this._subscriptions=[e]:i.push(e),e},n.prototype.remove=function(t){var e=this._subscriptions;if(e){var s=e.indexOf(t);s!==-1&&e.splice(s,1)}},n.EMPTY=function(t){return t.closed=!0,t}(new n),n}();function fe(n){return n.reduce(function(t,e){return t.concat(e instanceof Z0?e.errors:e)},[])}var St=function(){return typeof Symbol=="function"?Symbol("rxSubscriber"):"@@rxSubscriber_"+Math.random()}(),V=function(n){W(t,n);function t(e,s,r){var i=n.call(this)||this;switch(i.syncErrorValue=null,i.syncErrorThrown=!1,i.syncErrorThrowable=!1,i.isStopped=!1,arguments.length){case 0:i.destination=nt;break;case 1:if(!e){i.destination=nt;break}if(typeof e=="object"){e instanceof t?(i.syncErrorThrowable=e.syncErrorThrowable,i.destination=e,e.add(i)):(i.syncErrorThrowable=!0,i.destination=new ue(i,e));break}default:i.syncErrorThrowable=!0,i.destination=new ue(i,e,s,r);break}return i}return t.prototype[St]=function(){return this},t.create=function(e,s,r){var i=new t(e,s,r);return i.syncErrorThrowable=!1,i},t.prototype.next=function(e){this.isStopped||this._next(e)},t.prototype.error=function(e){this.isStopped||(this.isStopped=!0,this._error(e))},t.prototype.complete=function(){this.isStopped||(this.isStopped=!0,this._complete())},t.prototype.unsubscribe=function(){this.closed||(this.isStopped=!0,n.prototype.unsubscribe.call(this))},t.prototype._next=function(e){this.destination.next(e)},t.prototype._error=function(e){this.destination.error(e),this.unsubscribe()},t.prototype._complete=function(){this.destination.complete(),this.unsubscribe()},t.prototype._unsubscribeAndRecycle=function(){var e=this._parentOrParents;return this._parentOrParents=null,this.unsubscribe(),this.closed=!1,this.isStopped=!1,this._parentOrParents=e,this},t}(Ft),ue=function(n){W(t,n);function t(e,s,r,i){var o=n.call(this)||this;o._parentSubscriber=e;var c,a=o;return vt(s)?c=s:s&&(c=s.next,r=s.error,i=s.complete,s!==nt&&(a=Object.create(s),vt(a.unsubscribe)&&o.add(a.unsubscribe.bind(a)),a.unsubscribe=o.unsubscribe.bind(o))),o._context=a,o._next=c,o._error=r,o._complete=i,o}return t.prototype.next=function(e){if(!this.isStopped&&this._next){var s=this._parentSubscriber;!Y.useDeprecatedSynchronousErrorHandling||!s.syncErrorThrowable?this.__tryOrUnsub(this._next,e):this.__tryOrSetError(s,this._next,e)&&this.unsubscribe()}},t.prototype.error=function(e){if(!this.isStopped){var s=this._parentSubscriber,r=Y.useDeprecatedSynchronousErrorHandling;if(this._error)!r||!s.syncErrorThrowable?(this.__tryOrUnsub(this._error,e),this.unsubscribe()):(this.__tryOrSetError(s,this._error,e),this.unsubscribe());else if(s.syncErrorThrowable)r?(s.syncErrorValue=e,s.syncErrorThrown=!0):m0(e),this.unsubscribe();else{if(this.unsubscribe(),r)throw e;m0(e)}}},t.prototype.complete=function(){var e=this;if(!this.isStopped){var s=this._parentSubscriber;if(this._complete){var r=function(){return e._complete.call(e._context)};!Y.useDeprecatedSynchronousErrorHandling||!s.syncErrorThrowable?(this.__tryOrUnsub(r),this.unsubscribe()):(this.__tryOrSetError(s,r),this.unsubscribe())}else this.unsubscribe()}},t.prototype.__tryOrUnsub=function(e,s){try{e.call(this._context,s)}catch(r){if(this.unsubscribe(),Y.useDeprecatedSynchronousErrorHandling)throw r;m0(r)}},t.prototype.__tryOrSetError=function(e,s,r){if(!Y.useDeprecatedSynchronousErrorHandling)throw new Error("bad call");try{s.call(this._context,r)}catch(i){return Y.useDeprecatedSynchronousErrorHandling?(e.syncErrorValue=i,e.syncErrorThrown=!0,!0):(m0(i),!0)}return!1},t.prototype._unsubscribe=function(){var e=this._parentSubscriber;this._context=null,this._parentSubscriber=null,e.unsubscribe()},t}(V);function er(n){for(;n;){var t=n,e=t.closed,s=t.destination,r=t.isStopped;if(e||r)return!1;s&&s instanceof V?n=s:n=null}return!0}function nr(n,t,e){if(n){if(n instanceof V)return n;if(n[St])return n[St]()}return!n&&!t&&!e?new V(nt):new V(n,t,e)}var Wt=function(){return typeof Symbol=="function"&&Symbol.observable||"@@observable"}();function sr(n){return n}function rr(n){return n.length===0?sr:n.length===1?n[0]:function(e){return n.reduce(function(s,r){return r(s)},e)}}var K0=function(){function n(t){this._isScalar=!1,t&&(this._subscribe=t)}return n.prototype.lift=function(t){var e=new n;return e.source=this,e.operator=t,e},n.prototype.subscribe=function(t,e,s){var r=this.operator,i=nr(t,e,s);if(r?i.add(r.call(i,this.source)):i.add(this.source||Y.useDeprecatedSynchronousErrorHandling&&!i.syncErrorThrowable?this._subscribe(i):this._trySubscribe(i)),Y.useDeprecatedSynchronousErrorHandling&&i.syncErrorThrowable&&(i.syncErrorThrowable=!1,i.syncErrorThrown))throw i.syncErrorValue;return i},n.prototype._trySubscribe=function(t){try{return this._subscribe(t)}catch(e){Y.useDeprecatedSynchronousErrorHandling&&(t.syncErrorThrown=!0,t.syncErrorValue=e),er(t)?t.error(e):console.warn(e)}},n.prototype.forEach=function(t,e){var s=this;return e=de(e),new e(function(r,i){var o;o=s.subscribe(function(c){try{t(c)}catch(a){i(a),o&&o.unsubscribe()}},i,r)})},n.prototype._subscribe=function(t){var e=this.source;return e&&e.subscribe(t)},n.prototype[Wt]=function(){return this},n.prototype.pipe=function(){for(var t=[],e=0;e<arguments.length;e++)t[e]=arguments[e];return t.length===0?this:rr(t)(this)},n.prototype.toPromise=function(t){var e=this;return t=de(t),new t(function(s,r){var i;e.subscribe(function(o){return i=o},function(o){return r(o)},function(){return s(i)})})},n.create=function(t){return new n(t)},n}();function de(n){if(n||(n=Promise),!n)throw new Error("no Promise impl found");return n}var ir=function(n){return function(t){for(var e=0,s=n.length;e<s&&!t.closed;e++)t.next(n[e]);t.complete()}},or=function(n){return function(t){return n.then(function(e){t.closed||(t.next(e),t.complete())},function(e){return t.error(e)}).then(null,m0),t}};function cr(){return typeof Symbol!="function"||!Symbol.iterator?"@@iterator":Symbol.iterator}var Qe=cr(),ar=function(n){return function(t){var e=n[Qe]();do{var s=void 0;try{s=e.next()}catch(r){return t.error(r),t}if(s.done){t.complete();break}if(t.next(s.value),t.closed)break}while(!0);return typeof e.return=="function"&&t.add(function(){e.return&&e.return()}),t}},lr=function(n){return function(t){var e=n[Wt]();if(typeof e.subscribe!="function")throw new TypeError("Provided object does not correctly implement Symbol.observable");return e.subscribe(t)}},hr=function(n){return n&&typeof n.length=="number"&&typeof n!="function"};function xr(n){return!!n&&typeof n.subscribe!="function"&&typeof n.then=="function"}var fr=function(n){if(!!n&&typeof n[Wt]=="function")return lr(n);if(hr(n))return ir(n);if(xr(n))return or(n);if(!!n&&typeof n[Qe]=="function")return ar(n);var t=Xe(n)?"an invalid object":"'"+n+"'",e="You provided "+t+" where a stream was expected. You can provide an Observable, Promise, Array, or Iterable.";throw new TypeError(e)},ur=function(n){W(t,n);function t(e){var s=n.call(this)||this;return s.parent=e,s}return t.prototype._next=function(e){this.parent.notifyNext(e)},t.prototype._error=function(e){this.parent.notifyError(e),this.unsubscribe()},t.prototype._complete=function(){this.parent.notifyComplete(),this.unsubscribe()},t}(V),dr=function(n){W(t,n);function t(){return n!==null&&n.apply(this,arguments)||this}return t.prototype.notifyNext=function(e){this.destination.next(e)},t.prototype.notifyError=function(e){this.destination.error(e)},t.prototype.notifyComplete=function(){this.destination.complete()},t}(V);function pr(n,t){if(!t.closed)return n instanceof K0?n.subscribe(t):fr(n)(t)}var br=function(n){W(t,n);function t(e,s){return n.call(this)||this}return t.prototype.schedule=function(e,s){return this},t}(Ft),_r=function(n){W(t,n);function t(e,s){var r=n.call(this,e,s)||this;return r.scheduler=e,r.work=s,r.pending=!1,r}return t.prototype.schedule=function(e,s){if(s===void 0&&(s=0),this.closed)return this;this.state=e;var r=this.id,i=this.scheduler;return r!=null&&(this.id=this.recycleAsyncId(i,r,s)),this.pending=!0,this.delay=s,this.id=this.id||this.requestAsyncId(i,this.id,s),this},t.prototype.requestAsyncId=function(e,s,r){return r===void 0&&(r=0),setInterval(e.flush.bind(e,this),r)},t.prototype.recycleAsyncId=function(e,s,r){if(r===void 0&&(r=0),r!==null&&this.delay===r&&this.pending===!1)return s;clearInterval(s)},t.prototype.execute=function(e,s){if(this.closed)return new Error("executing a cancelled action");this.pending=!1;var r=this._execute(e,s);if(r)return r;this.pending===!1&&this.id!=null&&(this.id=this.recycleAsyncId(this.scheduler,this.id,null))},t.prototype._execute=function(e,s){var r=!1,i=void 0;try{this.work(e)}catch(o){r=!0,i=!!o&&o||new Error(o)}if(r)return this.unsubscribe(),i},t.prototype._unsubscribe=function(){var e=this.id,s=this.scheduler,r=s.actions,i=r.indexOf(this);this.work=null,this.state=null,this.pending=!1,this.scheduler=null,i!==-1&&r.splice(i,1),e!=null&&(this.id=this.recycleAsyncId(s,e,null)),this.delay=null},t}(br),pe=function(){function n(t,e){e===void 0&&(e=n.now),this.SchedulerAction=t,this.now=e}return n.prototype.schedule=function(t,e,s){return e===void 0&&(e=0),new this.SchedulerAction(this,t).schedule(s,e)},n.now=function(){return Date.now()},n}(),yr=function(n){W(t,n);function t(e,s){s===void 0&&(s=pe.now);var r=n.call(this,e,function(){return t.delegate&&t.delegate!==r?t.delegate.now():s()})||this;return r.actions=[],r.active=!1,r.scheduled=void 0,r}return t.prototype.schedule=function(e,s,r){return s===void 0&&(s=0),t.delegate&&t.delegate!==this?t.delegate.schedule(e,s,r):n.prototype.schedule.call(this,e,s,r)},t.prototype.flush=function(e){var s=this.actions;if(this.active){s.push(e);return}var r;this.active=!0;do if(r=e.execute(e.state,e.delay))break;while(e=s.shift());if(this.active=!1,r){for(;e=s.shift();)e.unsubscribe();throw r}},t}(pe),wr=new yr(_r),Ye=wr;function gr(n){return n instanceof Date&&!isNaN(+n)}var mr=new K0(function(n){return n.complete()});function vr(n){return n?Sr(n):mr}function Sr(n){return new K0(function(t){return n.schedule(function(){return t.complete()})})}function kr(n,t){return t?new K0(function(e){return t.schedule(Er,0,{error:n,subscriber:e})}):new K0(function(e){return e.error(n)})}function Er(n){var t=n.error,e=n.subscriber;e.error(t)}var Br=function(){function n(){return Error.call(this),this.message="argument out of range",this.name="ArgumentOutOfRangeError",this}return n.prototype=Object.create(Error.prototype),n}(),Tr=Br;function ot(n,t){return function(s){return s.lift(new Cr(n,t))}}var Cr=function(){function n(t,e){this.predicate=t,this.thisArg=e}return n.prototype.call=function(t,e){return e.subscribe(new Ar(t,this.predicate,this.thisArg))},n}(),Ar=function(n){W(t,n);function t(e,s,r){var i=n.call(this,e)||this;return i.predicate=s,i.thisArg=r,i.count=0,i}return t.prototype._next=function(e){var s;try{s=this.predicate.call(this.thisArg,e,this.count++)}catch(r){this.destination.error(r);return}s&&this.destination.next(e)},t}(V);function ct(n){return function(t){return n===0?vr():t.lift(new Ir(n))}}var Ir=function(){function n(t){if(this.total=t,this.total<0)throw new Tr}return n.prototype.call=function(t,e){return e.subscribe(new Rr(t,this.total))},n}(),Rr=function(n){W(t,n);function t(e,s){var r=n.call(this,e)||this;return r.total=s,r.count=0,r}return t.prototype._next=function(e){var s=this.total,r=++this.count;r<=s&&(this.destination.next(e),r===s&&(this.destination.complete(),this.unsubscribe()))},t}(V);function be(n){return function(t){return t.lift(new Hr(n))}}var Hr=function(){function n(t){this.callback=t}return n.prototype.call=function(t,e){return e.subscribe(new Pr(t,this.callback))},n}(),Pr=function(n){W(t,n);function t(e,s){var r=n.call(this,e)||this;return r.add(new Ft(s)),r}return t}(V);function Or(n,t){return t===void 0&&(t=!1),function(e){return e.lift(new Mr(n,t))}}var Mr=function(){function n(t,e){this.predicate=t,this.inclusive=e}return n.prototype.call=function(t,e){return e.subscribe(new Dr(t,this.predicate,this.inclusive))},n}(),Dr=function(n){W(t,n);function t(e,s,r){var i=n.call(this,e)||this;return i.predicate=s,i.inclusive=r,i.index=0,i}return t.prototype._next=function(e){var s=this.destination,r;try{r=this.predicate(e,this.index++)}catch(i){s.error(i);return}this.nextOrComplete(e,r)},t.prototype.nextOrComplete=function(e,s){var r=this.destination;Boolean(s)?r.next(e):(this.inclusive&&r.next(e),r.complete())},t}(V),zr=function(){function n(){return Error.call(this),this.message="Timeout has occurred",this.name="TimeoutError",this}return n.prototype=Object.create(Error.prototype),n}(),Lr=zr;function Fr(n,t,e){return e===void 0&&(e=Ye),function(s){var r=gr(n),i=r?+n-e.now():Math.abs(n);return s.lift(new Wr(i,r,t,e))}}var Wr=function(){function n(t,e,s,r){this.waitFor=t,this.absoluteTimeout=e,this.withObservable=s,this.scheduler=r}return n.prototype.call=function(t,e){return e.subscribe(new Kr(t,this.absoluteTimeout,this.waitFor,this.withObservable,this.scheduler))},n}(),Kr=function(n){W(t,n);function t(e,s,r,i,o){var c=n.call(this,e)||this;return c.absoluteTimeout=s,c.waitFor=r,c.withObservable=i,c.scheduler=o,c.scheduleTimeout(),c}return t.dispatchTimeout=function(e){var s=e.withObservable;e._unsubscribeAndRecycle(),e.add(pr(s,new ur(e)))},t.prototype.scheduleTimeout=function(){var e=this.action;e?this.action=e.schedule(this,this.waitFor):this.add(this.action=this.scheduler.schedule(t.dispatchTimeout,this.waitFor,this))},t.prototype._next=function(e){this.absoluteTimeout||this.scheduleTimeout(),n.prototype._next.call(this,e)},t.prototype._unsubscribe=function(){this.action=void 0,this.scheduler=null,this.withObservable=null},t}(dr);function jr(n,t){return t===void 0&&(t=Ye),Fr(n,kr(new Lr),t)}const st=new tt;function $r(n,t,e){if(this._destroyed)throw new Error("The WebSocket instance has been destroyed, re-initialize to continue making requests.");const s=Ue();return this._sendMessage({categoryCode:"simulate",eventCode:"txSimulation",eventId:s,transaction:e}),new Promise((r,i)=>{st.pipe(ot(({eventId:o})=>o===s),ct(1)).subscribe({next:({transaction:o})=>r(o),error:({error:o})=>i(o.message)})})}function Ur(n){if(this._destroyed)throw new Error("The WebSocket instance has been destroyed, re-initialize to continue making requests.");const t=Ue();return this._sendMessage({categoryCode:"simulate",eventCode:"txSimulation",eventId:t,transaction:n}),new Promise((e,s)=>{st.pipe(ot(({eventId:r})=>r===t),ct(1)).subscribe({next:({transaction:r})=>e(r),error:({error:r})=>s(r.message)})})}function Nr(n){if(this._destroyed)throw new Error("The WebSocket instance has been destroyed, re-initialize to continue making requests.");const t=qs(this._system,n),e=Gs(this._system,n);if(t){const s=this._system==="ethereum"?n.toLowerCase():n;this.watchedAccounts=this.watchedAccounts.filter(r=>r.address!==s),this.configurations.delete(s),this._sendMessage({categoryCode:"accountAddress",eventCode:"unwatch",account:{address:s}})}else if(e){this.watchedTransactions=this.watchedTransactions.filter(i=>i.hash!==n);const r={...this._system==="ethereum"?{hash:n}:{txid:n},id:n,status:"unsubscribed"};this._sendMessage({categoryCode:"activeTransaction",eventCode:"unwatch",transaction:r})}else throw new Error(`Error trying to unsubscribe ${n}: not a valid address or transaction id/hash`)}function Vr(n){if(this._destroyed)throw new Error("The WebSocket instance has been destroyed, re-initialize to continue making requests.");const t=this._system==="ethereum"?n.scope.toLowerCase():n.scope,e=this.configurations.get(t);e&&e.subscription&&e.subscription.next();const s=new tt,r=n.watchAddress?{emitter:Lt()}:{};return this.configurations.set(t,{...n,...r,subscription:s}),this._sendMessage({categoryCode:"configs",eventCode:"put",config:n}),new Promise((i,o)=>{s.pipe(ct(1),jr(5e3)).subscribe({next:()=>i({...r,details:{config:n}}),error:c=>{const a=c.message==="Timeout has occurred"?`Configuration with scope: ${n.scope} has been sent to the Blocknative server, but has not received a reply within 5 seconds.`:c.message;this._onerror?(this._onerror({message:a}),i(`Error: ${a}`)):o(a)}})})}function qr(n){const{id:t,chainId:e,type:s}=n;if(!qe("ethereum",parseInt(e,16)))throw new Error(`chainId: ${e} is an unsupported network`);this.connections[e]||(this.connections[e]=new this.Blocknative({system:"ethereum",networkId:parseInt(e,16),dappId:this.apiKey,ws:this.ws,transactionHandlers:[({transaction:i})=>{this.onTransaction$.next(i)}],onerror:i=>this.errors$.next(i)}));const r=this.connections[e];if(s==="account"){const{filters:i=[],abi:o=[]}=n;return r.configuration({scope:t,filters:i,abi:o,watchAddress:!0}),this.transactions$.pipe(ot(({watchedAddress:c})=>c===t),be(()=>{this.unsubscribe({id:t,chainId:e})}))}else{const{emitter:i}=r.transaction(t);return fn(i,"all").pipe(Or(({status:o})=>o!=="confirmed"&&o!=="failed"&&o!=="dropped",!0),be(()=>{this.unsubscribe({id:t,chainId:e})}))}}function Gr(n){const{id:t,chainId:e,timeout:s=0}=n,r=un(s),i=this.transactions$.pipe(ot(({hash:o,watchedAddress:c})=>o===t||c===t));dn(i,r).pipe(ct(1)).subscribe(o=>{typeof o=="number"?Object.entries(this.connections).filter(([a,l])=>l!==null).forEach(([a,l])=>{e&&a!==e||(l.unsubscribe(t),!l.watchedAccounts.length&&!l.watchedTransactions.length&&!l.configurations.size&&(l.destroy(),this.connections[a]=null))}):this.unsubscribe(n)})}class Xr{constructor(t,e){const{ws:s}=t,{apiKey:r}=t,{apiUrl:i}=t;this.apiKey=r,this.apiUrl=i,this.ws=s,this.connections={},this.onTransaction$=new tt,this.transactions$=this.onTransaction$.asObservable(),this.errors$=new tt,this.Blocknative=e,this.subscribe=qr.bind(this),this.unsubscribe=Gr.bind(this)}}var Qr="4.6.0";function Yr(n){if(this._queuedMessages.length>he)throw new Error(`Queue limit of ${he} messages has been reached.`);this._queuedMessages.push(Kt.bind(this)(n)),this._processingQueue||this._processQueue()}async function Jr(){for(this._processingQueue=!0,this._connected||await ti.bind(this)();this._queuedMessages.length>0;){await gt(1),this._waitToRetry!==null&&(await this._waitToRetry,this._waitToRetry=null);const n=this._queuedMessages.shift(),t=this._limitRules.duration/this._limitRules.points*1e3;await gt(t),this._socket.send(n)}this._processingQueue=!1,this._limitRules=Ve}function Zr(n){const{status:t,reason:e,event:s,connectionId:r,serverVersion:i,retryMs:o,limitRules:c,blockedMsg:a,dispatchTimestamp:l}=JSON.parse(n.data);if(r&&(Ge()&&window.localStorage.setItem(this._storageKey,r),this._connectionId=r),t==="error"){if(e.includes("ratelimit")&&!e.match(/IP (PendingSimulation|Notification) ratelimit reached/)){this._waitToRetry=gt(o),this._limitRules=c,a&&this._queuedMessages.unshift(a);return}if(e.includes("upgrade your plan"))if(this._onerror){this._onerror({message:e});return}else throw new Error(e);if(e.includes("not a valid API key"))if(this._onerror){this._onerror({message:e});return}else throw new Error(e);if(e.includes("network not supported"))if(this._onerror){this._onerror({message:e});return}else throw new Error(e);if(e.includes("maximum allowed amount"))if(this._onerror){this._onerror({message:e});return}else throw new Error(e);if(e.includes("invalid txid")){const u=`${s.transaction.txid} is an invalid txid`;if(this._onerror){this._onerror({message:u,transaction:s.transaction.txid});return}else throw new Error(u)}if(e.includes("invalid hash")){const u=`${s.transaction.hash} is an invalid transaction hash`;if(this._onerror){this._onerror({message:u,transaction:s.transaction.hash});return}else throw new Error(u)}if(e.includes("invalid address")){const u=`${s.account.address} is an invalid address`;if(this._onerror){this._onerror({message:u,account:s.account.address});return}else throw new Error(u)}if(e.includes("not a valid Bitcoin"))if(this._onerror){this._onerror({message:e,account:s.account.address});return}else throw new Error(e);if(e.includes("not a valid Ethereum"))if(this._onerror){this._onerror({message:e,account:s.account.address});return}else throw new Error(e);if(s&&s.categoryCode==="simulate"){st.error({eventId:s.eventId,error:{message:e}});return}if(s&&s.config){const u=this.configurations.get(s.config.scope);u&&u.subscription&&u.subscription.error({message:e});return}if(this._onerror){this._onerror({message:e});return}else throw new Error(e)}if(s&&s.config){const u=this._system==="ethereum"?s.config.scope.toLowerCase():s.config.scope,x=this.configurations.get(u);x&&x.subscription&&x.subscription.next()}if(s&&s.transaction){const{eventId:u,transaction:x,eventCode:_,contractCall:v,timeStamp:m,blockchain:{system:g,network:S}}=s,y=this._system==="ethereum"?{...x,serverVersion:i,eventCode:_,timeStamp:m,dispatchTimestamp:l,system:g,network:S,contractCall:v}:{...x,serverVersion:i,eventCode:_,timeStamp:m,dispatchTimestamp:l,system:g,network:S};if(Ns(_)||x.status==="unsubscribed")return;if(y.originalHash&&(y.replaceHash=y.hash,y.hash=y.originalHash,delete y.originalHash),_==="txSpeedUp"&&y.status!=="speedup"&&(y.status="speedup"),_==="txCancel"&&y.status!=="cancel"&&(y.status="cancel"),(_==="txSpeedUp"||_==="txCancel")&&(this.watchedTransactions=this.watchedTransactions.map(k=>(k.hash===y.replaceHash&&(k.hash=x.hash||x.txid),k))),s&&s.categoryCode==="simulate"){y.contractCall=s.transaction.contractCall,delete y.dispatchTimestamp,st.next({eventId:u,transaction:y});return}const C=x.watchedAddress&&this._system==="ethereum"?x.watchedAddress.toLowerCase():x.watchedAddress;if(C){const k=this.watchedAccounts.find(p=>p.address===C),A=k?Vs(k.emitters.map(p=>p.emit(y))):!1,h=this.configurations.get(C),f=h&&h.emitter&&h.emitter.emit(y)||A;this._transactionHandlers.forEach(p=>p({transaction:y,emitterResult:f}))}else{const k=this.watchedTransactions.find(h=>h.hash===y.hash||y.txid),A=k&&k.emitter.emit(y);this._transactionHandlers.forEach(h=>h({transaction:y,emitterResult:A})),(y.status==="speedup"||y.status==="cancel")&&(this.watchedTransactions=this.watchedTransactions.map(h=>h.hash===y.hash||y.txid?{...h,hash:y.replaceHash}:h))}}}function Kt(n){return JSON.stringify({timeStamp:new Date().toISOString(),dappId:this._dappId,version:Qr,appName:this._appName,appVersion:this._appVersion,blockchain:{system:this._system,network:qe(this._system,this._networkId)||"local"},...n},n.categoryCode==="configs"?Xs:void 0)}function ti(){return new Promise(n=>{const t=setInterval(()=>{this._connected&&(setTimeout(n,100),clearInterval(t))})})}const ei="unknown",ni="unknown",si="ethereum";class ai{constructor(t){js(t);const{system:e=si,name:s=ei,appVersion:r=ni,networkId:i,transactionHandlers:o=[],ws:c,onopen:a,ondown:l,onreopen:u,onerror:x,onclose:_}=t,{apiUrl:v}=t,{dappId:m}=t,g={connectTimeout:1e4},S=new Un(v||"wss://api.blocknative.com/v0",c?{wsConstructor:c,...g}:{...g});S.onopen=ri.bind(this,a),S.ondown=ii.bind(this,l),S.onreopen=oi.bind(this,u),S.onmessage=Zr.bind(this),S.onerror=k=>x&&x({message:"There was a WebSocket error",error:k}),S.onclose=()=>{this._pingTimeout&&clearInterval(this._pingTimeout),_&&_()};const y=Ks.SHA1(`${m} - ${s}`).toString(),C=Ge()&&window.localStorage.getItem(y);this._storageKey=y,this._connectionId=C||void 0,this._dappId=m,this._system=e,this._networkId=i,this._appName=s,this._appVersion=r,this._transactionHandlers=o,this._socket=S,this._connected=!1,this._sendMessage=Yr.bind(this),this._pingTimeout=void 0,this._destroyed=!1,this._onerror=x,this._queuedMessages=[],this._limitRules=Ve,this._waitToRetry=null,this._processingQueue=!1,this._processQueue=Jr.bind(this),this._socket.ws.on&&(this._heartbeat=()=>{this._pingTimeout&&clearTimeout(this._pingTimeout),this._pingTimeout=setTimeout(()=>{this._socket.ws.terminate()},3e4+1e3)},this._socket.ws.on("ping",()=>{this._heartbeat&&this._heartbeat()})),this.watchedTransactions=[],this.watchedAccounts=[],this.configurations=new Map,this.transaction=Qs.bind(this),this.account=Ys.bind(this),this.event=Js.bind(this),this.simulate=$r.bind(this),this.multiSim=Ur.bind(this),this.unsubscribe=Nr.bind(this),this.configuration=Vr.bind(this),this.destroy=()=>{this._socket.close(),this._destroyed=!0,this._socket.onclose()}}static multichain(t){return new Xr(t,this)}}function ri(n){this._connected=!0;const t={categoryCode:"initialize",eventCode:"checkDappId",connectionId:this._connectionId};this._socket.send(Kt.bind(this)(t)),this._heartbeat&&this._heartbeat(),n&&n()}function ii(n,t){this._connected=!1,n&&n(t),this._pingTimeout&&clearTimeout(this._pingTimeout)}async function oi(n){this._connected=!0;const t={categoryCode:"initialize",eventCode:"checkDappId",connectionId:this._connectionId};this._socket.send(Kt.bind(this)(t));const e=Array.from(this.configurations.values()),s=this.configurations.get("{}");if(s)try{const{emitter:i,subscription:o,...c}=s;await this.configuration(c)}catch(i){console.warn("Error re-sending {} configuration upon reconnection:",i)}e.filter(({scope:i})=>i!=="{}").forEach(i=>{const{emitter:o,subscription:c,...a}=i;this._sendMessage({categoryCode:"configs",eventCode:"put",config:a})}),this.watchedAccounts.forEach(i=>{this._sendMessage({eventCode:"accountAddress",categoryCode:"watch",account:{address:i.address}})}),n&&n(),this._socket.ws&&this._socket.ws.on&&(this._socket.ws.on("ping",()=>{this._heartbeat&&this._heartbeat()}),this._heartbeat())}export{ai as default};
+***************************************************************************** */
+var extendStatics = function(d2, b) {
+  extendStatics = Object.setPrototypeOf || {
+    __proto__: []
+  } instanceof Array && function(d3, b2) {
+    d3.__proto__ = b2;
+  } || function(d3, b2) {
+    for (var p in b2)
+      if (b2.hasOwnProperty(p))
+        d3[p] = b2[p];
+  };
+  return extendStatics(d2, b);
+};
+function __extends(d2, b) {
+  extendStatics(d2, b);
+  function __() {
+    this.constructor = d2;
+  }
+  d2.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+}
+function isFunction(x2) {
+  return typeof x2 === "function";
+}
+var _enable_super_gross_mode_that_will_cause_bad_things = false;
+var config = {
+  Promise: void 0,
+  set useDeprecatedSynchronousErrorHandling(value) {
+    if (value) {
+      var error = /* @__PURE__ */ new Error();
+      /* @__PURE__ */ console.warn("DEPRECATED! RxJS was set to use deprecated synchronous error handling behavior by code at: \n" + error.stack);
+    }
+    _enable_super_gross_mode_that_will_cause_bad_things = value;
+  },
+  get useDeprecatedSynchronousErrorHandling() {
+    return _enable_super_gross_mode_that_will_cause_bad_things;
+  }
+};
+function hostReportError(err) {
+  setTimeout(function() {
+    throw err;
+  }, 0);
+}
+var empty = {
+  closed: true,
+  next: function(value) {
+  },
+  error: function(err) {
+    if (config.useDeprecatedSynchronousErrorHandling) {
+      throw err;
+    } else {
+      hostReportError(err);
+    }
+  },
+  complete: function() {
+  }
+};
+var isArray = /* @__PURE__ */ function() {
+  return Array.isArray || function(x2) {
+    return x2 && typeof x2.length === "number";
+  };
+}();
+function isObject(x2) {
+  return x2 !== null && typeof x2 === "object";
+}
+var UnsubscriptionErrorImpl = /* @__PURE__ */ function() {
+  function UnsubscriptionErrorImpl2(errors) {
+    Error.call(this);
+    this.message = errors ? errors.length + " errors occurred during unsubscription:\n" + errors.map(function(err, i) {
+      return i + 1 + ") " + err.toString();
+    }).join("\n  ") : "";
+    this.name = "UnsubscriptionError";
+    this.errors = errors;
+    return this;
+  }
+  UnsubscriptionErrorImpl2.prototype = /* @__PURE__ */ Object.create(Error.prototype);
+  return UnsubscriptionErrorImpl2;
+}();
+var UnsubscriptionError = UnsubscriptionErrorImpl;
+var Subscription = /* @__PURE__ */ function() {
+  function Subscription2(unsubscribe2) {
+    this.closed = false;
+    this._parentOrParents = null;
+    this._subscriptions = null;
+    if (unsubscribe2) {
+      this._ctorUnsubscribe = true;
+      this._unsubscribe = unsubscribe2;
+    }
+  }
+  Subscription2.prototype.unsubscribe = function() {
+    var errors;
+    if (this.closed) {
+      return;
+    }
+    var _a = this, _parentOrParents = _a._parentOrParents, _ctorUnsubscribe = _a._ctorUnsubscribe, _unsubscribe = _a._unsubscribe, _subscriptions = _a._subscriptions;
+    this.closed = true;
+    this._parentOrParents = null;
+    this._subscriptions = null;
+    if (_parentOrParents instanceof Subscription2) {
+      _parentOrParents.remove(this);
+    } else if (_parentOrParents !== null) {
+      for (var index = 0; index < _parentOrParents.length; ++index) {
+        var parent_1 = _parentOrParents[index];
+        parent_1.remove(this);
+      }
+    }
+    if (isFunction(_unsubscribe)) {
+      if (_ctorUnsubscribe) {
+        this._unsubscribe = void 0;
+      }
+      try {
+        _unsubscribe.call(this);
+      } catch (e) {
+        errors = e instanceof UnsubscriptionError ? flattenUnsubscriptionErrors(e.errors) : [e];
+      }
+    }
+    if (isArray(_subscriptions)) {
+      var index = -1;
+      var len = _subscriptions.length;
+      while (++index < len) {
+        var sub = _subscriptions[index];
+        if (isObject(sub)) {
+          try {
+            sub.unsubscribe();
+          } catch (e) {
+            errors = errors || [];
+            if (e instanceof UnsubscriptionError) {
+              errors = errors.concat(flattenUnsubscriptionErrors(e.errors));
+            } else {
+              errors.push(e);
+            }
+          }
+        }
+      }
+    }
+    if (errors) {
+      throw new UnsubscriptionError(errors);
+    }
+  };
+  Subscription2.prototype.add = function(teardown) {
+    var subscription = teardown;
+    if (!teardown) {
+      return Subscription2.EMPTY;
+    }
+    switch (typeof teardown) {
+      case "function":
+        subscription = new Subscription2(teardown);
+      case "object":
+        if (subscription === this || subscription.closed || typeof subscription.unsubscribe !== "function") {
+          return subscription;
+        } else if (this.closed) {
+          subscription.unsubscribe();
+          return subscription;
+        } else if (!(subscription instanceof Subscription2)) {
+          var tmp = subscription;
+          subscription = new Subscription2();
+          subscription._subscriptions = [tmp];
+        }
+        break;
+      default: {
+        throw new Error("unrecognized teardown " + teardown + " added to Subscription.");
+      }
+    }
+    var _parentOrParents = subscription._parentOrParents;
+    if (_parentOrParents === null) {
+      subscription._parentOrParents = this;
+    } else if (_parentOrParents instanceof Subscription2) {
+      if (_parentOrParents === this) {
+        return subscription;
+      }
+      subscription._parentOrParents = [_parentOrParents, this];
+    } else if (_parentOrParents.indexOf(this) === -1) {
+      _parentOrParents.push(this);
+    } else {
+      return subscription;
+    }
+    var subscriptions = this._subscriptions;
+    if (subscriptions === null) {
+      this._subscriptions = [subscription];
+    } else {
+      subscriptions.push(subscription);
+    }
+    return subscription;
+  };
+  Subscription2.prototype.remove = function(subscription) {
+    var subscriptions = this._subscriptions;
+    if (subscriptions) {
+      var subscriptionIndex = subscriptions.indexOf(subscription);
+      if (subscriptionIndex !== -1) {
+        subscriptions.splice(subscriptionIndex, 1);
+      }
+    }
+  };
+  Subscription2.EMPTY = function(empty2) {
+    empty2.closed = true;
+    return empty2;
+  }(new Subscription2());
+  return Subscription2;
+}();
+function flattenUnsubscriptionErrors(errors) {
+  return errors.reduce(function(errs, err) {
+    return errs.concat(err instanceof UnsubscriptionError ? err.errors : err);
+  }, []);
+}
+var rxSubscriber = /* @__PURE__ */ function() {
+  return typeof Symbol === "function" ? /* @__PURE__ */ Symbol("rxSubscriber") : "@@rxSubscriber_" + /* @__PURE__ */ Math.random();
+}();
+var Subscriber = /* @__PURE__ */ function(_super) {
+  __extends(Subscriber2, _super);
+  function Subscriber2(destinationOrNext, error, complete) {
+    var _this = _super.call(this) || this;
+    _this.syncErrorValue = null;
+    _this.syncErrorThrown = false;
+    _this.syncErrorThrowable = false;
+    _this.isStopped = false;
+    switch (arguments.length) {
+      case 0:
+        _this.destination = empty;
+        break;
+      case 1:
+        if (!destinationOrNext) {
+          _this.destination = empty;
+          break;
+        }
+        if (typeof destinationOrNext === "object") {
+          if (destinationOrNext instanceof Subscriber2) {
+            _this.syncErrorThrowable = destinationOrNext.syncErrorThrowable;
+            _this.destination = destinationOrNext;
+            destinationOrNext.add(_this);
+          } else {
+            _this.syncErrorThrowable = true;
+            _this.destination = new SafeSubscriber(_this, destinationOrNext);
+          }
+          break;
+        }
+      default:
+        _this.syncErrorThrowable = true;
+        _this.destination = new SafeSubscriber(_this, destinationOrNext, error, complete);
+        break;
+    }
+    return _this;
+  }
+  Subscriber2.prototype[rxSubscriber] = function() {
+    return this;
+  };
+  Subscriber2.create = function(next, error, complete) {
+    var subscriber = new Subscriber2(next, error, complete);
+    subscriber.syncErrorThrowable = false;
+    return subscriber;
+  };
+  Subscriber2.prototype.next = function(value) {
+    if (!this.isStopped) {
+      this._next(value);
+    }
+  };
+  Subscriber2.prototype.error = function(err) {
+    if (!this.isStopped) {
+      this.isStopped = true;
+      this._error(err);
+    }
+  };
+  Subscriber2.prototype.complete = function() {
+    if (!this.isStopped) {
+      this.isStopped = true;
+      this._complete();
+    }
+  };
+  Subscriber2.prototype.unsubscribe = function() {
+    if (this.closed) {
+      return;
+    }
+    this.isStopped = true;
+    _super.prototype.unsubscribe.call(this);
+  };
+  Subscriber2.prototype._next = function(value) {
+    this.destination.next(value);
+  };
+  Subscriber2.prototype._error = function(err) {
+    this.destination.error(err);
+    this.unsubscribe();
+  };
+  Subscriber2.prototype._complete = function() {
+    this.destination.complete();
+    this.unsubscribe();
+  };
+  Subscriber2.prototype._unsubscribeAndRecycle = function() {
+    var _parentOrParents = this._parentOrParents;
+    this._parentOrParents = null;
+    this.unsubscribe();
+    this.closed = false;
+    this.isStopped = false;
+    this._parentOrParents = _parentOrParents;
+    return this;
+  };
+  return Subscriber2;
+}(Subscription);
+var SafeSubscriber = /* @__PURE__ */ function(_super) {
+  __extends(SafeSubscriber2, _super);
+  function SafeSubscriber2(_parentSubscriber, observerOrNext, error, complete) {
+    var _this = _super.call(this) || this;
+    _this._parentSubscriber = _parentSubscriber;
+    var next;
+    var context = _this;
+    if (isFunction(observerOrNext)) {
+      next = observerOrNext;
+    } else if (observerOrNext) {
+      next = observerOrNext.next;
+      error = observerOrNext.error;
+      complete = observerOrNext.complete;
+      if (observerOrNext !== empty) {
+        context = Object.create(observerOrNext);
+        if (isFunction(context.unsubscribe)) {
+          _this.add(context.unsubscribe.bind(context));
+        }
+        context.unsubscribe = _this.unsubscribe.bind(_this);
+      }
+    }
+    _this._context = context;
+    _this._next = next;
+    _this._error = error;
+    _this._complete = complete;
+    return _this;
+  }
+  SafeSubscriber2.prototype.next = function(value) {
+    if (!this.isStopped && this._next) {
+      var _parentSubscriber = this._parentSubscriber;
+      if (!config.useDeprecatedSynchronousErrorHandling || !_parentSubscriber.syncErrorThrowable) {
+        this.__tryOrUnsub(this._next, value);
+      } else if (this.__tryOrSetError(_parentSubscriber, this._next, value)) {
+        this.unsubscribe();
+      }
+    }
+  };
+  SafeSubscriber2.prototype.error = function(err) {
+    if (!this.isStopped) {
+      var _parentSubscriber = this._parentSubscriber;
+      var useDeprecatedSynchronousErrorHandling = config.useDeprecatedSynchronousErrorHandling;
+      if (this._error) {
+        if (!useDeprecatedSynchronousErrorHandling || !_parentSubscriber.syncErrorThrowable) {
+          this.__tryOrUnsub(this._error, err);
+          this.unsubscribe();
+        } else {
+          this.__tryOrSetError(_parentSubscriber, this._error, err);
+          this.unsubscribe();
+        }
+      } else if (!_parentSubscriber.syncErrorThrowable) {
+        this.unsubscribe();
+        if (useDeprecatedSynchronousErrorHandling) {
+          throw err;
+        }
+        hostReportError(err);
+      } else {
+        if (useDeprecatedSynchronousErrorHandling) {
+          _parentSubscriber.syncErrorValue = err;
+          _parentSubscriber.syncErrorThrown = true;
+        } else {
+          hostReportError(err);
+        }
+        this.unsubscribe();
+      }
+    }
+  };
+  SafeSubscriber2.prototype.complete = function() {
+    var _this = this;
+    if (!this.isStopped) {
+      var _parentSubscriber = this._parentSubscriber;
+      if (this._complete) {
+        var wrappedComplete = function() {
+          return _this._complete.call(_this._context);
+        };
+        if (!config.useDeprecatedSynchronousErrorHandling || !_parentSubscriber.syncErrorThrowable) {
+          this.__tryOrUnsub(wrappedComplete);
+          this.unsubscribe();
+        } else {
+          this.__tryOrSetError(_parentSubscriber, wrappedComplete);
+          this.unsubscribe();
+        }
+      } else {
+        this.unsubscribe();
+      }
+    }
+  };
+  SafeSubscriber2.prototype.__tryOrUnsub = function(fn, value) {
+    try {
+      fn.call(this._context, value);
+    } catch (err) {
+      this.unsubscribe();
+      if (config.useDeprecatedSynchronousErrorHandling) {
+        throw err;
+      } else {
+        hostReportError(err);
+      }
+    }
+  };
+  SafeSubscriber2.prototype.__tryOrSetError = function(parent, fn, value) {
+    if (!config.useDeprecatedSynchronousErrorHandling) {
+      throw new Error("bad call");
+    }
+    try {
+      fn.call(this._context, value);
+    } catch (err) {
+      if (config.useDeprecatedSynchronousErrorHandling) {
+        parent.syncErrorValue = err;
+        parent.syncErrorThrown = true;
+        return true;
+      } else {
+        hostReportError(err);
+        return true;
+      }
+    }
+    return false;
+  };
+  SafeSubscriber2.prototype._unsubscribe = function() {
+    var _parentSubscriber = this._parentSubscriber;
+    this._context = null;
+    this._parentSubscriber = null;
+    _parentSubscriber.unsubscribe();
+  };
+  return SafeSubscriber2;
+}(Subscriber);
+function canReportError(observer) {
+  while (observer) {
+    var _a = observer, closed_1 = _a.closed, destination = _a.destination, isStopped = _a.isStopped;
+    if (closed_1 || isStopped) {
+      return false;
+    } else if (destination && destination instanceof Subscriber) {
+      observer = destination;
+    } else {
+      observer = null;
+    }
+  }
+  return true;
+}
+function toSubscriber(nextOrObserver, error, complete) {
+  if (nextOrObserver) {
+    if (nextOrObserver instanceof Subscriber) {
+      return nextOrObserver;
+    }
+    if (nextOrObserver[rxSubscriber]) {
+      return nextOrObserver[rxSubscriber]();
+    }
+  }
+  if (!nextOrObserver && !error && !complete) {
+    return new Subscriber(empty);
+  }
+  return new Subscriber(nextOrObserver, error, complete);
+}
+var observable = /* @__PURE__ */ function() {
+  return typeof Symbol === "function" && Symbol.observable || "@@observable";
+}();
+function identity(x2) {
+  return x2;
+}
+function pipeFromArray(fns) {
+  if (fns.length === 0) {
+    return identity;
+  }
+  if (fns.length === 1) {
+    return fns[0];
+  }
+  return function piped(input) {
+    return fns.reduce(function(prev, fn) {
+      return fn(prev);
+    }, input);
+  };
+}
+var Observable = /* @__PURE__ */ function() {
+  function Observable2(subscribe2) {
+    this._isScalar = false;
+    if (subscribe2) {
+      this._subscribe = subscribe2;
+    }
+  }
+  Observable2.prototype.lift = function(operator) {
+    var observable2 = new Observable2();
+    observable2.source = this;
+    observable2.operator = operator;
+    return observable2;
+  };
+  Observable2.prototype.subscribe = function(observerOrNext, error, complete) {
+    var operator = this.operator;
+    var sink = toSubscriber(observerOrNext, error, complete);
+    if (operator) {
+      sink.add(operator.call(sink, this.source));
+    } else {
+      sink.add(this.source || config.useDeprecatedSynchronousErrorHandling && !sink.syncErrorThrowable ? this._subscribe(sink) : this._trySubscribe(sink));
+    }
+    if (config.useDeprecatedSynchronousErrorHandling) {
+      if (sink.syncErrorThrowable) {
+        sink.syncErrorThrowable = false;
+        if (sink.syncErrorThrown) {
+          throw sink.syncErrorValue;
+        }
+      }
+    }
+    return sink;
+  };
+  Observable2.prototype._trySubscribe = function(sink) {
+    try {
+      return this._subscribe(sink);
+    } catch (err) {
+      if (config.useDeprecatedSynchronousErrorHandling) {
+        sink.syncErrorThrown = true;
+        sink.syncErrorValue = err;
+      }
+      if (canReportError(sink)) {
+        sink.error(err);
+      } else {
+        console.warn(err);
+      }
+    }
+  };
+  Observable2.prototype.forEach = function(next, promiseCtor) {
+    var _this = this;
+    promiseCtor = getPromiseCtor(promiseCtor);
+    return new promiseCtor(function(resolve, reject) {
+      var subscription;
+      subscription = _this.subscribe(function(value) {
+        try {
+          next(value);
+        } catch (err) {
+          reject(err);
+          if (subscription) {
+            subscription.unsubscribe();
+          }
+        }
+      }, reject, resolve);
+    });
+  };
+  Observable2.prototype._subscribe = function(subscriber) {
+    var source = this.source;
+    return source && source.subscribe(subscriber);
+  };
+  Observable2.prototype[observable] = function() {
+    return this;
+  };
+  Observable2.prototype.pipe = function() {
+    var operations = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+      operations[_i] = arguments[_i];
+    }
+    if (operations.length === 0) {
+      return this;
+    }
+    return pipeFromArray(operations)(this);
+  };
+  Observable2.prototype.toPromise = function(promiseCtor) {
+    var _this = this;
+    promiseCtor = getPromiseCtor(promiseCtor);
+    return new promiseCtor(function(resolve, reject) {
+      var value;
+      _this.subscribe(function(x2) {
+        return value = x2;
+      }, function(err) {
+        return reject(err);
+      }, function() {
+        return resolve(value);
+      });
+    });
+  };
+  Observable2.create = function(subscribe2) {
+    return new Observable2(subscribe2);
+  };
+  return Observable2;
+}();
+function getPromiseCtor(promiseCtor) {
+  if (!promiseCtor) {
+    promiseCtor = Promise;
+  }
+  if (!promiseCtor) {
+    throw new Error("no Promise impl found");
+  }
+  return promiseCtor;
+}
+var subscribeToArray = function(array) {
+  return function(subscriber) {
+    for (var i = 0, len = array.length; i < len && !subscriber.closed; i++) {
+      subscriber.next(array[i]);
+    }
+    subscriber.complete();
+  };
+};
+var subscribeToPromise = function(promise) {
+  return function(subscriber) {
+    promise.then(function(value) {
+      if (!subscriber.closed) {
+        subscriber.next(value);
+        subscriber.complete();
+      }
+    }, function(err) {
+      return subscriber.error(err);
+    }).then(null, hostReportError);
+    return subscriber;
+  };
+};
+function getSymbolIterator() {
+  if (typeof Symbol !== "function" || !Symbol.iterator) {
+    return "@@iterator";
+  }
+  return Symbol.iterator;
+}
+var iterator = /* @__PURE__ */ getSymbolIterator();
+var subscribeToIterable = function(iterable) {
+  return function(subscriber) {
+    var iterator$1 = iterable[iterator]();
+    do {
+      var item = void 0;
+      try {
+        item = iterator$1.next();
+      } catch (err) {
+        subscriber.error(err);
+        return subscriber;
+      }
+      if (item.done) {
+        subscriber.complete();
+        break;
+      }
+      subscriber.next(item.value);
+      if (subscriber.closed) {
+        break;
+      }
+    } while (true);
+    if (typeof iterator$1.return === "function") {
+      subscriber.add(function() {
+        if (iterator$1.return) {
+          iterator$1.return();
+        }
+      });
+    }
+    return subscriber;
+  };
+};
+var subscribeToObservable = function(obj) {
+  return function(subscriber) {
+    var obs = obj[observable]();
+    if (typeof obs.subscribe !== "function") {
+      throw new TypeError("Provided object does not correctly implement Symbol.observable");
+    } else {
+      return obs.subscribe(subscriber);
+    }
+  };
+};
+var isArrayLike = function(x2) {
+  return x2 && typeof x2.length === "number" && typeof x2 !== "function";
+};
+function isPromise(value) {
+  return !!value && typeof value.subscribe !== "function" && typeof value.then === "function";
+}
+var subscribeTo = function(result) {
+  if (!!result && typeof result[observable] === "function") {
+    return subscribeToObservable(result);
+  } else if (isArrayLike(result)) {
+    return subscribeToArray(result);
+  } else if (isPromise(result)) {
+    return subscribeToPromise(result);
+  } else if (!!result && typeof result[iterator] === "function") {
+    return subscribeToIterable(result);
+  } else {
+    var value = isObject(result) ? "an invalid object" : "'" + result + "'";
+    var msg = "You provided " + value + " where a stream was expected. You can provide an Observable, Promise, Array, or Iterable.";
+    throw new TypeError(msg);
+  }
+};
+var SimpleInnerSubscriber = /* @__PURE__ */ function(_super) {
+  __extends(SimpleInnerSubscriber2, _super);
+  function SimpleInnerSubscriber2(parent) {
+    var _this = _super.call(this) || this;
+    _this.parent = parent;
+    return _this;
+  }
+  SimpleInnerSubscriber2.prototype._next = function(value) {
+    this.parent.notifyNext(value);
+  };
+  SimpleInnerSubscriber2.prototype._error = function(error) {
+    this.parent.notifyError(error);
+    this.unsubscribe();
+  };
+  SimpleInnerSubscriber2.prototype._complete = function() {
+    this.parent.notifyComplete();
+    this.unsubscribe();
+  };
+  return SimpleInnerSubscriber2;
+}(Subscriber);
+var SimpleOuterSubscriber = /* @__PURE__ */ function(_super) {
+  __extends(SimpleOuterSubscriber2, _super);
+  function SimpleOuterSubscriber2() {
+    return _super !== null && _super.apply(this, arguments) || this;
+  }
+  SimpleOuterSubscriber2.prototype.notifyNext = function(innerValue) {
+    this.destination.next(innerValue);
+  };
+  SimpleOuterSubscriber2.prototype.notifyError = function(err) {
+    this.destination.error(err);
+  };
+  SimpleOuterSubscriber2.prototype.notifyComplete = function() {
+    this.destination.complete();
+  };
+  return SimpleOuterSubscriber2;
+}(Subscriber);
+function innerSubscribe(result, innerSubscriber) {
+  if (innerSubscriber.closed) {
+    return void 0;
+  }
+  if (result instanceof Observable) {
+    return result.subscribe(innerSubscriber);
+  }
+  return subscribeTo(result)(innerSubscriber);
+}
+var Action = /* @__PURE__ */ function(_super) {
+  __extends(Action2, _super);
+  function Action2(scheduler, work) {
+    return _super.call(this) || this;
+  }
+  Action2.prototype.schedule = function(state, delay) {
+    return this;
+  };
+  return Action2;
+}(Subscription);
+var AsyncAction = /* @__PURE__ */ function(_super) {
+  __extends(AsyncAction2, _super);
+  function AsyncAction2(scheduler, work) {
+    var _this = _super.call(this, scheduler, work) || this;
+    _this.scheduler = scheduler;
+    _this.work = work;
+    _this.pending = false;
+    return _this;
+  }
+  AsyncAction2.prototype.schedule = function(state, delay) {
+    if (delay === void 0) {
+      delay = 0;
+    }
+    if (this.closed) {
+      return this;
+    }
+    this.state = state;
+    var id = this.id;
+    var scheduler = this.scheduler;
+    if (id != null) {
+      this.id = this.recycleAsyncId(scheduler, id, delay);
+    }
+    this.pending = true;
+    this.delay = delay;
+    this.id = this.id || this.requestAsyncId(scheduler, this.id, delay);
+    return this;
+  };
+  AsyncAction2.prototype.requestAsyncId = function(scheduler, id, delay) {
+    if (delay === void 0) {
+      delay = 0;
+    }
+    return setInterval(scheduler.flush.bind(scheduler, this), delay);
+  };
+  AsyncAction2.prototype.recycleAsyncId = function(scheduler, id, delay) {
+    if (delay === void 0) {
+      delay = 0;
+    }
+    if (delay !== null && this.delay === delay && this.pending === false) {
+      return id;
+    }
+    clearInterval(id);
+    return void 0;
+  };
+  AsyncAction2.prototype.execute = function(state, delay) {
+    if (this.closed) {
+      return new Error("executing a cancelled action");
+    }
+    this.pending = false;
+    var error = this._execute(state, delay);
+    if (error) {
+      return error;
+    } else if (this.pending === false && this.id != null) {
+      this.id = this.recycleAsyncId(this.scheduler, this.id, null);
+    }
+  };
+  AsyncAction2.prototype._execute = function(state, delay) {
+    var errored = false;
+    var errorValue = void 0;
+    try {
+      this.work(state);
+    } catch (e) {
+      errored = true;
+      errorValue = !!e && e || new Error(e);
+    }
+    if (errored) {
+      this.unsubscribe();
+      return errorValue;
+    }
+  };
+  AsyncAction2.prototype._unsubscribe = function() {
+    var id = this.id;
+    var scheduler = this.scheduler;
+    var actions = scheduler.actions;
+    var index = actions.indexOf(this);
+    this.work = null;
+    this.state = null;
+    this.pending = false;
+    this.scheduler = null;
+    if (index !== -1) {
+      actions.splice(index, 1);
+    }
+    if (id != null) {
+      this.id = this.recycleAsyncId(scheduler, id, null);
+    }
+    this.delay = null;
+  };
+  return AsyncAction2;
+}(Action);
+var Scheduler = /* @__PURE__ */ function() {
+  function Scheduler2(SchedulerAction, now) {
+    if (now === void 0) {
+      now = Scheduler2.now;
+    }
+    this.SchedulerAction = SchedulerAction;
+    this.now = now;
+  }
+  Scheduler2.prototype.schedule = function(work, delay, state) {
+    if (delay === void 0) {
+      delay = 0;
+    }
+    return new this.SchedulerAction(this, work).schedule(state, delay);
+  };
+  Scheduler2.now = function() {
+    return Date.now();
+  };
+  return Scheduler2;
+}();
+var AsyncScheduler = /* @__PURE__ */ function(_super) {
+  __extends(AsyncScheduler2, _super);
+  function AsyncScheduler2(SchedulerAction, now) {
+    if (now === void 0) {
+      now = Scheduler.now;
+    }
+    var _this = _super.call(this, SchedulerAction, function() {
+      if (AsyncScheduler2.delegate && AsyncScheduler2.delegate !== _this) {
+        return AsyncScheduler2.delegate.now();
+      } else {
+        return now();
+      }
+    }) || this;
+    _this.actions = [];
+    _this.active = false;
+    _this.scheduled = void 0;
+    return _this;
+  }
+  AsyncScheduler2.prototype.schedule = function(work, delay, state) {
+    if (delay === void 0) {
+      delay = 0;
+    }
+    if (AsyncScheduler2.delegate && AsyncScheduler2.delegate !== this) {
+      return AsyncScheduler2.delegate.schedule(work, delay, state);
+    } else {
+      return _super.prototype.schedule.call(this, work, delay, state);
+    }
+  };
+  AsyncScheduler2.prototype.flush = function(action) {
+    var actions = this.actions;
+    if (this.active) {
+      actions.push(action);
+      return;
+    }
+    var error;
+    this.active = true;
+    do {
+      if (error = action.execute(action.state, action.delay)) {
+        break;
+      }
+    } while (action = actions.shift());
+    this.active = false;
+    if (error) {
+      while (action = actions.shift()) {
+        action.unsubscribe();
+      }
+      throw error;
+    }
+  };
+  return AsyncScheduler2;
+}(Scheduler);
+var asyncScheduler = /* @__PURE__ */ new AsyncScheduler(AsyncAction);
+var async = asyncScheduler;
+function isDate(value) {
+  return value instanceof Date && !isNaN(+value);
+}
+var EMPTY = /* @__PURE__ */ new Observable(function(subscriber) {
+  return subscriber.complete();
+});
+function empty$1(scheduler) {
+  return scheduler ? emptyScheduled(scheduler) : EMPTY;
+}
+function emptyScheduled(scheduler) {
+  return new Observable(function(subscriber) {
+    return scheduler.schedule(function() {
+      return subscriber.complete();
+    });
+  });
+}
+function throwError(error, scheduler) {
+  if (!scheduler) {
+    return new Observable(function(subscriber) {
+      return subscriber.error(error);
+    });
+  } else {
+    return new Observable(function(subscriber) {
+      return scheduler.schedule(dispatch, 0, {
+        error,
+        subscriber
+      });
+    });
+  }
+}
+function dispatch(_a) {
+  var error = _a.error, subscriber = _a.subscriber;
+  subscriber.error(error);
+}
+var ArgumentOutOfRangeErrorImpl = /* @__PURE__ */ function() {
+  function ArgumentOutOfRangeErrorImpl2() {
+    Error.call(this);
+    this.message = "argument out of range";
+    this.name = "ArgumentOutOfRangeError";
+    return this;
+  }
+  ArgumentOutOfRangeErrorImpl2.prototype = /* @__PURE__ */ Object.create(Error.prototype);
+  return ArgumentOutOfRangeErrorImpl2;
+}();
+var ArgumentOutOfRangeError = ArgumentOutOfRangeErrorImpl;
+function filter(predicate, thisArg) {
+  return function filterOperatorFunction(source) {
+    return source.lift(new FilterOperator(predicate, thisArg));
+  };
+}
+var FilterOperator = /* @__PURE__ */ function() {
+  function FilterOperator2(predicate, thisArg) {
+    this.predicate = predicate;
+    this.thisArg = thisArg;
+  }
+  FilterOperator2.prototype.call = function(subscriber, source) {
+    return source.subscribe(new FilterSubscriber(subscriber, this.predicate, this.thisArg));
+  };
+  return FilterOperator2;
+}();
+var FilterSubscriber = /* @__PURE__ */ function(_super) {
+  __extends(FilterSubscriber2, _super);
+  function FilterSubscriber2(destination, predicate, thisArg) {
+    var _this = _super.call(this, destination) || this;
+    _this.predicate = predicate;
+    _this.thisArg = thisArg;
+    _this.count = 0;
+    return _this;
+  }
+  FilterSubscriber2.prototype._next = function(value) {
+    var result;
+    try {
+      result = this.predicate.call(this.thisArg, value, this.count++);
+    } catch (err) {
+      this.destination.error(err);
+      return;
+    }
+    if (result) {
+      this.destination.next(value);
+    }
+  };
+  return FilterSubscriber2;
+}(Subscriber);
+function take(count) {
+  return function(source) {
+    if (count === 0) {
+      return empty$1();
+    } else {
+      return source.lift(new TakeOperator(count));
+    }
+  };
+}
+var TakeOperator = /* @__PURE__ */ function() {
+  function TakeOperator2(total) {
+    this.total = total;
+    if (this.total < 0) {
+      throw new ArgumentOutOfRangeError();
+    }
+  }
+  TakeOperator2.prototype.call = function(subscriber, source) {
+    return source.subscribe(new TakeSubscriber(subscriber, this.total));
+  };
+  return TakeOperator2;
+}();
+var TakeSubscriber = /* @__PURE__ */ function(_super) {
+  __extends(TakeSubscriber2, _super);
+  function TakeSubscriber2(destination, total) {
+    var _this = _super.call(this, destination) || this;
+    _this.total = total;
+    _this.count = 0;
+    return _this;
+  }
+  TakeSubscriber2.prototype._next = function(value) {
+    var total = this.total;
+    var count = ++this.count;
+    if (count <= total) {
+      this.destination.next(value);
+      if (count === total) {
+        this.destination.complete();
+        this.unsubscribe();
+      }
+    }
+  };
+  return TakeSubscriber2;
+}(Subscriber);
+function finalize(callback) {
+  return function(source) {
+    return source.lift(new FinallyOperator(callback));
+  };
+}
+var FinallyOperator = /* @__PURE__ */ function() {
+  function FinallyOperator2(callback) {
+    this.callback = callback;
+  }
+  FinallyOperator2.prototype.call = function(subscriber, source) {
+    return source.subscribe(new FinallySubscriber(subscriber, this.callback));
+  };
+  return FinallyOperator2;
+}();
+var FinallySubscriber = /* @__PURE__ */ function(_super) {
+  __extends(FinallySubscriber2, _super);
+  function FinallySubscriber2(destination, callback) {
+    var _this = _super.call(this, destination) || this;
+    _this.add(new Subscription(callback));
+    return _this;
+  }
+  return FinallySubscriber2;
+}(Subscriber);
+function takeWhile(predicate, inclusive) {
+  if (inclusive === void 0) {
+    inclusive = false;
+  }
+  return function(source) {
+    return source.lift(new TakeWhileOperator(predicate, inclusive));
+  };
+}
+var TakeWhileOperator = /* @__PURE__ */ function() {
+  function TakeWhileOperator2(predicate, inclusive) {
+    this.predicate = predicate;
+    this.inclusive = inclusive;
+  }
+  TakeWhileOperator2.prototype.call = function(subscriber, source) {
+    return source.subscribe(new TakeWhileSubscriber(subscriber, this.predicate, this.inclusive));
+  };
+  return TakeWhileOperator2;
+}();
+var TakeWhileSubscriber = /* @__PURE__ */ function(_super) {
+  __extends(TakeWhileSubscriber2, _super);
+  function TakeWhileSubscriber2(destination, predicate, inclusive) {
+    var _this = _super.call(this, destination) || this;
+    _this.predicate = predicate;
+    _this.inclusive = inclusive;
+    _this.index = 0;
+    return _this;
+  }
+  TakeWhileSubscriber2.prototype._next = function(value) {
+    var destination = this.destination;
+    var result;
+    try {
+      result = this.predicate(value, this.index++);
+    } catch (err) {
+      destination.error(err);
+      return;
+    }
+    this.nextOrComplete(value, result);
+  };
+  TakeWhileSubscriber2.prototype.nextOrComplete = function(value, predicateResult) {
+    var destination = this.destination;
+    if (Boolean(predicateResult)) {
+      destination.next(value);
+    } else {
+      if (this.inclusive) {
+        destination.next(value);
+      }
+      destination.complete();
+    }
+  };
+  return TakeWhileSubscriber2;
+}(Subscriber);
+var TimeoutErrorImpl = /* @__PURE__ */ function() {
+  function TimeoutErrorImpl2() {
+    Error.call(this);
+    this.message = "Timeout has occurred";
+    this.name = "TimeoutError";
+    return this;
+  }
+  TimeoutErrorImpl2.prototype = /* @__PURE__ */ Object.create(Error.prototype);
+  return TimeoutErrorImpl2;
+}();
+var TimeoutError = TimeoutErrorImpl;
+function timeoutWith(due, withObservable, scheduler) {
+  if (scheduler === void 0) {
+    scheduler = async;
+  }
+  return function(source) {
+    var absoluteTimeout = isDate(due);
+    var waitFor = absoluteTimeout ? +due - scheduler.now() : Math.abs(due);
+    return source.lift(new TimeoutWithOperator(waitFor, absoluteTimeout, withObservable, scheduler));
+  };
+}
+var TimeoutWithOperator = /* @__PURE__ */ function() {
+  function TimeoutWithOperator2(waitFor, absoluteTimeout, withObservable, scheduler) {
+    this.waitFor = waitFor;
+    this.absoluteTimeout = absoluteTimeout;
+    this.withObservable = withObservable;
+    this.scheduler = scheduler;
+  }
+  TimeoutWithOperator2.prototype.call = function(subscriber, source) {
+    return source.subscribe(new TimeoutWithSubscriber(subscriber, this.absoluteTimeout, this.waitFor, this.withObservable, this.scheduler));
+  };
+  return TimeoutWithOperator2;
+}();
+var TimeoutWithSubscriber = /* @__PURE__ */ function(_super) {
+  __extends(TimeoutWithSubscriber2, _super);
+  function TimeoutWithSubscriber2(destination, absoluteTimeout, waitFor, withObservable, scheduler) {
+    var _this = _super.call(this, destination) || this;
+    _this.absoluteTimeout = absoluteTimeout;
+    _this.waitFor = waitFor;
+    _this.withObservable = withObservable;
+    _this.scheduler = scheduler;
+    _this.scheduleTimeout();
+    return _this;
+  }
+  TimeoutWithSubscriber2.dispatchTimeout = function(subscriber) {
+    var withObservable = subscriber.withObservable;
+    subscriber._unsubscribeAndRecycle();
+    subscriber.add(innerSubscribe(withObservable, new SimpleInnerSubscriber(subscriber)));
+  };
+  TimeoutWithSubscriber2.prototype.scheduleTimeout = function() {
+    var action = this.action;
+    if (action) {
+      this.action = action.schedule(this, this.waitFor);
+    } else {
+      this.add(this.action = this.scheduler.schedule(TimeoutWithSubscriber2.dispatchTimeout, this.waitFor, this));
+    }
+  };
+  TimeoutWithSubscriber2.prototype._next = function(value) {
+    if (!this.absoluteTimeout) {
+      this.scheduleTimeout();
+    }
+    _super.prototype._next.call(this, value);
+  };
+  TimeoutWithSubscriber2.prototype._unsubscribe = function() {
+    this.action = void 0;
+    this.scheduler = null;
+    this.withObservable = null;
+  };
+  return TimeoutWithSubscriber2;
+}(SimpleOuterSubscriber);
+function timeout(due, scheduler) {
+  if (scheduler === void 0) {
+    scheduler = async;
+  }
+  return timeoutWith(due, throwError(new TimeoutError()), scheduler);
+}
+const simulations$ = new Subject();
+function simulate(system, network, transaction2) {
+  if (this._destroyed)
+    throw new Error("The WebSocket instance has been destroyed, re-initialize to continue making requests.");
+  const id = nanoid();
+  this._sendMessage({
+    categoryCode: "simulate",
+    eventCode: "txSimulation",
+    eventId: id,
+    transaction: transaction2
+  });
+  return new Promise((resolve, reject) => {
+    simulations$.pipe(filter(({
+      eventId
+    }) => {
+      return eventId === id;
+    }), take(1)).subscribe({
+      next: ({
+        transaction: transaction3
+      }) => resolve(transaction3),
+      error: ({
+        error
+      }) => reject(error.message)
+    });
+  });
+}
+function multiSim(transactions) {
+  if (this._destroyed)
+    throw new Error("The WebSocket instance has been destroyed, re-initialize to continue making requests.");
+  const id = nanoid();
+  this._sendMessage({
+    categoryCode: "simulate",
+    eventCode: "txSimulation",
+    eventId: id,
+    transaction: transactions
+  });
+  return new Promise((resolve, reject) => {
+    simulations$.pipe(filter(({
+      eventId
+    }) => {
+      return eventId === id;
+    }), take(1)).subscribe({
+      next: ({
+        transaction: transaction2
+      }) => resolve(transaction2),
+      error: ({
+        error
+      }) => reject(error.message)
+    });
+  });
+}
+function unsubscribe(addressOrHash) {
+  if (this._destroyed)
+    throw new Error("The WebSocket instance has been destroyed, re-initialize to continue making requests.");
+  const address = isAddress(this._system, addressOrHash);
+  const txid = isTxid(this._system, addressOrHash);
+  if (address) {
+    const normalizedAddress = this._system === "ethereum" ? addressOrHash.toLowerCase() : addressOrHash;
+    this.watchedAccounts = this.watchedAccounts.filter((ac) => ac.address !== normalizedAddress);
+    this.configurations.delete(normalizedAddress);
+    this._sendMessage({
+      categoryCode: "accountAddress",
+      eventCode: "unwatch",
+      account: {
+        address: normalizedAddress
+      }
+    });
+  } else if (txid) {
+    this.watchedTransactions = this.watchedTransactions.filter((tx) => tx.hash !== addressOrHash);
+    const transactionId = this._system === "ethereum" ? {
+      hash: addressOrHash
+    } : {
+      txid: addressOrHash
+    };
+    const transaction2 = {
+      ...transactionId,
+      id: addressOrHash,
+      status: "unsubscribed"
+    };
+    this._sendMessage({
+      categoryCode: "activeTransaction",
+      eventCode: "unwatch",
+      transaction: transaction2
+    });
+  } else {
+    throw new Error(`Error trying to unsubscribe ${addressOrHash}: not a valid address or transaction id/hash`);
+  }
+}
+function configuration(config2) {
+  if (this._destroyed) {
+    throw new Error("The WebSocket instance has been destroyed, re-initialize to continue making requests.");
+  }
+  const casedScope = this._system === "ethereum" ? config2.scope.toLowerCase() : config2.scope;
+  const previousConfiguration = this.configurations.get(casedScope);
+  previousConfiguration && previousConfiguration.subscription && previousConfiguration.subscription.next();
+  const subscription = new Subject();
+  const emitter = config2.watchAddress ? {
+    emitter: createEmitter()
+  } : {};
+  this.configurations.set(casedScope, {
+    ...config2,
+    ...emitter,
+    subscription
+  });
+  this._sendMessage({
+    categoryCode: "configs",
+    eventCode: "put",
+    config: config2
+  });
+  return new Promise((resolve, reject) => {
+    subscription.pipe(take(1), timeout(5e3)).subscribe({
+      next: () => resolve({
+        ...emitter,
+        details: {
+          config: config2
+        }
+      }),
+      error: (error) => {
+        const message = error.message === "Timeout has occurred" ? `Configuration with scope: ${config2.scope} has been sent to the Blocknative server, but has not received a reply within 5 seconds.` : error.message;
+        if (this._onerror) {
+          this._onerror({
+            message
+          });
+          resolve(`Error: ${message}`);
+        } else {
+          reject(message);
+        }
+      }
+    });
+  });
+}
+function subscribe(subscription) {
+  const {
+    id,
+    chainId,
+    type
+  } = subscription;
+  if (!networkName("ethereum", parseInt(chainId, 16))) {
+    throw new Error(`chainId: ${chainId} is an unsupported network`);
+  }
+  if (!this.connections[chainId]) {
+    this.connections[chainId] = new this.Blocknative({
+      system: "ethereum",
+      networkId: parseInt(chainId, 16),
+      dappId: this.apiKey,
+      ws: this.ws,
+      transactionHandlers: [({
+        transaction: transaction2
+      }) => {
+        this.onTransaction$.next(transaction2);
+      }],
+      onerror: (error) => this.errors$.next(error)
+    });
+  }
+  const sdk = this.connections[chainId];
+  if (type === "account") {
+    const {
+      filters = [],
+      abi = []
+    } = subscription;
+    sdk.configuration({
+      scope: id,
+      filters,
+      abi,
+      watchAddress: true
+    });
+    return this.transactions$.pipe(filter(({
+      watchedAddress
+    }) => watchedAddress === id), finalize(() => {
+      this.unsubscribe({
+        id,
+        chainId
+      });
+    }));
+  } else {
+    const {
+      emitter
+    } = sdk.transaction(id);
+    return fromEvent(
+      emitter,
+      "all"
+    ).pipe(
+      takeWhile(({
+        status
+      }) => status !== "confirmed" && status !== "failed" && status !== "dropped", true),
+      finalize(() => {
+        this.unsubscribe({
+          id,
+          chainId
+        });
+      })
+    );
+  }
+}
+function unsubscribe$1(options) {
+  const {
+    id,
+    chainId,
+    timeout: timeout2 = 0
+  } = options;
+  const time$ = timer(timeout2);
+  const transactionEvent$ = this.transactions$.pipe(filter(({
+    hash,
+    watchedAddress
+  }) => hash === id || watchedAddress === id));
+  merge(transactionEvent$, time$).pipe(take(1)).subscribe((res) => {
+    if (typeof res === "number") {
+      const sdkConnections = Object.entries(this.connections).filter(([chainId2, sdk]) => sdk !== null);
+      sdkConnections.forEach(([connectionChainId, sdk]) => {
+        if (chainId && connectionChainId !== chainId)
+          return;
+        sdk.unsubscribe(id);
+        if (!sdk.watchedAccounts.length && !sdk.watchedTransactions.length && !sdk.configurations.size) {
+          sdk.destroy();
+          this.connections[connectionChainId] = null;
+        }
+      });
+    } else {
+      this.unsubscribe(options);
+    }
+  });
+}
+class MultiChain {
+  constructor(options, Blocknative) {
+    const {
+      ws
+    } = options;
+    const {
+      apiKey
+    } = options;
+    const {
+      apiUrl
+    } = options;
+    this.apiKey = apiKey;
+    this.apiUrl = apiUrl;
+    this.ws = ws;
+    this.connections = {};
+    this.onTransaction$ = new Subject();
+    this.transactions$ = this.onTransaction$.asObservable();
+    this.errors$ = new Subject();
+    this.Blocknative = Blocknative;
+    this.subscribe = subscribe.bind(this);
+    this.unsubscribe = unsubscribe$1.bind(this);
+  }
+}
+var version = "4.6.0";
+function sendMessage(msg) {
+  if (this._queuedMessages.length > QUEUE_LIMIT) {
+    throw new Error(`Queue limit of ${QUEUE_LIMIT} messages has been reached.`);
+  }
+  this._queuedMessages.push(createEventLog.bind(this)(msg));
+  if (!this._processingQueue) {
+    this._processQueue();
+  }
+}
+async function processQueue() {
+  this._processingQueue = true;
+  if (!this._connected) {
+    await waitForConnectionOpen.bind(this)();
+  }
+  while (this._queuedMessages.length > 0) {
+    await wait(1);
+    if (this._waitToRetry !== null) {
+      await this._waitToRetry;
+      this._waitToRetry = null;
+    }
+    const msg = this._queuedMessages.shift();
+    const delay = this._limitRules.duration / this._limitRules.points * 1e3;
+    await wait(delay);
+    this._socket.send(msg);
+  }
+  this._processingQueue = false;
+  this._limitRules = DEFAULT_RATE_LIMIT_RULES;
+}
+function handleMessage(msg) {
+  const {
+    status,
+    reason,
+    event: event2,
+    connectionId,
+    serverVersion,
+    retryMs,
+    limitRules,
+    blockedMsg,
+    dispatchTimestamp
+  } = JSON.parse(msg.data);
+  if (connectionId) {
+    if (isLocalStorageAvailable()) {
+      window.localStorage.setItem(this._storageKey, connectionId);
+    }
+    this._connectionId = connectionId;
+  }
+  if (status === "error") {
+    if (reason.includes("ratelimit") && !reason.match(/IP (PendingSimulation|Notification) ratelimit reached/)) {
+      this._waitToRetry = wait(retryMs);
+      this._limitRules = limitRules;
+      blockedMsg && this._queuedMessages.unshift(blockedMsg);
+      return;
+    }
+    if (reason.includes("upgrade your plan")) {
+      if (this._onerror) {
+        this._onerror({
+          message: reason
+        });
+        return;
+      } else {
+        throw new Error(reason);
+      }
+    }
+    if (reason.includes("not a valid API key")) {
+      if (this._onerror) {
+        this._onerror({
+          message: reason
+        });
+        return;
+      } else {
+        throw new Error(reason);
+      }
+    }
+    if (reason.includes("network not supported")) {
+      if (this._onerror) {
+        this._onerror({
+          message: reason
+        });
+        return;
+      } else {
+        throw new Error(reason);
+      }
+    }
+    if (reason.includes("maximum allowed amount")) {
+      if (this._onerror) {
+        this._onerror({
+          message: reason
+        });
+        return;
+      } else {
+        throw new Error(reason);
+      }
+    }
+    if (reason.includes("invalid txid")) {
+      const reason2 = `${event2.transaction.txid} is an invalid txid`;
+      if (this._onerror) {
+        this._onerror({
+          message: reason2,
+          transaction: event2.transaction.txid
+        });
+        return;
+      } else {
+        throw new Error(reason2);
+      }
+    }
+    if (reason.includes("invalid hash")) {
+      const reason2 = `${event2.transaction.hash} is an invalid transaction hash`;
+      if (this._onerror) {
+        this._onerror({
+          message: reason2,
+          transaction: event2.transaction.hash
+        });
+        return;
+      } else {
+        throw new Error(reason2);
+      }
+    }
+    if (reason.includes("invalid address")) {
+      const reason2 = `${event2.account.address} is an invalid address`;
+      if (this._onerror) {
+        this._onerror({
+          message: reason2,
+          account: event2.account.address
+        });
+        return;
+      } else {
+        throw new Error(reason2);
+      }
+    }
+    if (reason.includes("not a valid Bitcoin")) {
+      if (this._onerror) {
+        this._onerror({
+          message: reason,
+          account: event2.account.address
+        });
+        return;
+      } else {
+        throw new Error(reason);
+      }
+    }
+    if (reason.includes("not a valid Ethereum")) {
+      if (this._onerror) {
+        this._onerror({
+          message: reason,
+          account: event2.account.address
+        });
+        return;
+      } else {
+        throw new Error(reason);
+      }
+    }
+    if (event2 && event2.categoryCode === "simulate") {
+      simulations$.error({
+        eventId: event2.eventId,
+        error: {
+          message: reason
+        }
+      });
+      return;
+    }
+    if (event2 && event2.config) {
+      const configuration2 = this.configurations.get(event2.config.scope);
+      if (configuration2 && configuration2.subscription) {
+        configuration2.subscription.error({
+          message: reason
+        });
+      }
+      return;
+    }
+    if (this._onerror) {
+      this._onerror({
+        message: reason
+      });
+      return;
+    } else {
+      throw new Error(reason);
+    }
+  }
+  if (event2 && event2.config) {
+    const casedScope = this._system === "ethereum" ? event2.config.scope.toLowerCase() : event2.config.scope;
+    const configuration2 = this.configurations.get(casedScope);
+    if (configuration2 && configuration2.subscription) {
+      configuration2.subscription.next();
+    }
+  }
+  if (event2 && event2.transaction) {
+    const {
+      eventId,
+      transaction: transaction2,
+      eventCode,
+      contractCall,
+      timeStamp,
+      blockchain: {
+        system,
+        network
+      }
+    } = event2;
+    const newState = this._system === "ethereum" ? {
+      ...transaction2,
+      serverVersion,
+      eventCode,
+      timeStamp,
+      dispatchTimestamp,
+      system,
+      network,
+      contractCall
+    } : {
+      ...transaction2,
+      serverVersion,
+      eventCode,
+      timeStamp,
+      dispatchTimestamp,
+      system,
+      network
+    };
+    if (serverEcho(eventCode) || transaction2.status === "unsubscribed") {
+      return;
+    }
+    if (newState.originalHash) {
+      newState.replaceHash = newState.hash;
+      newState.hash = newState.originalHash;
+      delete newState.originalHash;
+    }
+    if (eventCode === "txSpeedUp" && newState.status !== "speedup") {
+      newState.status = "speedup";
+    }
+    if (eventCode === "txCancel" && newState.status !== "cancel") {
+      newState.status = "cancel";
+    }
+    if (eventCode === "txSpeedUp" || eventCode === "txCancel") {
+      this.watchedTransactions = this.watchedTransactions.map((tx) => {
+        if (tx.hash === newState.replaceHash) {
+          tx.hash = transaction2.hash || transaction2.txid;
+        }
+        return tx;
+      });
+    }
+    if (event2 && event2.categoryCode === "simulate") {
+      newState.contractCall = event2.transaction.contractCall;
+      delete newState.dispatchTimestamp;
+      simulations$.next({
+        eventId,
+        transaction: newState
+      });
+      return;
+    }
+    const watchedAddress = transaction2.watchedAddress && this._system === "ethereum" ? transaction2.watchedAddress.toLowerCase() : transaction2.watchedAddress;
+    if (watchedAddress) {
+      const accountObj = this.watchedAccounts.find((ac) => ac.address === watchedAddress);
+      const accountEmitterResult = accountObj ? last(accountObj.emitters.map((emitter) => emitter.emit(newState))) : false;
+      const configuration2 = this.configurations.get(watchedAddress);
+      const emitterResult = configuration2 && configuration2.emitter ? configuration2.emitter.emit(newState) || accountEmitterResult : accountEmitterResult;
+      this._transactionHandlers.forEach((handler) => handler({
+        transaction: newState,
+        emitterResult
+      }));
+    } else {
+      const transactionObj = this.watchedTransactions.find((tx) => tx.hash === newState.hash || newState.txid);
+      const emitterResult = transactionObj && transactionObj.emitter.emit(newState);
+      this._transactionHandlers.forEach((handler) => handler({
+        transaction: newState,
+        emitterResult
+      }));
+      if (newState.status === "speedup" || newState.status === "cancel") {
+        this.watchedTransactions = this.watchedTransactions.map((tx) => {
+          if (tx.hash === newState.hash || newState.txid) {
+            return {
+              ...tx,
+              hash: newState.replaceHash
+            };
+          }
+          return tx;
+        });
+      }
+    }
+  }
+}
+function createEventLog(msg) {
+  return JSON.stringify({
+    timeStamp: new Date().toISOString(),
+    dappId: this._dappId,
+    version,
+    appName: this._appName,
+    appVersion: this._appVersion,
+    blockchain: {
+      system: this._system,
+      network: networkName(this._system, this._networkId) || "local"
+    },
+    ...msg
+  }, msg.categoryCode === "configs" ? jsonPreserveUndefined : void 0);
+}
+function waitForConnectionOpen() {
+  return new Promise((resolve) => {
+    const interval = setInterval(() => {
+      if (this._connected) {
+        setTimeout(resolve, 100);
+        clearInterval(interval);
+      }
+    });
+  });
+}
+const DEFAULT_APP_NAME = "unknown";
+const DEFAULT_APP_VERSION = "unknown";
+const DEFAULT_SYSTEM = "ethereum";
+class SDK {
+  constructor(options) {
+    validateOptions(options);
+    const {
+      system = DEFAULT_SYSTEM,
+      name = DEFAULT_APP_NAME,
+      appVersion = DEFAULT_APP_VERSION,
+      networkId,
+      transactionHandlers = [],
+      ws,
+      onopen,
+      ondown,
+      onreopen,
+      onerror,
+      onclose
+    } = options;
+    const {
+      apiUrl
+    } = options;
+    const {
+      dappId
+    } = options;
+    const timeout2 = {
+      connectTimeout: 1e4
+    };
+    const socket = new _default(apiUrl || "wss://api.blocknative.com/v0", ws ? {
+      wsConstructor: ws,
+      ...timeout2
+    } : {
+      ...timeout2
+    });
+    socket.onopen = onOpen.bind(this, onopen);
+    socket.ondown = onDown.bind(this, ondown);
+    socket.onreopen = onReopen.bind(this, onreopen);
+    socket.onmessage = handleMessage.bind(this);
+    socket.onerror = (error) => onerror && onerror({
+      message: "There was a WebSocket error",
+      error
+    });
+    socket.onclose = () => {
+      this._pingTimeout && clearInterval(this._pingTimeout);
+      onclose && onclose();
+    };
+    const storageKey = CryptoEs.SHA1(`${dappId} - ${name}`).toString();
+    const storedConnectionId = isLocalStorageAvailable() && window.localStorage.getItem(storageKey);
+    this._storageKey = storageKey;
+    this._connectionId = storedConnectionId || void 0;
+    this._dappId = dappId;
+    this._system = system;
+    this._networkId = networkId;
+    this._appName = name;
+    this._appVersion = appVersion;
+    this._transactionHandlers = transactionHandlers;
+    this._socket = socket;
+    this._connected = false;
+    this._sendMessage = sendMessage.bind(this);
+    this._pingTimeout = void 0;
+    this._destroyed = false;
+    this._onerror = onerror;
+    this._queuedMessages = [];
+    this._limitRules = DEFAULT_RATE_LIMIT_RULES;
+    this._waitToRetry = null;
+    this._processingQueue = false;
+    this._processQueue = processQueue.bind(this);
+    if (this._socket.ws.on) {
+      this._heartbeat = () => {
+        this._pingTimeout && clearTimeout(this._pingTimeout);
+        this._pingTimeout = setTimeout(() => {
+          this._socket.ws.terminate();
+        }, 3e4 + 1e3);
+      };
+      this._socket.ws.on("ping", () => {
+        this._heartbeat && this._heartbeat();
+      });
+    }
+    this.watchedTransactions = [];
+    this.watchedAccounts = [];
+    this.configurations = /* @__PURE__ */ new Map();
+    this.transaction = transaction.bind(this);
+    this.account = account.bind(this);
+    this.event = event.bind(this);
+    this.simulate = simulate.bind(this);
+    this.multiSim = multiSim.bind(this);
+    this.unsubscribe = unsubscribe.bind(this);
+    this.configuration = configuration.bind(this);
+    this.destroy = () => {
+      this._socket.close();
+      this._destroyed = true;
+      this._socket.onclose();
+    };
+  }
+  static multichain(options) {
+    return new MultiChain(options, this);
+  }
+}
+function onOpen(handler) {
+  this._connected = true;
+  const msg = {
+    categoryCode: "initialize",
+    eventCode: "checkDappId",
+    connectionId: this._connectionId
+  };
+  this._socket.send(createEventLog.bind(this)(msg));
+  this._heartbeat && this._heartbeat();
+  handler && handler();
+}
+function onDown(handler, closeEvent) {
+  this._connected = false;
+  if (handler) {
+    handler(closeEvent);
+  }
+  this._pingTimeout && clearTimeout(this._pingTimeout);
+}
+async function onReopen(handler) {
+  this._connected = true;
+  const msg = {
+    categoryCode: "initialize",
+    eventCode: "checkDappId",
+    connectionId: this._connectionId
+  };
+  this._socket.send(createEventLog.bind(this)(msg));
+  const configurations = Array.from(this.configurations.values());
+  const globalConfiguration = this.configurations.get("{}");
+  if (globalConfiguration) {
+    try {
+      const {
+        emitter,
+        subscription,
+        ...config2
+      } = globalConfiguration;
+      await this.configuration(config2);
+    } catch (error) {
+      console.warn("Error re-sending {} configuration upon reconnection:", error);
+    }
+  }
+  const addressConfigurations = configurations.filter(({
+    scope
+  }) => scope !== "{}");
+  addressConfigurations.forEach((enhancedConfig) => {
+    const {
+      emitter,
+      subscription,
+      ...config2
+    } = enhancedConfig;
+    this._sendMessage({
+      categoryCode: "configs",
+      eventCode: "put",
+      config: config2
+    });
+  });
+  this.watchedAccounts.forEach((account2) => {
+    this._sendMessage({
+      eventCode: "accountAddress",
+      categoryCode: "watch",
+      account: {
+        address: account2.address
+      }
+    });
+  });
+  if (handler) {
+    handler();
+  }
+  if (this._socket.ws && this._socket.ws.on) {
+    this._socket.ws.on("ping", () => {
+      this._heartbeat && this._heartbeat();
+    });
+    this._heartbeat();
+  }
+}
+export { SDK as default };

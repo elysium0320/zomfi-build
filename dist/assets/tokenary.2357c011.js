@@ -1,4 +1,4 @@
-var t=`
+var tokenary = `
   <?xml version="1.0" standalone="no"?>
   <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
   "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
@@ -12,4 +12,5 @@ var t=`
       90 42 266 18 362 -54 216 -210 388 -424 468 -85 32 -283 41 -372 17z"/>
     </g>
   </svg>
-  `;export{t as default};
+  `;
+export { tokenary as default };
